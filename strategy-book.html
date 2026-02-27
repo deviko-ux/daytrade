@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>戦略ブック — デイトレード管理システム</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050507;--s1:#0c0c14;--s2:#13131e;--s3:#1a1a28;
+  --c:#00d4ff;--g:#00e87d;--r:#ff3358;--y:#ffd600;--p:#b06aff;--o:#ff8c42;
+  --tx:#dde0f0;--txm:#5a5a78;--txd:#8888aa;
+  --bd:rgba(255,255,255,0.06);--bd2:rgba(255,255,255,0.11);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:'Noto Sans JP',sans-serif;font-weight:300;line-height:1.75;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 47px,rgba(0,212,255,0.018) 47px,rgba(0,212,255,0.018) 48px),repeating-linear-gradient(90deg,transparent,transparent 47px,rgba(0,212,255,0.018) 47px,rgba(0,212,255,0.018) 48px);pointer-events:none;z-index:0}
+
+/* SITE NAV */
+.sitenav{position:sticky;top:0;z-index:200;background:rgba(5,5,7,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--bd2)}
+.sitenav-inner{max-width:1040px;margin:0 auto;display:flex;align-items:center;height:48px;padding:0 20px;gap:0}
+.site-logo{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:4px;color:var(--c);margin-right:24px;flex-shrink:0;text-decoration:none}
+.sitenav-links{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.sitenav-links::-webkit-scrollbar{display:none}
+.snlink{font-size:10.5px;letter-spacing:1.5px;padding:5px 12px;color:var(--txm);border-radius:3px;text-decoration:none;white-space:nowrap;transition:all .2s;border:1px solid transparent}
+.snlink:hover{color:var(--tx);background:rgba(255,255,255,0.04)}
+.snlink.active{color:var(--y);border-color:rgba(255,214,0,0.25);background:rgba(255,214,0,0.06)}
+
+/* HERO */
+.hero{position:relative;z-index:1;padding:56px 24px 44px;max-width:1040px;margin:0 auto}
+.hero-tag{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:6px;color:var(--y);opacity:.7;margin-bottom:14px}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,9vw,96px);line-height:.88;letter-spacing:2px;background:linear-gradient(135deg,#fff 10%,var(--y) 70%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px}
+.hero-sub{font-size:12px;letter-spacing:4px;color:var(--txm);margin-bottom:18px}
+.hero-desc{font-size:13.5px;color:var(--txd);max-width:600px;line-height:2}
+
+/* PAGE NAV */
+.page-nav{position:relative;z-index:1;border-top:1px solid var(--bd2);border-bottom:1px solid var(--bd2);background:var(--s1)}
+.page-nav-inner{max-width:1040px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none;height:42px;padding:0 20px}
+.page-nav-inner::-webkit-scrollbar{display:none}
+.pnlink{font-size:11px;letter-spacing:2px;padding:0 16px;color:var(--txm);text-decoration:none;display:flex;align-items:center;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s}
+.pnlink:hover{color:var(--y);border-color:var(--y)}
+
+/* CONTAINER */
+.wrap{position:relative;z-index:1;max-width:1040px;margin:0 auto;padding:0 24px 80px}
+section{padding-top:32px;margin-bottom:60px}
+
+/* SEC HDR */
+.shdr{display:flex;align-items:baseline;gap:12px;margin-bottom:26px;padding-bottom:14px;border-bottom:1px solid var(--bd2)}
+.shdr-n{font-family:'Bebas Neue',sans-serif;font-size:44px;line-height:1;color:var(--y);opacity:.25}
+.shdr-t{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:4px;color:#fff}
+.shdr-s{font-size:11px;color:var(--txm);letter-spacing:2px;margin-left:auto}
+
+/* CARD */
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:6px;padding:24px 28px;margin-bottom:14px}
+.card-y{border-left:3px solid var(--y)}
+.card-g{border-left:3px solid var(--g)}
+.card-c{border-left:3px solid var(--c)}
+.card-r{border-left:3px solid var(--r)}
+.card-p{border-left:3px solid var(--p)}
+.card-o{border-left:3px solid var(--o)}
+
+.tag{display:inline-block;font-size:10px;letter-spacing:2px;padding:2px 8px;border-radius:2px;margin-bottom:8px;font-weight:400}
+.tag-y{background:rgba(255,214,0,0.1);color:var(--y)}
+.tag-g{background:rgba(0,232,125,0.1);color:var(--g)}
+.tag-c{background:rgba(0,212,255,0.1);color:var(--c)}
+.tag-r{background:rgba(255,51,88,0.1);color:var(--r)}
+.tag-p{background:rgba(176,106,255,0.1);color:var(--p)}
+.tag-o{background:rgba(255,140,66,0.1);color:var(--o)}
+
+.term{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:var(--c);margin-bottom:2px}
+.body{font-size:13px;color:#b0b4cc;line-height:1.92}
+.body b{color:#fff;font-weight:500}
+.body strong{color:var(--c);font-weight:500}
+
+/* GRID */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:680px){.g2,.g3,.g4{grid-template-columns:1fr}}
+
+/* KPI BOX */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px;margin-top:14px}
+.kpi-box{background:var(--s2);border:1px solid var(--bd);border-radius:6px;padding:18px 20px;position:relative;overflow:hidden}
+.kpi-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.kpi-box.ky::before{background:var(--y)}
+.kpi-box.kg::before{background:var(--g)}
+.kpi-box.kc::before{background:var(--c)}
+.kpi-box.kr::before{background:var(--r)}
+.kpi-label{font-size:10px;letter-spacing:2px;color:var(--txm);margin-bottom:8px}
+.kpi-val{font-family:'Bebas Neue',sans-serif;font-size:28px;line-height:1;margin-bottom:4px}
+.kpi-box.ky .kpi-val{color:var(--y)}
+.kpi-box.kg .kpi-val{color:var(--g)}
+.kpi-box.kc .kpi-val{color:var(--c)}
+.kpi-box.kr .kpi-val{color:var(--r)}
+.kpi-sub{font-size:11px;color:var(--txm);line-height:1.6}
+
+/* RULE TABLE */
+.rtbl{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:12px}
+.rtbl th{background:rgba(255,214,0,0.07);color:var(--y);font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:2px;padding:10px 14px;text-align:left;border:1px solid var(--bd2);font-weight:400}
+.rtbl td{padding:10px 14px;border:1px solid var(--bd);color:#b0b4cc;vertical-align:top;line-height:1.7}
+.rtbl tr:hover td{background:rgba(255,255,255,0.02)}
+.rtbl td.y{color:var(--y);font-weight:500}
+.rtbl td.g{color:var(--g)}
+.rtbl td.r{color:var(--r)}
+.rtbl td code{font-family:'JetBrains Mono',monospace;font-size:11px;background:rgba(0,212,255,0.08);color:var(--c);padding:1px 6px;border-radius:2px}
+
+/* ENTRY CARD */
+.entry-card{background:var(--s2);border:1px solid var(--bd);border-radius:8px;overflow:hidden;margin-bottom:14px}
+.entry-head{padding:16px 22px;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--bd)}
+.entry-head-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.entry-sector{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px}
+.entry-body{padding:20px 22px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.entry-body{grid-template-columns:1fr}}
+.entry-col-title{font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:3px;color:var(--txm);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--bd)}
+.entry-rule{display:flex;gap:8px;margin-bottom:8px;font-size:12.5px;color:#b0b4cc;line-height:1.7;align-items:flex-start}
+.entry-rule::before{content:'▸';color:var(--y);flex-shrink:0;margin-top:2px}
+.entry-stocks{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.stock-badge{font-family:'JetBrains Mono',monospace;font-size:11px;padding:3px 10px;border-radius:3px;border:1px solid}
+.sb-semi{border-color:rgba(0,212,255,0.3);color:var(--c);background:rgba(0,212,255,0.06)}
+.sb-heavy{border-color:rgba(0,232,125,0.3);color:var(--g);background:rgba(0,232,125,0.06)}
+
+/* GLOSSARY */
+.gloss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.gloss-item{background:var(--s2);border:1px solid var(--bd);border-radius:5px;padding:14px 16px;display:flex;gap:12px}
+.gloss-term{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:1px;color:var(--c);min-width:80px;flex-shrink:0;line-height:1.2;padding-top:2px}
+.gloss-def{font-size:12px;color:#9090aa;line-height:1.75}
+.gloss-def b{color:var(--tx);font-weight:500}
+
+/* ALERT / TIP */
+.alert{background:rgba(255,51,88,0.07);border:1px solid rgba(255,51,88,0.22);border-left:3px solid var(--r);border-radius:4px;padding:16px 20px;margin-top:16px;font-size:13px;color:#b0b4cc;line-height:1.88}
+.alert-t{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:3px;color:var(--r);margin-bottom:5px}
+.tip{background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.16);border-left:3px solid var(--c);border-radius:4px;padding:16px 20px;margin-top:14px;font-size:13px;color:#b0b4cc;line-height:1.88}
+.tip-t{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:3px;color:var(--c);margin-bottom:5px}
+
+.divider{border:none;border-top:1px solid var(--bd);margin:56px 0;position:relative}
+.divider::after{content:'◆';position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 12px;color:var(--txm);font-size:8px;letter-spacing:4px}
+
+/* CHKLIST */
+.chk{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.chk li{font-size:13px;color:#b0b4cc;display:flex;gap:8px;align-items:flex-start;line-height:1.65}
+.chk li::before{content:'✓';color:var(--g);font-weight:700;flex-shrink:0;margin-top:1px}
+.chk li.no::before{content:'✗';color:var(--r)}
+.chk li.warn::before{content:'!';color:var(--y)}
+
+/* RISK FORMULA */
+.formula-box{background:var(--s3);border:1px solid rgba(0,212,255,0.2);border-radius:6px;padding:18px 22px;margin:14px 0;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--c);line-height:2}
+.formula-box .comment{color:var(--txm);font-size:11px}
+.formula-box .val{color:var(--y)}
+.formula-box .op{color:var(--p)}
+
+footer{position:relative;z-index:1;background:var(--s1);border-top:1px solid var(--bd2);padding:28px 24px;text-align:center;font-size:11px;color:var(--txm);letter-spacing:2px;line-height:2.2}
+</style>
+</head>
+<body>
+
+<!-- SITE NAV -->
+<nav class="sitenav">
+  <div class="sitenav-inner">
+    <a href="daytrade-all-in-one.html" class="site-logo">DAYTRADE</a>
+    <div class="sitenav-links">
+      <a href="daytrade-all-in-one.html" class="snlink">📚 完全ガイド</a>
+      <a href="strategy-book.html" class="snlink active">📋 戦略ブック</a>
+      <a href="trade-journal.html" class="snlink">📓 日誌・検証ログ</a>
+      <a href="trade-tool.html" class="snlink">⚙️ 取引管理ツール</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <p class="hero-tag">STRATEGY BOOK — VOL.1</p>
+  <h1 class="hero-title">戦略ブック</h1>
+  <p class="hero-sub">PERSONAL TRADING RULEBOOK</p>
+  <p class="hero-desc">自分のトレードルール・KPI・エントリー型・リスク管理を一冊にまとめたマスタードキュメント。このルールが「判断の軸」になる。</p>
+</header>
+
+<!-- PAGE NAV -->
+<div class="page-nav">
+  <div class="page-nav-inner">
+    <a href="#s-kpi" class="pnlink">目的・KPI</a>
+    <a href="#s-rule" class="pnlink">取引ルール</a>
+    <a href="#s-entry" class="pnlink">エントリー型</a>
+    <a href="#s-risk" class="pnlink">リスク管理</a>
+    <a href="#s-gloss" class="pnlink">用語集</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ══ KPI ══ -->
+<section id="s-kpi">
+  <div class="shdr">
+    <span class="shdr-n">01</span>
+    <span class="shdr-t">目的・KPI</span>
+    <span class="shdr-s">OBJECTIVE & KPI</span>
+  </div>
+
+  <div class="card card-y">
+    <span class="tag tag-y">MISSION</span>
+    <p class="term" style="font-size:17px">トレードの目的</p>
+    <p class="body" style="margin-top:8px">デイトレードを通じて<b>安定した副収入を確立</b>し、将来の事業資金・創作活動の経済的基盤とする。短期的な「勝ち負け」ではなく、<b>再現性のある手法を検証・改善し続けること</b>が最大の目的。</p>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-box ky">
+      <div class="kpi-label">月次目標利益</div>
+      <div class="kpi-val">+3〜5%</div>
+      <div class="kpi-sub">口座資金に対する月間収益率</div>
+    </div>
+    <div class="kpi-box kg">
+      <div class="kpi-label">目標勝率</div>
+      <div class="kpi-val">≥ 55%</div>
+      <div class="kpi-sub">RR比1.5以上で十分に期待値プラス</div>
+    </div>
+    <div class="kpi-box kc">
+      <div class="kpi-label">目標 平均R</div>
+      <div class="kpi-val">≥ 1.5R</div>
+      <div class="kpi-sub">リスクの1.5倍以上の利益を狙う</div>
+    </div>
+    <div class="kpi-box kr">
+      <div class="kpi-label">1日最大損失上限</div>
+      <div class="kpi-val">−3%</div>
+      <div class="kpi-sub">到達で即座にトレード終了・強制終了</div>
+    </div>
+    <div class="kpi-box ky">
+      <div class="kpi-label">最大ドローダウン上限</div>
+      <div class="kpi-val">−10%</div>
+      <div class="kpi-sub">口座残高から10%減で取引スタイル見直し</div>
+    </div>
+    <div class="kpi-box kg">
+      <div class="kpi-label">月間取引回数目安</div>
+      <div class="kpi-val">20〜40回</div>
+      <div class="kpi-sub">1日平均1〜2回。機会を探すのではなくルールに従う</div>
+    </div>
+    <div class="kpi-box kc">
+      <div class="kpi-label">検証サイクル</div>
+      <div class="kpi-val">週1回</div>
+      <div class="kpi-sub">毎週末にPDCAレビューを実施</div>
+    </div>
+    <div class="kpi-box kr">
+      <div class="kpi-label">1回リスク</div>
+      <div class="kpi-val">≤ 1%</div>
+      <div class="kpi-sub">口座資金の1%以上リスクを取らない</div>
+    </div>
+  </div>
+
+  <div class="tip" style="margin-top:16px">
+    <p class="tip-t">💡 KPIの本質</p>
+    KPIは「勝ったかどうか」ではなく、<b>「ルール通りに動けたか」</b>を測る指標です。ルール遵守率100%でも負ける日はある。それは問題ではない。ルールを破って勝つことの方が危険です。
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══ RULES ══ -->
+<section id="s-rule">
+  <div class="shdr">
+    <span class="shdr-n">02</span>
+    <span class="shdr-t">取引ルール（固定）</span>
+    <span class="shdr-s">FIXED TRADING RULES</span>
+  </div>
+
+  <div class="card card-y" style="margin-bottom:20px">
+    <p class="body">以下は<b>変更不可の固定ルール</b>。相場の状況や感情に関わらず、必ず守る。破った場合はトレード日誌に記録し、ペナルティとして翌日取引禁止とする。</p>
+  </div>
+
+  <!-- エントリー条件 -->
+  <div class="card card-c">
+    <span class="tag tag-c">ENTRY CONDITIONS</span>
+    <p class="term" style="font-size:17px">エントリー条件（全て満たすこと）</p>
+    <table class="rtbl" style="margin-top:14px">
+      <thead><tr><th>#</th><th>条件</th><th>確認方法</th><th>状態</th></tr></thead>
+      <tbody>
+        <tr><td class="y">1</td><td>出来高が前日比150%以上、または急増している</td><td>板・チャート出来高バー</td><td class="g">必須</td></tr>
+        <tr><td class="y">2</td><td>5分足または15分足でトレンド方向が明確</td><td>MA5・MA25の向き確認</td><td class="g">必須</td></tr>
+        <tr><td class="y">3</td><td>損切りラインが明確に引ける</td><td>直近の安値/高値・サポート</td><td class="g">必須</td></tr>
+        <tr><td class="y">4</td><td>リスクリワード比が1:1.5以上確保できる</td><td>計算: 目標÷リスク ≥ 1.5</td><td class="g">必須</td></tr>
+        <tr><td class="y">5</td><td>その日の日次損失が−2%以内</td><td>取引管理ツールで確認</td><td class="g">必須</td></tr>
+        <tr><td class="y">6</td><td>日経平均の大きな急落中ではない（−1.5%以上の下げ相場）</td><td>指数チャート確認</td><td class="r">逆張り禁止</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 損切りルール -->
+  <div class="card card-r">
+    <span class="tag tag-r">STOP LOSS RULES</span>
+    <p class="term" style="font-size:17px">損切りルール（絶対遵守）</p>
+    <table class="rtbl" style="margin-top:14px">
+      <thead><tr><th>ルール</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td class="y">逆指値注文の事前設定</td><td>エントリーと<b>同時に</b>逆指値を入力する。後から入れることは禁止</td></tr>
+        <tr><td class="y">損切り幅の固定</td><td>1回のリスクは口座資金の<code>1%以内</code>。計算は取引ツールで自動算出</td></tr>
+        <tr><td class="y">ナンピン禁止</td><td>含み損が出ているポジションへの追加購入は絶対禁止</td></tr>
+        <tr><td class="y">ルール変更禁止</td><td>トレード中は損切りラインを「もう少し待とう」と動かしてはならない</td></tr>
+        <tr><td class="y">日次上限到達で終了</td><td>その日の損失が<code>−3%</code>に達したら即座にPC画面を閉じ終了</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 利確ルール -->
+  <div class="card card-g">
+    <span class="tag tag-g">TAKE PROFIT RULES</span>
+    <p class="term" style="font-size:17px">利確ルール</p>
+    <table class="rtbl" style="margin-top:14px">
+      <thead><tr><th>ルール</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td class="g">第1利確（50%）</td><td>目標値幅の<b>50%到達で半分利確</b>、残りは損切りをブレイクイーブンに移動</td></tr>
+        <tr><td class="g">第2利確（残り）</td><td>目標値幅到達か、足の崩れ（包み線・出来高急減）で全決済</td></tr>
+        <tr><td class="g">引け前強制決済</td><td><b>15:20までに必ず全決済</b>。翌日持越し禁止</td></tr>
+        <tr><td class="g">早すぎる利確の禁止</td><td>「勝ちを確定したい」という衝動で計画外の利確をしない</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 取引時間ルール -->
+  <div class="card card-p">
+    <span class="tag tag-p">TIME RULES</span>
+    <p class="term" style="font-size:17px">取引時間ルール</p>
+    <div class="g3" style="margin-top:14px">
+      <div style="background:var(--s3);border-radius:5px;padding:14px 16px;border-top:2px solid var(--o)">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;color:var(--o);margin-bottom:6px">寄り（9:00〜9:30）</div>
+        <p style="font-size:12px;color:#9090aa;line-height:1.7">最も値動きが激しい。板の薄い銘柄は危険。<b>実力をつけるまでは9:10以降</b>にエントリー検討</p>
+      </div>
+      <div style="background:var(--s3);border-radius:5px;padding:14px 16px;border-top:2px solid var(--g)">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;color:var(--g);margin-bottom:6px">前場中盤（9:30〜11:30）</div>
+        <p style="font-size:12px;color:#9090aa;line-height:1.7">メインの取引時間帯。トレンドが出やすく板も安定。<b>最も積極的にエントリーを探す時間</b></p>
+      </div>
+      <div style="background:var(--s3);border-radius:5px;padding:14px 16px;border-top:2px solid var(--c)">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;color:var(--c);margin-bottom:6px">後場（12:30〜15:20）</div>
+        <p style="font-size:12px;color:#9090aa;line-height:1.7">前場で利益が出ていれば無理せずパス可。<b>14:30以降の大引け前急変に注意</b>。15:20以降新規エントリー禁止</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- やってはいけないこと -->
+  <div class="card card-r" style="margin-top:4px">
+    <span class="tag tag-r">ABSOLUTELY FORBIDDEN</span>
+    <p class="term" style="font-size:17px">絶対にやってはいけないこと</p>
+    <ul class="chk" style="margin-top:12px">
+      <li class="no">根拠のない感覚エントリー（「なんとなく上がりそう」）</li>
+      <li class="no">損失を「取り返そう」と連続エントリー（リベンジトレード）</li>
+      <li class="no">損切りラインをトレード中に遠ざける</li>
+      <li class="no">SNS・掲示板の「仕込み情報」でのエントリー</li>
+      <li class="no">1回のトレードで資金の2%以上リスクを取る</li>
+      <li class="no">持越しポジション（必ずその日中に決済）</li>
+      <li class="no">日次損失−3%超過後の追加トレード</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══ ENTRY TYPE ══ -->
+<section id="s-entry">
+  <div class="shdr">
+    <span class="shdr-n">03</span>
+    <span class="shdr-t">エントリー型</span>
+    <span class="shdr-s">ENTRY PATTERNS</span>
+  </div>
+
+  <div class="card card-c" style="margin-bottom:20px">
+    <p class="body">主要2セクターのエントリーパターン。各セクターに固有の動き方・材料・確認ポイントを熟知して、<b>「知っている銘柄しか触らない」</b>を徹底する。</p>
+  </div>
+
+  <!-- 半導体 -->
+  <div class="entry-card">
+    <div class="entry-head" style="background:rgba(0,212,255,0.05)">
+      <div class="entry-head-icon" style="background:rgba(0,212,255,0.12)">🔬</div>
+      <div>
+        <div class="entry-sector" style="color:var(--c)">半導体セクター</div>
+        <div style="font-size:11px;color:var(--txm);letter-spacing:2px">SEMICONDUCTOR</div>
+      </div>
+      <div style="margin-left:auto">
+        <div class="entry-stocks">
+          <span class="stock-badge sb-semi">7735 SCREEN HD</span>
+          <span class="stock-badge sb-semi">8035 東京エレク</span>
+          <span class="stock-badge sb-semi">6857 アドバンテスト</span>
+          <span class="stock-badge sb-semi">6146 DISCO</span>
+          <span class="stock-badge sb-semi">6723 ルネサス</span>
+        </div>
+      </div>
+    </div>
+    <div class="entry-body">
+      <div>
+        <div class="entry-col-title">エントリー前チェック</div>
+        <div class="entry-rule">前日の<b>米SOX指数（フィラデルフィア半導体株指数）</b>の動向確認。SOX+2%以上なら日本の半導体株も追い風</div>
+        <div class="entry-rule">NVIDIA・ASMLの株価方向を確認（連動性が高い）</div>
+        <div class="entry-rule">寄り前の気配値・板を確認。出来高の急増銘柄を優先</div>
+        <div class="entry-rule">決算・業績修正・新規受注ニュースがあれば材料株として優先</div>
+      </div>
+      <div>
+        <div class="entry-col-title">エントリーパターン（具体例）</div>
+        <div class="entry-rule"><b>ギャップアップ継続型：</b>前日比+3%以上でギャップアップ後、5分足で陽線が続く最初の押し目（MA5付近）で買い</div>
+        <div class="entry-rule"><b>ブレイクアウト型：</b>前場のレンジ高値を出来高急増で上抜けた瞬間にエントリー</div>
+        <div class="entry-rule"><b>損切り：</b>直近5分足の安値割れ（または買い値−1%以内で計算した方を採用）</div>
+        <div class="entry-rule"><b>目標：</b>寄り付きギャップの1.5〜2倍幅、または前日高値・抵抗線</div>
+      </div>
+    </div>
+    <div style="padding:14px 22px;border-top:1px solid var(--bd);background:rgba(0,212,255,0.03)">
+      <p style="font-size:11px;color:var(--txm);letter-spacing:1px">⚠ 注意事項</p>
+      <p style="font-size:12px;color:#9090aa;margin-top:4px;line-height:1.7">半導体株は値動きが大きくATRが高い。1回のリスク計算（口座の1%）を必ず守り、少ない株数でのエントリーになることを事前に受け入れること。</p>
+    </div>
+  </div>
+
+  <!-- 重工業 -->
+  <div class="entry-card">
+    <div class="entry-head" style="background:rgba(0,232,125,0.05)">
+      <div class="entry-head-icon" style="background:rgba(0,232,125,0.12)">⚙️</div>
+      <div>
+        <div class="entry-sector" style="color:var(--g)">重工業セクター</div>
+        <div style="font-size:11px;color:var(--txm);letter-spacing:2px">HEAVY INDUSTRY / DEFENSE</div>
+      </div>
+      <div style="margin-left:auto">
+        <div class="entry-stocks">
+          <span class="stock-badge sb-heavy">7011 三菱重工</span>
+          <span class="stock-badge sb-heavy">7012 川崎重工</span>
+          <span class="stock-badge sb-heavy">7013 IHI</span>
+          <span class="stock-badge sb-heavy">5631 日本製鋼所</span>
+          <span class="stock-badge sb-heavy">7003 三井E&S</span>
+        </div>
+      </div>
+    </div>
+    <div class="entry-body">
+      <div>
+        <div class="entry-col-title">エントリー前チェック</div>
+        <div class="entry-rule">防衛省・政府の<b>防衛費関連ニュース・予算発表</b>を確認（材料の主因）</div>
+        <div class="entry-rule">地政学リスク（紛争・外交摩擦）の高まりはセクター追い風になる</div>
+        <div class="entry-rule">円安局面は輸出型重工業株に有利（為替確認）</div>
+        <div class="entry-rule">東証の「防衛・航空宇宙」テーマ物色が続いているか確認</div>
+      </div>
+      <div>
+        <div class="entry-col-title">エントリーパターン（具体例）</div>
+        <div class="entry-rule"><b>材料飛び乗り型：</b>朝の防衛関連ニュース後の寄り板を確認→出来高急増なら9:10〜9:20で買い（寄り天を避けるため最初の陽線クローズ後）</div>
+        <div class="entry-rule"><b>押し目買い型：</b>前場に急騰後の昼休み調整→後場12:35〜13:00にMA25付近での反発を確認してエントリー</div>
+        <div class="entry-rule"><b>損切り：</b>エントリー足の安値割れ、または計算上の1%リスク額の方を採用</div>
+        <div class="entry-rule"><b>目標：</b>前回高値・心理的節目（キリ番）・上値の売り板の手前</div>
+      </div>
+    </div>
+    <div style="padding:14px 22px;border-top:1px solid var(--bd);background:rgba(0,232,125,0.03)">
+      <p style="font-size:11px;color:var(--txm);letter-spacing:1px">⚠ 注意事項</p>
+      <p style="font-size:12px;color:#9090aa;margin-top:4px;line-height:1.7">重工業株は「材料出尽くし」による急落が起きやすい。ニュース直後の高値飛びつきは禁止。必ず一度の陽線確定を待ってからエントリーすること。</p>
+    </div>
+  </div>
+
+  <!-- 共通NG -->
+  <div class="alert">
+    <p class="alert-t">⚠ 両セクター共通の禁止事項</p>
+    上記2セクター以外の銘柄への安易なエントリーは禁止（慣れない動き方でルール適用が困難）。新規セクターを追加するときは<b>最低2週間の観察期間</b>を置き、戦略ブックに新しいエントリー型を記載してから実際のトレードを開始すること。
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══ RISK MGMT ══ -->
+<section id="s-risk">
+  <div class="shdr">
+    <span class="shdr-n">04</span>
+    <span class="shdr-t">リスク管理</span>
+    <span class="shdr-s">RISK MANAGEMENT</span>
+  </div>
+
+  <div class="card card-r">
+    <span class="tag tag-r">CORE FORMULA</span>
+    <p class="term">1%ルール（ポジションサイズ計算）</p>
+    <div class="formula-box">
+      <span class="comment"># 1回のリスク額（損失許容額）</span><br>
+      リスク額 <span class="op">=</span> 口座資金 <span class="op">×</span> <span class="val">0.01</span><br><br>
+      <span class="comment"># 取引可能株数（ロットサイズ）</span><br>
+      株数 <span class="op">=</span> リスク額 <span class="op">÷</span> (エントリー価格 <span class="op">−</span> 損切り価格)<br><br>
+      <span class="comment"># 例：資金100万円 / エントリー2,000円 / 損切り1,960円（-2%）</span><br>
+      リスク額 <span class="op">=</span> 1,000,000 <span class="op">×</span> 0.01 <span class="op">=</span> <span class="val">10,000円</span><br>
+      株数 <span class="op">=</span> 10,000 <span class="op">÷</span> (2,000 <span class="op">−</span> 1,960) <span class="op">=</span> <span class="val">250株</span>
+    </div>
+    <p class="body">この計算により<b>損切り幅が大きい銘柄は少ない株数</b>、損切り幅が小さい銘柄は多くの株数でエントリーすることになる。常に<b>同じ「リスク額」で統一</b>されるため、感情的な判断が入り込まない。</p>
+  </div>
+
+  <div class="g2" style="margin-top:14px">
+    <div class="card card-y" style="margin-bottom:0">
+      <span class="tag tag-y">DAILY LIMIT</span>
+      <p class="term">日次損失上限 −3%</p>
+      <p class="body" style="margin-top:8px">1日の損失が口座資金の<b>−3%</b>に達したら即座に取引終了。例：口座100万円なら1日の上限損失は<b>3万円</b>。取引管理ツールが自動計算・警告・ロックを行う。</p>
+    </div>
+    <div class="card card-p" style="margin-bottom:0">
+      <span class="tag tag-p">MAX DRAWDOWN</span>
+      <p class="term">最大ドローダウン −10%</p>
+      <p class="body" style="margin-top:8px">口座ピーク時から<b>−10%</b>に達したら取引スタイルの全面見直し。1週間休止し、検証ログを使ってどの判断がズレていたかを分析する。</p>
+    </div>
+  </div>
+
+  <div class="card card-g" style="margin-top:14px">
+    <span class="tag tag-g">POSITION SIZING TIERS</span>
+    <p class="term">段階的ポジションサイズ管理</p>
+    <table class="rtbl" style="margin-top:12px">
+      <thead><tr><th>口座状態</th><th>1回リスク</th><th>理由</th></tr></thead>
+      <tbody>
+        <tr><td class="g">好調（+月次目標達成済み）</td><td class="g">通常通り 1%</td><td>ルールを変えない。過信しない</td></tr>
+        <tr><td>通常</td><td>1%</td><td>ベースラインを維持</td></tr>
+        <tr><td class="y">不調（当月−3%以上）</td><td class="y">0.5%に縮小</td><td>損失を限定しながら立て直す</td></tr>
+        <tr><td class="r">深刻（当月−7%以上）</td><td class="r">取引一時停止</td><td>1週間休止・戦略見直し必須</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══ GLOSSARY ══ -->
+<section id="s-gloss">
+  <div class="shdr">
+    <span class="shdr-n">05</span>
+    <span class="shdr-t">用語集</span>
+    <span class="shdr-s">GLOSSARY</span>
+  </div>
+
+  <div class="gloss-grid">
+    <div class="gloss-item"><div class="gloss-term">R（アール）</div><div class="gloss-def"><b>リスク単位</b>。1Rは「1回のリスク額」。2Rの利益＝リスクの2倍の利益を意味する。勝ち負けをR単位で評価することで感情を排除できる</div></div>
+    <div class="gloss-item"><div class="gloss-term">RR比</div><div class="gloss-def"><b>リスクリワード比</b>。期待利益÷リスク。1.5以上を目標にする。RR1.5なら勝率40%でもトータルプラスになる</div></div>
+    <div class="gloss-item"><div class="gloss-term">期待値</div><div class="gloss-def">（勝率×平均利益）−（負け率×平均損失）。これがプラスになっていれば長期的に利益が出る手法</div></div>
+    <div class="gloss-item"><div class="gloss-term">DD（ドローダウン）</div><div class="gloss-def"><b>最大下落幅</b>。口座残高のピークから現在値までの下落率。DDが大きいと精神的・資金的に回復が難しくなる</div></div>
+    <div class="gloss-item"><div class="gloss-term">BE（ブレイクイーブン）</div><div class="gloss-def">損益ゼロの価格（エントリー価格）。第1利確後は損切りをBEに移動してリスクをゼロにする</div></div>
+    <div class="gloss-item"><div class="gloss-term">ATR</div><div class="gloss-def"><b>Average True Range</b>。直近の平均的な値動き幅。損切り幅の設定・ポジションサイズ計算に使う</div></div>
+    <div class="gloss-item"><div class="gloss-term">寄り天</div><div class="gloss-def">寄り付き（取引開始直後）が最高値となり、その後下落するパターン。ギャップアップ銘柄に多い。飛び乗り禁止の理由</div></div>
+    <div class="gloss-item"><div class="gloss-term">板（いた）</div><div class="gloss-def">注文の気配値一覧。売り板（Ask）と買い板（Bid）の量から需給バランスを読む</div></div>
+    <div class="gloss-item"><div class="gloss-term">ダマシ</div><div class="gloss-def">ブレイクアウトやパターンに見えたが実際は逆方向に動くケース。出来高の低いブレイクアウトはダマシの可能性が高い</div></div>
+    <div class="gloss-item"><div class="gloss-term">ナンピン</div><div class="gloss-def">含み損のポジションに追加購入して平均購入価格を下げること。損失拡大の最大の原因。絶対禁止</div></div>
+    <div class="gloss-item"><div class="gloss-term">押し目</div><div class="gloss-def">上昇トレンド中の一時的な下落。この反発狙いが「押し目買い」。移動平均線付近での反発を確認してから入る</div></div>
+    <div class="gloss-item"><div class="gloss-term">SOX指数</div><div class="gloss-def">フィラデルフィア半導体株指数（Philadelphia Semiconductor Index）。米国の半導体企業30社で構成。日本の半導体株への先行指標</div></div>
+    <div class="gloss-item"><div class="gloss-term">ゴールデンクロス</div><div class="gloss-def">短期移動平均線が長期移動平均線を下から上に突き抜けること。買いのサインとされる</div></div>
+    <div class="gloss-item"><div class="gloss-term">デッドクロス</div><div class="gloss-def">短期移動平均線が長期移動平均線を上から下に突き抜けること。売りのサインとされる</div></div>
+    <div class="gloss-item"><div class="gloss-term">PDCA</div><div class="gloss-def">Plan（計画）→ Do（実行）→ Check（評価）→ Act（改善）のサイクル。週次で検証ログを使って実施</div></div>
+    <div class="gloss-item"><div class="gloss-term">材料出尽くし</div><div class="gloss-def">良いニュースが出たにもかかわらず株価が下落するパターン。「買い予想が織り込み済み」になっていた場合に発生</div></div>
+  </div>
+</section>
+
+</div><!-- /wrap -->
+
+<footer>
+  <p style="font-size:12px;color:var(--txm);letter-spacing:1px">STRATEGY BOOK — デイトレード戦略ブック</p>
+  <p style="margin-top:4px">このドキュメントは個人のトレードルールを記録するためのものです。投資助言ではありません。</p>
+</footer>
+
+</body>
+</html>
