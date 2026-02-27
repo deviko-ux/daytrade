@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日誌・検証ログ — デイトレード管理システム</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050507;--s1:#0c0c14;--s2:#13131e;--s3:#1a1a28;
+  --c:#00d4ff;--g:#00e87d;--r:#ff3358;--y:#ffd600;--p:#b06aff;--o:#ff8c42;
+  --tx:#dde0f0;--txm:#5a5a78;--txd:#8888aa;
+  --bd:rgba(255,255,255,0.06);--bd2:rgba(255,255,255,0.11);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:'Noto Sans JP',sans-serif;font-weight:300;line-height:1.75;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 47px,rgba(0,212,255,0.018) 47px,rgba(0,212,255,0.018) 48px),repeating-linear-gradient(90deg,transparent,transparent 47px,rgba(0,212,255,0.018) 47px,rgba(0,212,255,0.018) 48px);pointer-events:none;z-index:0}
+
+.sitenav{position:sticky;top:0;z-index:200;background:rgba(5,5,7,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--bd2)}
+.sitenav-inner{max-width:1040px;margin:0 auto;display:flex;align-items:center;height:48px;padding:0 20px;gap:0}
+.site-logo{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:4px;color:var(--c);margin-right:24px;flex-shrink:0;text-decoration:none}
+.sitenav-links{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.sitenav-links::-webkit-scrollbar{display:none}
+.snlink{font-size:10.5px;letter-spacing:1.5px;padding:5px 12px;color:var(--txm);border-radius:3px;text-decoration:none;white-space:nowrap;transition:all .2s;border:1px solid transparent}
+.snlink:hover{color:var(--tx);background:rgba(255,255,255,0.04)}
+.snlink.active{color:var(--p);border-color:rgba(176,106,255,0.25);background:rgba(176,106,255,0.06)}
+
+.hero{position:relative;z-index:1;padding:56px 24px 44px;max-width:1040px;margin:0 auto}
+.hero-tag{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:6px;color:var(--p);opacity:.7;margin-bottom:14px}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,9vw,96px);line-height:.88;letter-spacing:2px;background:linear-gradient(135deg,#fff 10%,var(--p) 70%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px}
+.hero-sub{font-size:12px;letter-spacing:4px;color:var(--txm);margin-bottom:18px}
+.hero-desc{font-size:13.5px;color:var(--txd);max-width:600px;line-height:2}
+
+.page-nav{position:relative;z-index:1;border-top:1px solid var(--bd2);border-bottom:1px solid var(--bd2);background:var(--s1)}
+.page-nav-inner{max-width:1040px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none;height:42px;padding:0 20px}
+.page-nav-inner::-webkit-scrollbar{display:none}
+.pnlink{font-size:11px;letter-spacing:2px;padding:0 16px;color:var(--txm);text-decoration:none;display:flex;align-items:center;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s}
+.pnlink:hover{color:var(--p);border-color:var(--p)}
+
+.wrap{position:relative;z-index:1;max-width:1040px;margin:0 auto;padding:0 24px 80px}
+section{padding-top:32px;margin-bottom:60px}
+
+.shdr{display:flex;align-items:baseline;gap:12px;margin-bottom:26px;padding-bottom:14px;border-bottom:1px solid var(--bd2)}
+.shdr-n{font-family:'Bebas Neue',sans-serif;font-size:44px;line-height:1;color:var(--p);opacity:.25}
+.shdr-t{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:4px;color:#fff}
+.shdr-s{font-size:11px;color:var(--txm);letter-spacing:2px;margin-left:auto}
+
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:6px;padding:24px 28px;margin-bottom:14px}
+.card-p{border-left:3px solid var(--p)}
+.card-g{border-left:3px solid var(--g)}
+.card-c{border-left:3px solid var(--c)}
+.card-r{border-left:3px solid var(--r)}
+.card-y{border-left:3px solid var(--y)}
+.card-o{border-left:3px solid var(--o)}
+.tag{display:inline-block;font-size:10px;letter-spacing:2px;padding:2px 8px;border-radius:2px;margin-bottom:8px}
+.tag-p{background:rgba(176,106,255,0.1);color:var(--p)}
+.tag-g{background:rgba(0,232,125,0.1);color:var(--g)}
+.tag-c{background:rgba(0,212,255,0.1);color:var(--c)}
+.tag-r{background:rgba(255,51,88,0.1);color:var(--r)}
+.tag-y{background:rgba(255,214,0,0.1);color:var(--y)}
+.term{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:var(--p);margin-bottom:4px}
+.body{font-size:13px;color:#b0b4cc;line-height:1.92}
+.body b{color:#fff;font-weight:500}
+.body strong{color:var(--p);font-weight:500}
+
+/* TEMPLATE BLOCKS */
+.tpl-section{background:var(--s2);border:1px solid var(--bd);border-radius:6px;overflow:hidden;margin-bottom:14px}
+.tpl-head{padding:12px 18px;border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.02)}
+.tpl-head-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.tpl-head-title{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:3px;color:var(--txd)}
+.tpl-body{padding:16px 18px}
+.tpl-row{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start}
+.tpl-label{font-size:10.5px;letter-spacing:2px;color:var(--txm);min-width:120px;flex-shrink:0;padding-top:4px}
+.tpl-field{flex:1;background:rgba(255,255,255,0.03);border:1px solid var(--bd2);border-radius:3px;padding:8px 12px;font-size:12.5px;color:var(--txd);font-family:'JetBrains Mono',monospace;line-height:1.6;min-height:32px}
+.tpl-field.large{min-height:60px}
+.tpl-field.score{display:flex;gap:8px;align-items:center}
+.score-box{width:28px;height:28px;border:1px solid var(--bd2);border-radius:3px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:15px;color:var(--txm)}
+.score-box.filled{border-color:var(--p);color:var(--p);background:rgba(176,106,255,0.08)}
+
+/* EMOTION METER */
+.emotion-row{display:flex;gap:8px;flex-wrap:wrap}
+.emo-tag{font-size:11px;padding:4px 12px;border-radius:20px;border:1px solid var(--bd2);color:var(--txm);cursor:default}
+.emo-tag.calm{border-color:rgba(0,232,125,0.3);color:var(--g)}
+.emo-tag.fomo{border-color:rgba(255,214,0,0.3);color:var(--y)}
+.emo-tag.fear{border-color:rgba(176,106,255,0.3);color:var(--p)}
+.emo-tag.revenge{border-color:rgba(255,51,88,0.3);color:var(--r)}
+.emo-tag.overconf{border-color:rgba(255,140,66,0.3);color:var(--o)}
+
+/* PDCA */
+.pdca-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.pdca-grid{grid-template-columns:1fr}}
+.pdca-box{background:var(--s2);border:1px solid var(--bd);border-radius:6px;overflow:hidden}
+.pdca-head{padding:12px 18px;font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:3px;display:flex;align-items:center;gap:10px}
+.pdca-body{padding:16px 18px}
+.pdca-item{margin-bottom:12px}
+.pdca-item-label{font-size:10.5px;letter-spacing:2px;color:var(--txm);margin-bottom:6px}
+.pdca-item-field{background:rgba(255,255,255,0.03);border:1px solid var(--bd2);border-radius:3px;padding:8px 12px;font-size:12.5px;color:var(--txd);font-family:'JetBrains Mono',monospace;min-height:50px;line-height:1.65}
+
+/* LOG TABLE */
+.log-wrap{overflow-x:auto;margin-top:12px}
+.log-tbl{width:100%;border-collapse:collapse;font-size:12px;min-width:800px}
+.log-tbl th{background:rgba(176,106,255,0.08);color:var(--p);font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:2px;padding:10px 12px;text-align:left;border:1px solid var(--bd2);font-weight:400;white-space:nowrap}
+.log-tbl td{padding:9px 12px;border:1px solid var(--bd);color:#b0b4cc;vertical-align:middle;font-family:'JetBrains Mono',monospace;font-size:11.5px}
+.log-tbl tr:hover td{background:rgba(255,255,255,0.02)}
+.log-tbl td.pos{color:var(--g)}
+.log-tbl td.neg{color:var(--r)}
+.log-tbl td.cen{text-align:center}
+
+/* TIMELINE */
+.pdca-timeline{position:relative;padding-left:28px}
+.pdca-timeline::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--p),transparent)}
+.tl-item{position:relative;padding:0 0 22px 20px}
+.tl-item::before{content:'';position:absolute;left:-23px;top:6px;width:10px;height:10px;border-radius:50%;border:2px solid var(--p);background:var(--bg)}
+.tl-day{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:2px;color:var(--p);margin-bottom:4px}
+.tl-body{font-size:12.5px;color:#9090aa;line-height:1.8}
+.tl-body b{color:#fff;font-weight:500}
+
+.tip{background:rgba(176,106,255,0.05);border:1px solid rgba(176,106,255,0.16);border-left:3px solid var(--p);border-radius:4px;padding:16px 20px;margin-top:14px;font-size:13px;color:#b0b4cc;line-height:1.88}
+.tip-t{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:3px;color:var(--p);margin-bottom:5px}
+.alert{background:rgba(255,51,88,0.07);border:1px solid rgba(255,51,88,0.22);border-left:3px solid var(--r);border-radius:4px;padding:16px 20px;margin-top:16px;font-size:13px;color:#b0b4cc;line-height:1.88}
+.alert-t{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:3px;color:var(--r);margin-bottom:5px}
+
+.divider{border:none;border-top:1px solid var(--bd);margin:56px 0;position:relative}
+.divider::after{content:'◆';position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 12px;color:var(--txm);font-size:8px;letter-spacing:4px}
+
+/* PRINT HINT */
+.print-hint{background:rgba(0,212,255,0.04);border:1px dashed rgba(0,212,255,0.2);border-radius:4px;padding:10px 16px;font-size:11.5px;color:var(--txd);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+
+footer{position:relative;z-index:1;background:var(--s1);border-top:1px solid var(--bd2);padding:28px 24px;text-align:center;font-size:11px;color:var(--txm);letter-spacing:2px;line-height:2.2}
+</style>
+</head>
+<body>
+
+<nav class="sitenav">
+  <div class="sitenav-inner">
+    <a href="index.html" class="site-logo" style="display:flex;align-items:center;gap:8px"><span style="font-size:10px;color:var(--txm);letter-spacing:1px">←</span>DAYTRADE</a>
+    <div class="sitenav-links">
+      <a href="daytrade-all-in-one.html" class="snlink">📚 完全ガイド</a>
+      <a href="strategy-book.html" class="snlink">📋 戦略ブック</a>
+      <a href="trade-journal.html" class="snlink active">📓 日誌・検証ログ</a>
+      <a href="trade-tool.html" class="snlink">⚙️ 取引管理ツール</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <p class="hero-tag">JOURNAL & PDCA LOG — VOL.2</p>
+  <h1 class="hero-title">日誌・検証ログ</h1>
+  <p class="hero-sub">TRADE JOURNAL & PDCA</p>
+  <p class="hero-desc">毎日の記録と週次PDCAで、自分の手法の「再現性」を育てる。感情の記録こそが最大の資産になる。</p>
+</header>
+
+<div class="page-nav">
+  <div class="page-nav-inner">
+    <a href="#s-daily" class="pnlink">日次日誌テンプレ</a>
+    <a href="#s-trade" class="pnlink">1トレード記録シート</a>
+    <a href="#s-pdca" class="pnlink">週次PDCAテンプレ</a>
+    <a href="#s-log" class="pnlink">検証ログ（サンプル）</a>
+    <a href="#s-review" class="pnlink">月次レビュー</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ══ DAILY JOURNAL ══ -->
+<section id="s-daily">
+  <div class="shdr">
+    <span class="shdr-n">01</span>
+    <span class="shdr-t">日次日誌テンプレ</span>
+    <span class="shdr-s">DAILY JOURNAL TEMPLATE</span>
+  </div>
+
+  <div class="print-hint">📄 このテンプレートは印刷またはNotionなどのドキュメントツールにコピーしてご利用ください</div>
+
+  <!-- 朝のルーティン -->
+  <div class="tpl-section">
+    <div class="tpl-head">
+      <div class="tpl-head-dot" style="background:var(--y)"></div>
+      <span class="tpl-head-title">朝のルーティン（9:00前に完了）</span>
+      <span style="margin-left:auto;font-size:11px;color:var(--txm);font-family:'JetBrains Mono',monospace">DATE: ____.__.__</span>
+    </div>
+    <div class="tpl-body">
+      <div class="tpl-row">
+        <span class="tpl-label">米国市場（前日）</span>
+        <div class="tpl-field">NYダウ ±___% / NASDAQ ±___% / SOX ±___% / VIX ___</div>
+      </div>
+      <div class="tpl-row">
+        <span class="tpl-label">日経先物</span>
+        <div class="tpl-field">寄り前気配 ___円 (±___%) / ドル円 ___円</div>
+      </div>
+      <div class="tpl-row">
+        <span class="tpl-label">今日の主要ニュース</span>
+        <div class="tpl-field large">1. ______________________ 2. ______________________ 3. ______________________</div>
+      </div>
+      <div class="tpl-row">
+        <span class="tpl-label">注目銘柄（値上がり率ランキング上位）</span>
+        <div class="tpl-field">① _____[____] ②_____[____] ③_____[____]</div>
+      </div>
+      <div class="tpl-row">
+        <span class="tpl-label">今日の相場環境</span>
+        <div class="tpl-field">
+          <span style="margin-right:12px">□ 強気（積極的）</span>
+          <span style="margin-right:12px">□ 中立（通常）</span>
+          <span>□ 弱気（守備的）</span>
+        </div>
+      </div>
+      <div class="tpl-row">
+        <span class="tpl-label">今日の心身状態</span>
+        <div class="tpl-field">
+          <span style="margin-right:12px">□ 良好</span>
+          <span style="margin-right:12px">□ 普通</span>
+          <span style="margin-right:12px">□ 疲れ気味</span>
+          <span>→ 疲れの場合は取引量を半分以下に</span>
+        </div>
+      </div>
+      <div class="tpl-row">
+        <span class="tpl-label">今日の目標設定</span>
+        <div class="tpl-field">利益目標 ___円 / リスク上限 ___円（口座の3%＝___円）/ 最大取引回数 ___回</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 引け後の振り返り -->
+  <div class="tpl-section">
+    <div class="tpl-head">
+      <div class="tpl-head-dot" style="background:var(--p)"></div>
+      <span class="tpl-head-title">引け後の振り返り（15:40〜）</span>
+    </div>
+    <div class="tpl-body">
+      <div class="tpl-row">
+        <span class="tpl-label">本日の損益</span>
+        <div class="tpl-field">確定損益 ___円 / 取引回数 ___回 / 勝 ___回 負 ___回</div>
+      </div>
+      <div class="tpl-row">
+        <span class="tpl-label">ルール遵守チェック</span>
+        <div class="tpl-field">
+          <span style="margin-right:10px">□ 逆指値を事前設定した</span>
+          <span style="margin-right:10px">□ ナンピンしなかった</span>
+          <span style="margin-right:10px">□ 15:20前に決済した</span>
+          <span>□ 日次上限内で終えた</span>
+        </div>
+      </div>
+      <div class="tpl-row">
+        <span class="tpl-label">今日の感情状態</span>
+        <div class="tpl-field score">
+          <div class="emotion-row">
+            <span class="emo-tag calm">□ 冷静</span>
+            <span class="emo-tag fomo">□ FOMO（焦り）</span>
+            <span class="emo-tag fear">□ 恐怖・ためらい</span>
+            <span class="emo-tag revenge">□ リベンジ心</span>
+            <span class="emo-tag overconf">□ 過信・慢心</span>
+          </div>
+        </div>
+      </div>
+      <div class="tpl-row">
+        <span class="tpl-label">ベストトレード</span>
+        <div class="tpl-field large">銘柄: _______ 理由: __________________________________________ 学び: __________________________________________</div>
+      </div>
+      <div class="tpl-row">
+        <span class="tpl-label">ワーストトレード / 改善点</span>
+        <div class="tpl-field large">銘柄: _______ 何が悪かったか: ________________________________ 次回どうするか: ____________________________________</div>
+      </div>
+      <div class="tpl-row">
+        <span class="tpl-label">明日への申し送り</span>
+        <div class="tpl-field large">監視銘柄: ________________ 注意点: ________________ 調整すること: ________________</div>
+      </div>
+      <div class="tpl-row">
+        <span class="tpl-label">今日のルール遵守スコア</span>
+        <div class="tpl-field score">
+          <div class="score-box">1</div>
+          <div class="score-box">2</div>
+          <div class="score-box">3</div>
+          <div class="score-box filled">4</div>
+          <div class="score-box">5</div>
+          <span style="font-size:11px;color:var(--txm);margin-left:8px">5 = 完璧にルール通り / 1 = ルール違反複数あり</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <p class="tip-t">💡 日誌を続けるコツ</p>
+    完璧な日誌より<b>続く日誌</b>が大事です。負けた日こそ丁寧に書く。3ヶ月後に読み返したとき、自分の「感情パターン」と「負けパターン」が見えてきます。それが最大の資産です。
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══ 1TRADE SHEET ══ -->
+<section id="s-trade">
+  <div class="shdr">
+    <span class="shdr-n">02</span>
+    <span class="shdr-t">1トレード記録シート</span>
+    <span class="shdr-s">SINGLE TRADE RECORD</span>
+  </div>
+
+  <div class="card card-p" style="margin-bottom:16px">
+    <p class="body">1回のトレードごとに記録する詳細シート。<b>取引管理ツール</b>に自動記録されますが、重要なトレードはここで手書き分析も推奨。</p>
+  </div>
+
+  <div class="tpl-section">
+    <div class="tpl-head">
+      <div class="tpl-head-dot" style="background:var(--c)"></div>
+      <span class="tpl-head-title">エントリー時（建て前に記入）</span>
+    </div>
+    <div class="tpl-body">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 20px">
+        <div class="tpl-row"><span class="tpl-label">銘柄コード・名称</span><div class="tpl-field">_____ ___________</div></div>
+        <div class="tpl-row"><span class="tpl-label">方向</span><div class="tpl-field"><span style="margin-right:12px">□ 買い（Long）</span><span>□ 空売り（Short）</span></div></div>
+        <div class="tpl-row"><span class="tpl-label">エントリー価格</span><div class="tpl-field">_____ 円</div></div>
+        <div class="tpl-row"><span class="tpl-label">株数（ロット）</span><div class="tpl-field">_____ 株</div></div>
+        <div class="tpl-row"><span class="tpl-label">損切り価格</span><div class="tpl-field">_____ 円（リスク ___円 = 口座の___%）</div></div>
+        <div class="tpl-row"><span class="tpl-label">目標価格</span><div class="tpl-field">_____ 円（RR比 ___）</div></div>
+        <div class="tpl-row"><span class="tpl-label">エントリー根拠</span><div class="tpl-field large">パターン: ___________  時間帯: ___  出来高: □急増 □通常  MA: □順張り □逆張り</div></div>
+        <div class="tpl-row"><span class="tpl-label">セクター・材料</span><div class="tpl-field">□半導体  □重工  □その他: _________  材料: ___________</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tpl-section">
+    <div class="tpl-head">
+      <div class="tpl-head-dot" style="background:var(--g)"></div>
+      <span class="tpl-head-title">決済後（クローズ後に記入）</span>
+    </div>
+    <div class="tpl-body">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 20px">
+        <div class="tpl-row"><span class="tpl-label">決済価格</span><div class="tpl-field">_____ 円</div></div>
+        <div class="tpl-row"><span class="tpl-label">確定損益</span><div class="tpl-field">_____ 円  ( ___R )</div></div>
+        <div class="tpl-row"><span class="tpl-label">決済理由</span><div class="tpl-field">□目標到達  □損切り  □足の崩れ  □引け強制  □その他</div></div>
+        <div class="tpl-row"><span class="tpl-label">ルール違反</span><div class="tpl-field">□なし  □逆指値未設定  □ナンピン  □損切りを動かした  □その他: _____</div></div>
+        <div class="tpl-row"><span class="tpl-label">反省・改善点</span><div class="tpl-field large"></div></div>
+        <div class="tpl-row"><span class="tpl-label">チャート保存</span><div class="tpl-field">□ スクショ保存済み（ファイル名: _________________）</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══ PDCA ══ -->
+<section id="s-pdca">
+  <div class="shdr">
+    <span class="shdr-n">03</span>
+    <span class="shdr-t">週次PDCAテンプレ</span>
+    <span class="shdr-s">WEEKLY PDCA REVIEW</span>
+  </div>
+
+  <div class="card card-p" style="margin-bottom:16px">
+    <p class="body">毎週末（金曜引け後または土曜午前）に実施。<b>30〜60分</b>確保して集中的に振り返る。感情論ではなく<b>データと事実</b>で語ること。</p>
+  </div>
+
+  <div class="pdca-grid">
+    <div class="pdca-box">
+      <div class="pdca-head" style="background:rgba(0,232,125,0.08);border-bottom:1px solid var(--bd)">
+        <div style="width:10px;height:10px;background:var(--g);border-radius:50%"></div>
+        <span style="color:var(--g)">PLAN</span>
+        <span style="font-size:10px;color:var(--txm);margin-left:auto">先週立てた計画</span>
+      </div>
+      <div class="pdca-body">
+        <div class="pdca-item">
+          <div class="pdca-item-label">先週の目標（利益率・勝率・取引数）</div>
+          <div class="pdca-item-field">目標利益率: ___% / 目標勝率: ___% / 予定取引数: ___回</div>
+        </div>
+        <div class="pdca-item">
+          <div class="pdca-item-label">重点的に試した手法・改善事項</div>
+          <div class="pdca-item-field"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pdca-box">
+      <div class="pdca-head" style="background:rgba(0,212,255,0.08);border-bottom:1px solid var(--bd)">
+        <div style="width:10px;height:10px;background:var(--c);border-radius:50%"></div>
+        <span style="color:var(--c)">DO</span>
+        <span style="font-size:10px;color:var(--txm);margin-left:auto">今週の実績</span>
+      </div>
+      <div class="pdca-body">
+        <div class="pdca-item">
+          <div class="pdca-item-label">今週の実績（数字）</div>
+          <div class="pdca-item-field">損益: ___円 (___%) / 勝率: ___% (___勝___敗) / 平均R: ___R / 最大RR: ___R</div>
+        </div>
+        <div class="pdca-item">
+          <div class="pdca-item-label">主なトレード（銘柄・損益）</div>
+          <div class="pdca-item-field"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pdca-box">
+      <div class="pdca-head" style="background:rgba(255,214,0,0.08);border-bottom:1px solid var(--bd)">
+        <div style="width:10px;height:10px;background:var(--y);border-radius:50%"></div>
+        <span style="color:var(--y)">CHECK</span>
+        <span style="font-size:10px;color:var(--txm);margin-left:auto">評価・分析</span>
+      </div>
+      <div class="pdca-body">
+        <div class="pdca-item">
+          <div class="pdca-item-label">目標達成度と原因分析</div>
+          <div class="pdca-item-field"></div>
+        </div>
+        <div class="pdca-item">
+          <div class="pdca-item-label">最も多かったミスパターン</div>
+          <div class="pdca-item-field">□早すぎる利確  □損切り遅延  □根拠なしエントリー  □リベンジ  □その他: ___</div>
+        </div>
+        <div class="pdca-item">
+          <div class="pdca-item-label">時間帯別勝率（ざっくり）</div>
+          <div class="pdca-item-field">寄り: __% / 前場中盤: __% / 後場: __%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pdca-box">
+      <div class="pdca-head" style="background:rgba(176,106,255,0.08);border-bottom:1px solid var(--bd)">
+        <div style="width:10px;height:10px;background:var(--p);border-radius:50%"></div>
+        <span style="color:var(--p)">ACT</span>
+        <span style="font-size:10px;color:var(--txm);margin-left:auto">来週の改善策</span>
+      </div>
+      <div class="pdca-body">
+        <div class="pdca-item">
+          <div class="pdca-item-label">来週の重点改善事項（最大2つ）</div>
+          <div class="pdca-item-field">1. ___________________________________ 2. ___________________________________</div>
+        </div>
+        <div class="pdca-item">
+          <div class="pdca-item-label">来週の数値目標</div>
+          <div class="pdca-item-field">目標損益: ___% / 勝率: ___% / 最大取引数: ___回</div>
+        </div>
+        <div class="pdca-item">
+          <div class="pdca-item-label">ルール変更・追加事項（あれば）</div>
+          <div class="pdca-item-field">※変更は慎重に。感情的な変更禁止。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-y" style="margin-top:16px">
+    <span class="tag tag-y">SELF SCORE</span>
+    <p class="term" style="font-size:17px">週次自己評価（100点満点）</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:14px">
+      <div style="background:var(--s3);border-radius:5px;padding:14px">
+        <div style="font-size:10.5px;letter-spacing:2px;color:var(--txm);margin-bottom:6px">ルール遵守率</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--y)">___<span style="font-size:14px">点</span></div>
+        <div style="font-size:11px;color:var(--txm)">エントリー条件・損切りの厳守度</div>
+      </div>
+      <div style="background:var(--s3);border-radius:5px;padding:14px">
+        <div style="font-size:10.5px;letter-spacing:2px;color:var(--txm);margin-bottom:6px">感情コントロール</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--g)">___<span style="font-size:14px">点</span></div>
+        <div style="font-size:11px;color:var(--txm)">FOMOやリベンジを抑えられたか</div>
+      </div>
+      <div style="background:var(--s3);border-radius:5px;padding:14px">
+        <div style="font-size:10.5px;letter-spacing:2px;color:var(--txm);margin-bottom:6px">リスク管理</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--c)">___<span style="font-size:14px">点</span></div>
+        <div style="font-size:11px;color:var(--txm)">ポジションサイズ・日次制限の遵守</div>
+      </div>
+      <div style="background:var(--s3);border-radius:5px;padding:14px">
+        <div style="font-size:10.5px;letter-spacing:2px;color:var(--txm);margin-bottom:6px">記録の継続</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--p)">___<span style="font-size:14px">点</span></div>
+        <div style="font-size:11px;color:var(--txm)">日誌・トレード記録を毎日つけたか</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══ SAMPLE LOG ══ -->
+<section id="s-log">
+  <div class="shdr">
+    <span class="shdr-n">04</span>
+    <span class="shdr-t">検証ログ（サンプル）</span>
+    <span class="shdr-s">VERIFICATION LOG SAMPLE</span>
+  </div>
+
+  <div class="card card-o" style="margin-bottom:16px">
+    <p class="body">以下は検証ログの記入サンプルです。<b>取引管理ツール</b>のCSVエクスポートをこの形式で管理することで、パターン分析が可能になります。</p>
+  </div>
+
+  <div class="log-wrap">
+    <table class="log-tbl">
+      <thead>
+        <tr>
+          <th>日付</th>
+          <th>銘柄</th>
+          <th>方向</th>
+          <th>時間帯</th>
+          <th>エントリー</th>
+          <th>決済</th>
+          <th>損益(円)</th>
+          <th>R数</th>
+          <th>パターン</th>
+          <th>ルール遵守</th>
+          <th>感情</th>
+          <th>改善点</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2/3</td><td>7735<br>SCREEN</td><td>Long</td><td>前場中盤</td>
+          <td>8,420</td><td>8,680</td>
+          <td class="pos">+26,000</td><td class="pos">+2.6R</td>
+          <td>GU継続<br>押し目</td><td class="pos cen">○</td><td>冷静</td><td>利確タイミング早すぎ</td>
+        </tr>
+        <tr>
+          <td>2/3</td><td>7011<br>三菱重工</td><td>Long</td><td>後場</td>
+          <td>2,150</td><td>2,110</td>
+          <td class="neg">-8,000</td><td class="neg">-0.8R</td>
+          <td>押し目<br>失敗</td><td class="pos cen">○</td><td>少し焦り</td><td>後場エントリーは慎重に</td>
+        </tr>
+        <tr>
+          <td>2/4</td><td>8035<br>東京エレク</td><td>Long</td><td>寄り</td>
+          <td>24,500</td><td>24,200</td>
+          <td class="neg">-15,000</td><td class="neg">-1.5R</td>
+          <td>GU飛び<br>つき</td><td class="neg cen">✗</td><td>FOMO</td>
+          <td style="color:var(--r)">寄り直後エントリー禁止ルール違反。待てなかった</td>
+        </tr>
+        <tr>
+          <td>2/5</td><td>7012<br>川崎重工</td><td>Long</td><td>前場中盤</td>
+          <td>4,820</td><td>5,060</td>
+          <td class="pos">+48,000</td><td class="pos">+2.4R</td>
+          <td>防衛材料<br>ブレイク</td><td class="pos cen">○</td><td>冷静</td><td>完璧。このパターンを継続</td>
+        </tr>
+        <tr>
+          <td>2/7</td><td>6857<br>アドテスト</td><td>Short</td><td>前場</td>
+          <td>6,750</td><td>6,750</td>
+          <td style="color:var(--txm)">0</td><td style="color:var(--txm)">0R</td>
+          <td>DC確認<br>スキャル</td><td class="pos cen">○</td><td>冷静</td><td>根拠薄め。様子見が正解だった</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert" style="margin-top:16px">
+    <p class="alert-t">⚠ ログ分析で必ず確認すること</p>
+    ①ルール違反トレードは勝っても負けても「悪いトレード」として扱う。②感情欄に「FOMO」「リベンジ」が続く週は取引量を強制削減。③同じパターンで3回以上負けたら戦略ブックを更新する。
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══ MONTHLY REVIEW ══ -->
+<section id="s-review">
+  <div class="shdr">
+    <span class="shdr-n">05</span>
+    <span class="shdr-t">月次レビュー</span>
+    <span class="shdr-s">MONTHLY REVIEW</span>
+  </div>
+
+  <div class="pdca-timeline">
+    <div class="tl-item">
+      <p class="tl-day">STEP 1 — 数字の確認</p>
+      <p class="tl-body">月間損益・勝率・平均R・最大DD を取引管理ツールから抽出。KPI（目標）と実績を並べて比較する</p>
+    </div>
+    <div class="tl-item">
+      <p class="tl-day">STEP 2 — パターン分析</p>
+      <p class="tl-body"><b>勝ちトレードに共通する条件</b>を3つ書き出す。<b>負けトレードに共通するミス</b>を3つ書き出す。これが来月の改善点</p>
+    </div>
+    <div class="tl-item">
+      <p class="tl-day">STEP 3 — 時間帯・銘柄別分析</p>
+      <p class="tl-body">「寄り・前場中盤・後場」と「半導体・重工」ごとの勝率・損益を集計。苦手な時間帯・銘柄を特定して戦略を調整</p>
+    </div>
+    <div class="tl-item">
+      <p class="tl-day">STEP 4 — 戦略ブックの更新</p>
+      <p class="tl-body">分析結果を戦略ブックに反映。ルールの追加・削除は<b>感情ではなくデータ</b>に基づいて判断。月次レビューのみルール変更可</p>
+    </div>
+    <div class="tl-item">
+      <p class="tl-day">STEP 5 — 来月の計画設定</p>
+      <p class="tl-body">来月のKPI目標・重点改善手法・監視セクターを決定してPDCAの「Plan」に書き込む</p>
+    </div>
+  </div>
+
+  <div class="tip">
+    <p class="tip-t">💡 成長の判断基準</p>
+    損益の増減で自分を評価しない。<b>「ルール遵守率が上がったか」「同じミスを繰り返していないか」</b>で評価する。ルールを守ったうえでの損失は「授業料」。ルールを破っての利益は「危険な成功体験」です。
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <p style="font-size:12px;color:var(--txm);letter-spacing:1px">TRADE JOURNAL — 日誌・検証ログ</p>
+  <p style="margin-top:4px">記録は資産。継続が最大の武器。</p>
+</footer>
+</body>
+</html>
