@@ -9,7 +9,7 @@
 :root{
   --bg:#050507;--s1:#0d0d16;--s2:#141420;--s3:#1c1c2a;
   --c:#00d4ff;--g:#00e87d;--r:#ff3358;--y:#ffd600;--p:#b06aff;--o:#ff8c42;--teal:#00c9a7;
-  --tx:#e8eaf6;--txm:#64648a;--txd:#9696b8;
+  --tx:#f0f2ff;--txm:#7878a0;--txd:#b0b4d0;
   --bd:rgba(255,255,255,0.07);--bd2:rgba(255,255,255,0.13);
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -19,12 +19,12 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .glow{position:fixed;top:-300px;left:50%;transform:translateX(-50%);width:1000px;height:700px;background:radial-gradient(ellipse,rgba(0,212,255,0.05) 0%,transparent 65%);pointer-events:none;z-index:0}
 .hero{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:80px 24px 56px;text-align:center}
 .eyebrow{font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:8px;color:var(--c);opacity:.6;margin-bottom:20px;animation:fadeUp .5s ease both}
-.hero-title{font-family:'Bebas Neue',sans-serif;line-height:.85;letter-spacing:3px;margin-bottom:20px;animation:fadeUp .5s .08s ease both}
-.hero-title .l1{display:block;font-size:clamp(56px,11vw,120px);background:linear-gradient(135deg,#fff 15%,var(--c) 75%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-title{font-family:'Bebas Neue',sans-serif;line-height:1;letter-spacing:3px;margin-bottom:20px;animation:fadeUp .5s .08s ease both;padding-top:6px}
+.hero-title .l1{display:block;font-size:clamp(56px,11vw,116px);background:linear-gradient(135deg,#fff 15%,var(--c) 75%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;overflow:visible}
 .hero-title .l2{display:block;font-size:clamp(18px,3.5vw,36px);color:var(--txd);margin-top:8px}
-.hero-desc{font-size:16px;color:var(--txd);max-width:560px;margin:0 auto 32px;line-height:2;animation:fadeUp .5s .14s ease both}
+.hero-desc{font-size:16px;color:#c4c8e0;max-width:560px;margin:0 auto 32px;line-height:2;animation:fadeUp .5s .14s ease both}
 .hero-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:40px;animation:fadeUp .5s .2s ease both}
-.hero-tag{font-size:11px;letter-spacing:1.5px;padding:5px 14px;border-radius:20px;border:1px solid var(--bd2);color:var(--txd)}
+.hero-tag{font-size:11px;letter-spacing:1.5px;padding:5px 14px;border-radius:20px;border:1px solid var(--bd2);color:#c4c8e0}
 .ticker{position:relative;z-index:1;background:var(--s1);border-top:1px solid var(--bd2);border-bottom:1px solid var(--bd2);overflow:hidden;padding:11px 0}
 .ticker-track{display:flex;gap:52px;animation:ticker 32s linear infinite;width:max-content}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
@@ -34,7 +34,7 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 @media(max-width:700px){.stats-row{grid-template-columns:1fr 1fr}}
 .stat-item{background:var(--s1);border:1px solid var(--bd);border-radius:8px;padding:18px 20px;text-align:center}
 .stat-num{font-family:'Bebas Neue',sans-serif;font-size:38px;line-height:1;margin-bottom:4px}
-.stat-label{font-size:12px;color:var(--txm);letter-spacing:1px}
+.stat-label{font-size:12px;color:#8888aa;letter-spacing:1px}
 .genres{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:64px 24px 0}
 .genres-title{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:6px;color:var(--txm);text-align:center;margin-bottom:40px}
 .genre-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:20px}
@@ -48,7 +48,7 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .gc-label{font-size:10px;letter-spacing:4px;margin-bottom:12px;font-family:'Bebas Neue',sans-serif}
 .gc-dt .gc-label{color:var(--c)}.gc-nisa .gc-label{color:var(--g)}.gc-macro .gc-label{color:var(--y)}
 .gc-title{font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:3px;color:#fff;line-height:1;margin-bottom:12px}
-.gc-desc{font-size:13.5px;color:var(--txd);line-height:1.85}
+.gc-desc{font-size:13.5px;color:#c4c8e0;line-height:1.85}
 .gc-pages{padding:20px 28px 26px}
 .gc-pages-label{font-size:10px;letter-spacing:2px;color:var(--txm);margin-bottom:12px}
 .gc-links{display:flex;flex-direction:column;gap:7px}
@@ -58,7 +58,7 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .gc-link-icon{font-size:15px;flex-shrink:0}
 .gc-link-body{flex:1}
 .gc-link-name{font-size:13.5px;color:var(--tx);font-weight:400;display:block;line-height:1.3}
-.gc-link-sub{font-size:11.5px;color:var(--txm);margin-top:1px;display:block}
+.gc-link-sub{font-size:11.5px;color:#8888aa;margin-top:1px;display:block}
 .gc-link-arr{font-size:11px;color:var(--txm);flex-shrink:0;transition:transform .18s}
 .gc-link:hover .gc-link-arr{transform:translateX(3px);color:var(--txd)}
 .gloss-banner{position:relative;z-index:1;max-width:1100px;margin:4px auto 0;padding:0 24px}
@@ -68,7 +68,7 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .gb-body{flex:1}
 .gb-label{font-size:10px;letter-spacing:4px;color:var(--p);font-family:'Bebas Neue',sans-serif;margin-bottom:6px}
 .gb-title{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:3px;color:#fff;margin-bottom:6px}
-.gb-desc{font-size:14px;color:var(--txd);line-height:1.8}
+.gb-desc{font-size:14px;color:#c4c8e0;line-height:1.8}
 .gb-arr{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;color:var(--p);flex-shrink:0;transition:transform .2s}
 .gb-inner:hover .gb-arr{transform:translateX(5px)}
 @media(max-width:600px){.gb-inner{flex-wrap:wrap}.gb-arr{display:none}}
@@ -123,7 +123,7 @@ footer{position:relative;z-index:1;margin-top:80px;background:var(--s1);border-t
 </div>
 <div class="stats-row">
   <div class="stat-item"><div class="stat-num" style="color:var(--c)">3</div><div class="stat-label">主要ジャンル</div></div>
-  <div class="stat-item"><div class="stat-num" style="color:var(--g)">14</div><div class="stat-label">総ページ数</div></div>
+  <div class="stat-item"><div class="stat-num" style="color:var(--g)">11</div><div class="stat-label">総ページ数</div></div>
   <div class="stat-item"><div class="stat-num" style="color:var(--y)">200<span style="font-size:20px">+</span></div><div class="stat-label">収録用語数</div></div>
   <div class="stat-item"><div class="stat-num" style="color:var(--p)">1</div><div class="stat-label">取引管理ツール</div></div>
 </div>
@@ -141,13 +141,10 @@ footer{position:relative;z-index:1;margin-top:80px;background:var(--s1);border-t
         <div class="gc-pages-label">PAGES IN THIS CATEGORY</div>
         <div class="gc-links">
           <a href="daytrade-basics.html" class="gc-link"><span class="gc-link-icon">📊</span><span class="gc-link-body"><span class="gc-link-name">基礎・テクニカル分析</span><span class="gc-link-sub">板読み・チャート・指標・パターン</span></span><span class="gc-link-arr">→</span></a>
-          <a href="daytrade-advanced.html" class="gc-link"><span class="gc-link-icon">⚡</span><span class="gc-link-body"><span class="gc-link-name">応用テクニカル・売買手法</span><span class="gc-link-sub">ローソク足・MA・オシレーター・空売り・出来高</span></span><span class="gc-link-arr">→</span></a>
-          <a href="daytrade-board.html" class="gc-link"><span class="gc-link-icon">📋</span><span class="gc-link-body"><span class="gc-link-name">板読み完全ガイド</span><span class="gc-link-sub">気配値・歩み値・見せ板・注文の使い分け</span></span><span class="gc-link-arr">→</span></a>
-          <a href="daytrade-strategy.html" class="gc-link"><span class="gc-link-icon">🎯</span><span class="gc-link-body"><span class="gc-link-name">戦略ブック</span><span class="gc-link-sub">KPI・ルール・半導体／重工エントリー型</span></span><span class="gc-link-arr">→</span></a>
+          <a href="daytrade-advanced.html" class="gc-link"><span class="gc-link-icon">⚡</span><span class="gc-link-body"><span class="gc-link-name">信用取引・税金・マーケット</span><span class="gc-link-sub">レバレッジ・確定申告・リアルタイム株価</span></span><span class="gc-link-arr">→</span></a>
+          <a href="daytrade-strategy.html" class="gc-link"><span class="gc-link-icon">📋</span><span class="gc-link-body"><span class="gc-link-name">戦略ブック</span><span class="gc-link-sub">KPI・ルール・半導体／重工エントリー型</span></span><span class="gc-link-arr">→</span></a>
           <a href="daytrade-journal.html" class="gc-link"><span class="gc-link-icon">📓</span><span class="gc-link-body"><span class="gc-link-name">日誌・検証ログ</span><span class="gc-link-sub">日次テンプレ・PDCA・月次レビュー</span></span><span class="gc-link-arr">→</span></a>
           <a href="daytrade-tool.html" class="gc-link"><span class="gc-link-icon">⚙️</span><span class="gc-link-body"><span class="gc-link-name">取引管理ツール</span><span class="gc-link-sub">自動計算・損益記録・エクイティカーブ</span></span><span class="gc-link-arr">→</span></a>
-          <a href="daytrade-tax.html" class="gc-link"><span class="gc-link-icon">💴</span><span class="gc-link-body"><span class="gc-link-name">税金・確定申告</span><span class="gc-link-sub">申告分離課税・損益通算・節税ポイント</span></span><span class="gc-link-arr">→</span></a>
-          <a href="daytrade-mistakes.html" class="gc-link"><span class="gc-link-icon">⚠️</span><span class="gc-link-body"><span class="gc-link-name">よくある失敗パターン集</span><span class="gc-link-sub">FOMO・ナンピン・損切り・過剰トレード</span></span><span class="gc-link-arr">→</span></a>
           <a href="daytrade-glossary.html" class="gc-link"><span class="gc-link-icon">📖</span><span class="gc-link-body"><span class="gc-link-name">デイトレード用語集</span><span class="gc-link-sub">テクニカル・注文・心理 80語+</span></span><span class="gc-link-arr">→</span></a>
         </div>
       </div>
