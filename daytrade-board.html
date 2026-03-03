@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>板読み完全ガイド | 株式投資ガイド</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050507;--s1:#0d0d16;--s2:#141420;--s3:#1c1c2a;--s4:#22222e;--c:#00d4ff;--g:#00e87d;--r:#ff3358;--y:#ffd600;--p:#b06aff;--o:#ff8c42;--teal:#00c9a7;--tx:#e8eaf6;--txm:#64648a;--txd:#9696b8;--bd:rgba(255,255,255,0.07);--bd2:rgba(255,255,255,0.13);--fs-base:15px;--lh:1.85}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:var(--fs-base)}
+body{background:var(--bg);color:var(--tx);font-family:'Noto Sans JP',sans-serif;font-weight:300;line-height:var(--lh);overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 55px,rgba(0,212,255,0.015) 55px,rgba(0,212,255,0.015) 56px),repeating-linear-gradient(90deg,transparent,transparent 55px,rgba(0,212,255,0.015) 55px,rgba(0,212,255,0.015) 56px);pointer-events:none;z-index:0}
+ruby{ruby-align:center}rt{font-size:.55em;color:var(--txd);letter-spacing:.5px}
+.sitenav{position:sticky;top:0;z-index:300;background:rgba(5,5,7,0.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--bd2)}
+.sitenav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;height:52px;padding:0 24px;gap:0}
+.site-logo{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:5px;color:var(--c);margin-right:8px;flex-shrink:0;text-decoration:none;display:flex;align-items:center;gap:6px}
+.logo-arr{font-size:11px;color:var(--txm)}
+.nav-div{width:1px;height:20px;background:var(--bd2);margin:0 10px;flex-shrink:0}
+.snlinks{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1}
+.snlinks::-webkit-scrollbar{display:none}
+.snl{font-size:11px;letter-spacing:1px;padding:6px 13px;color:var(--txm);border-radius:4px;text-decoration:none;white-space:nowrap;transition:all .2s;border:1px solid transparent;font-weight:400}
+.snl:hover{color:var(--tx);background:rgba(255,255,255,0.05)}
+.snl.cur{color:var(--c);border-color:rgba(0,212,255,0.2);background:rgba(0,212,255,0.06)}
+.ng{font-size:9px;letter-spacing:2px;color:var(--txm);padding:0 6px;opacity:.6;white-space:nowrap;display:flex;align-items:center}
+.page-nav{position:relative;z-index:1;border-bottom:1px solid var(--bd2);background:var(--s1)}
+.page-nav-inner{max-width:1100px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none;height:44px;padding:0 24px}
+.page-nav-inner::-webkit-scrollbar{display:none}
+.pnl{font-size:11.5px;letter-spacing:1px;padding:0 14px;color:var(--txm);text-decoration:none;display:flex;align-items:center;white-space:nowrap;border-bottom:2px solid transparent;transition:all .18s}
+.pnl:hover{color:var(--c);border-color:var(--c)}
+.hero{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:56px 24px 44px}
+.hero-tag{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:6px;color:var(--c);opacity:.7;margin-bottom:14px}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,9vw,104px);line-height:1;background:linear-gradient(135deg,#fff 10%,var(--c) 65%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
+.hero-sub{font-size:13px;letter-spacing:3px;color:var(--txm);margin-bottom:22px}
+.hero-desc{font-size:15px;color:#c4c8e0;max-width:680px;line-height:2}
+.hero-stats{display:flex;gap:32px;margin-top:32px;flex-wrap:wrap}
+.hstat{text-align:center}
+.hstat-n{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--c);line-height:1}
+.hstat-l{font-size:10px;letter-spacing:2px;color:var(--txm);margin-top:4px}
+.main{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 24px 120px}
+section{padding-top:40px;margin-bottom:72px}
+.shdr{display:flex;align-items:flex-end;gap:14px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--bd2)}
+.shdr-n{font-family:'Bebas Neue',sans-serif;font-size:52px;line-height:1;opacity:.18;flex-shrink:0}
+.shdr-body{flex:1}
+.shdr-t{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:4px;color:#fff;line-height:1}
+.shdr-s{font-size:11px;color:var(--txm);letter-spacing:3px;margin-top:4px}
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:8px;padding:26px 30px;margin-bottom:16px}
+.card-c{border-left:4px solid var(--c)}.card-g{border-left:4px solid var(--g)}.card-y{border-left:4px solid var(--y)}.card-r{border-left:4px solid var(--r)}.card-p{border-left:4px solid var(--p)}.card-o{border-left:4px solid var(--o)}
+.tag{display:inline-block;font-size:10px;letter-spacing:2px;padding:3px 10px;border-radius:3px;margin-bottom:10px}
+.tag-c{background:rgba(0,212,255,0.1);color:var(--c)}.tag-g{background:rgba(0,232,125,0.1);color:var(--g)}.tag-y{background:rgba(255,214,0,0.1);color:var(--y)}.tag-r{background:rgba(255,51,88,0.1);color:var(--r)}.tag-p{background:rgba(176,106,255,0.1);color:var(--p)}
+.term{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;margin-bottom:8px}
+.body-text{font-size:15px;color:#c0c4dc;line-height:1.95}
+.body-text b{color:#e8eaf6;font-weight:500}
+.body-text strong{color:var(--c);font-weight:500}
+.body-text .warn{color:var(--r)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.g2,.g3{grid-template-columns:1fr}}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0}
+.tbl th{background:rgba(0,212,255,0.07);color:var(--c);font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:2px;padding:12px 16px;text-align:left;border:1px solid var(--bd2);font-weight:400}
+.tbl td{padding:12px 16px;border:1px solid var(--bd);color:#c0c4dc;line-height:1.75;vertical-align:top;font-size:14px}
+.tbl tr:hover td{background:rgba(255,255,255,0.02)}
+.td-c{color:var(--c);font-weight:500}.td-g{color:var(--g);font-weight:500}.td-r{color:var(--r)}.td-y{color:var(--y)}
+.tip{background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.18);border-left:4px solid var(--c);border-radius:5px;padding:18px 22px;margin:16px 0;font-size:14.5px;color:#c0c4dc;line-height:1.95}
+.tip-t{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:3px;color:var(--c);margin-bottom:7px}
+.tip-g{background:rgba(0,232,125,0.05);border-color:rgba(0,232,125,0.18);border-left-color:var(--g)}.tip-g .tip-t{color:var(--g)}
+.tip-y{background:rgba(255,214,0,0.05);border-color:rgba(255,214,0,0.18);border-left-color:var(--y)}.tip-y .tip-t{color:var(--y)}
+.alert{background:rgba(255,51,88,0.06);border:1px solid rgba(255,51,88,0.2);border-left:4px solid var(--r);border-radius:5px;padding:18px 22px;margin:16px 0;font-size:14.5px;color:#c0c4dc;line-height:1.95}
+.alert-t{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:3px;color:var(--r);margin-bottom:7px}
+.chk{list-style:none;display:flex;flex-direction:column;gap:10px;margin:12px 0}
+.chk li{font-size:14.5px;color:#c0c4dc;display:flex;gap:10px;align-items:flex-start;line-height:1.75}
+.chk li::before{content:'✓';color:var(--c);font-weight:700;flex-shrink:0;margin-top:1px}
+.chk li.no::before{content:'✗';color:var(--r)}
+.chk li.warn::before{content:'!';color:var(--y)}
+/* 板専用 */
+.board-demo{background:var(--s3);border:1px solid var(--bd2);border-radius:10px;overflow:hidden;margin:16px 0;font-family:'JetBrains Mono',monospace}
+.board-header{display:grid;grid-template-columns:1fr 80px 1fr;background:rgba(0,212,255,0.08);padding:10px 16px;font-size:11px;letter-spacing:2px;color:var(--txm);text-align:center}
+.board-row{display:grid;grid-template-columns:1fr 80px 1fr;padding:7px 16px;border-top:1px solid var(--bd);font-size:14px;align-items:center}
+.board-row:hover{background:rgba(255,255,255,0.02)}
+.board-row.current{background:rgba(0,212,255,0.06);border-top:2px solid rgba(0,212,255,0.3);border-bottom:2px solid rgba(0,212,255,0.3)}
+.sell-vol{text-align:right;color:var(--r)}
+.price-cell{text-align:center;color:#e8eaf6;font-weight:500}
+.price-cell.current-price{color:var(--c);font-size:16px}
+.buy-vol{text-align:left;color:var(--g)}
+.bar-row{display:grid;grid-template-columns:1fr 80px 1fr;padding:4px 16px;align-items:center}
+.sell-bar-wrap{display:flex;justify-content:flex-end}
+.sell-bar{height:6px;background:rgba(255,51,88,0.4);border-radius:2px;transition:width .3s}
+.buy-bar{height:6px;background:rgba(0,232,125,0.4);border-radius:2px;transition:width .3s}
+.ayumi-demo{background:var(--s3);border:1px solid var(--bd2);border-radius:10px;overflow:hidden;margin:16px 0;font-family:'JetBrains Mono',monospace}
+.ayumi-header{display:grid;grid-template-columns:100px 100px 80px 80px 80px;padding:10px 16px;font-size:11px;letter-spacing:2px;color:var(--txm);background:rgba(0,212,255,0.08)}
+.ayumi-row{display:grid;grid-template-columns:100px 100px 80px 80px 80px;padding:7px 16px;border-top:1px solid var(--bd);font-size:13px}
+.ay-time{color:var(--txm)}
+.ay-price-up{color:var(--g)}.ay-price-dn{color:var(--r)}.ay-price-nc{color:var(--tx)}
+.ay-vol{color:var(--y)}
+.ay-type-buy{color:var(--g);font-size:11px;letter-spacing:1px}
+.ay-type-sell{color:var(--r);font-size:11px;letter-spacing:1px}
+.bignum-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;margin:16px 0}
+.bignum-box{background:var(--s2);border:1px solid var(--bd);border-radius:8px;padding:20px 22px;position:relative;overflow:hidden}
+.bignum-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.bn-c::before{background:var(--c)}.bn-g::before{background:var(--g)}.bn-y::before{background:var(--y)}.bn-r::before{background:var(--r)}.bn-p::before{background:var(--p)}
+.bn-label{font-size:11px;letter-spacing:2px;color:var(--txm);margin-bottom:8px}
+.bn-val{font-family:'Bebas Neue',sans-serif;font-size:32px;line-height:1;margin-bottom:4px}
+.bn-c .bn-val{color:var(--c)}.bn-g .bn-val{color:var(--g)}.bn-y .bn-val{color:var(--y)}.bn-r .bn-val{color:var(--r)}.bn-p .bn-val{color:var(--p)}
+.bn-sub{font-size:12px;color:var(--txm);line-height:1.6}
+.divider{border:none;border-top:1px solid var(--bd);margin:56px 0;position:relative}
+.divider::after{content:'◆';position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 14px;color:var(--txm);font-size:9px;letter-spacing:4px}
+</style>
+</head>
+<body>
+
+<nav class="sitenav">
+  <div class="sitenav-inner">
+    <a href="index.html" class="site-logo"><span class="logo-arr">←</span>TOP</a>
+    <div class="nav-div"></div>
+    <div class="snlinks">
+      <span class="ng">DAYTRADE</span>
+      <a href="daytrade-basics.html" class="snl">基礎</a>
+      <a href="daytrade-advanced.html" class="snl">応用</a>
+      <a href="daytrade-board.html" class="snl cur">板読み</a>
+      <a href="daytrade-strategy.html" class="snl">戦略</a>
+      <a href="daytrade-tool.html" class="snl">ツール</a>
+      <a href="daytrade-journal.html" class="snl">日誌</a>
+      <a href="daytrade-tax.html" class="snl">税金</a>
+      <a href="daytrade-mistakes.html" class="snl">失敗集</a>
+      <a href="daytrade-glossary.html" class="snl">用語</a>
+      <span class="ng">NISA</span>
+      <a href="nisa-guide.html" class="snl">ガイド</a>
+      <a href="nisa-glossary.html" class="snl">用語</a>
+      <span class="ng">MACRO</span>
+      <a href="macro-guide.html" class="snl">ガイド</a>
+      <a href="macro-glossary.html" class="snl">用語</a>
+      <span class="ng">ALL</span>
+      <a href="glossary-all.html" class="snl">全用語集</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-nav">
+  <div class="page-nav-inner">
+    <a href="#s-board" class="pnl">板の構造</a>
+    <a href="#s-read" class="pnl">板の読み方</a>
+    <a href="#s-order" class="pnl">注文タイプ</a>
+    <a href="#s-ayumi" class="pnl">歩み値</a>
+    <a href="#s-pressure" class="pnl">板圧・見せ板</a>
+    <a href="#s-open" class="pnl">寄り付きの板</a>
+    <a href="#s-practice" class="pnl">実践テクニック</a>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-tag">DAYTRADE — BOARD READING</div>
+  <div class="hero-title">BOARD</div>
+  <div class="hero-sub">板読み・気配値・歩み値 完全ガイド</div>
+  <p class="hero-desc">
+    チャートが「過去」を見るツールなら、板は「今この瞬間」の需給を映すツール。<br>
+    板読みを身につけることでエントリー・イグジットの精度が飛躍的に上がります。
+  </p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-n">7</div><div class="hstat-l">SECTIONS</div></div>
+    <div class="hstat"><div class="hstat-n" style="color:var(--g)">需給</div><div class="hstat-l">REAL-TIME</div></div>
+    <div class="hstat"><div class="hstat-n" style="color:var(--y)">実践</div><div class="hstat-l">FOCUS</div></div>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- 01 板の構造 -->
+<section id="s-board">
+  <div class="shdr">
+    <div class="shdr-n">01</div>
+    <div class="shdr-body">
+      <div class="shdr-t">BOARD STRUCTURE</div>
+      <div class="shdr-s">板（気配値）の構造を理解する</div>
+    </div>
+  </div>
+
+  <div class="card card-c">
+    <div class="tag tag-c">BASICS</div>
+    <div class="body-text">
+      板とは、現在その銘柄に出されている<b>買い注文・売り注文の一覧表</b>。
+      各価格に何株の注文が積まれているかがリアルタイムで見える。
+      板を見ることで「どの価格に抵抗があるか」「買い方と売り方どちらが強いか」が直感的に把握できる。
+    </div>
+  </div>
+
+  <div class="board-demo">
+    <div class="board-header">
+      <div>売り注文数量（株）</div>
+      <div>価格（円）</div>
+      <div>買い注文数量（株）</div>
+    </div>
+    <div class="board-row">
+      <div class="sell-vol">3,200</div><div class="price-cell">2,560</div><div class="buy-vol"></div>
+    </div>
+    <div class="bar-row">
+      <div class="sell-bar-wrap"><div class="sell-bar" style="width:64%"></div></div><div></div><div></div>
+    </div>
+    <div class="board-row">
+      <div class="sell-vol">1,800</div><div class="price-cell">2,555</div><div class="buy-vol"></div>
+    </div>
+    <div class="bar-row">
+      <div class="sell-bar-wrap"><div class="sell-bar" style="width:36%"></div></div><div></div><div></div>
+    </div>
+    <div class="board-row">
+      <div class="sell-vol">4,500</div><div class="price-cell">2,550</div><div class="buy-vol"></div>
+    </div>
+    <div class="bar-row">
+      <div class="sell-bar-wrap"><div class="sell-bar" style="width:90%"></div></div><div></div><div></div>
+    </div>
+    <div class="board-row current">
+      <div class="sell-vol" style="color:var(--txm)">——</div>
+      <div class="price-cell current-price">2,548 ▲</div>
+      <div class="buy-vol" style="color:var(--txm)">——</div>
+    </div>
+    <div class="board-row">
+      <div class="sell-vol"></div><div class="price-cell">2,545</div><div class="buy-vol">5,000</div>
+    </div>
+    <div class="bar-row">
+      <div></div><div></div><div><div class="buy-bar" style="width:100%"></div></div>
+    </div>
+    <div class="board-row">
+      <div class="sell-vol"></div><div class="price-cell">2,540</div><div class="buy-vol">2,200</div>
+    </div>
+    <div class="bar-row">
+      <div></div><div></div><div><div class="buy-bar" style="width:44%"></div></div>
+    </div>
+    <div class="board-row">
+      <div class="sell-vol"></div><div class="price-cell">2,535</div><div class="buy-vol">800</div>
+    </div>
+    <div class="bar-row">
+      <div></div><div></div><div><div class="buy-bar" style="width:16%"></div></div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card card-r">
+      <div class="tag tag-r">売り板（上側）</div>
+      <div class="term">Ask（アスク）</div>
+      <div class="body-text">現在値より高い価格に並ぶ売り注文群。最も安い売り注文を<b>最良売り気配（ベストアスク）</b>という。成行買いはここで約定する。</div>
+    </div>
+    <div class="card card-g">
+      <div class="tag tag-g">買い板（下側）</div>
+      <div class="term">Bid（ビッド）</div>
+      <div class="body-text">現在値より低い価格に並ぶ買い注文群。最も高い買い注文を<b>最良買い気配（ベストビッド）</b>という。成行売りはここで約定する。</div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 板の読み方 -->
+<section id="s-read">
+  <div class="shdr">
+    <div class="shdr-n">02</div>
+    <div class="shdr-body">
+      <div class="shdr-t">HOW TO READ</div>
+      <div class="shdr-s">板から需給を読む</div>
+    </div>
+  </div>
+
+  <table class="tbl">
+    <tr><th>板の状態</th><th>意味</th><th>価格への影響</th></tr>
+    <tr><td>売り板が薄い（少ない）</td><td class="td-g">売り方の抵抗が弱い</td><td>価格が上昇しやすい</td></tr>
+    <tr><td>売り板が厚い（多い）</td><td class="td-r">強いレジスタンス</td><td>その価格で頭を抑えられやすい</td></tr>
+    <tr><td>買い板が薄い（少ない）</td><td class="td-r">買い方の支えが弱い</td><td>価格が下落しやすい</td></tr>
+    <tr><td>買い板が厚い（多い）</td><td class="td-g">強いサポート</td><td>その価格で下げ止まりやすい</td></tr>
+    <tr><td>売り板＞買い板（大幅）</td><td class="td-r">売り方優勢</td><td>短期的に下落圧力</td></tr>
+    <tr><td>買い板＞売り板（大幅）</td><td class="td-g">買い方優勢</td><td>短期的に上昇圧力</td></tr>
+  </table>
+
+  <div class="card card-y">
+    <div class="tag tag-y">実践</div>
+    <div class="term">板の厚みで「壁」を見つける</div>
+    <div class="body-text">
+      特定の価格に<b>他と比べて極端に多い注文</b>がある場合、それは「板の壁」。
+      例：2,550円に4,500株の売り→ここを抜けるには強い買い圧力が必要。抜けた瞬間に急騰しやすい。
+      逆に2,545円に5,000株の買い→強いサポートラインとして機能。
+    </div>
+  </div>
+</section>
+
+<!-- 03 注文タイプ -->
+<section id="s-order">
+  <div class="shdr">
+    <div class="shdr-n">03</div>
+    <div class="shdr-body">
+      <div class="shdr-t">ORDER TYPES</div>
+      <div class="shdr-s">注文の種類と板への影響</div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card card-c">
+      <div class="tag tag-c">指値注文</div>
+      <div class="term">Limit Order</div>
+      <div class="body-text">
+        「〇〇円で買いたい（売りたい）」と価格を指定する注文。<b>板に表示される</b>。
+        約定を確実にしたい時は不向きだが、<strong>スリッページ（価格ズレ）がない</strong>のが利点。
+        デイトレでのエントリー・イグジットの基本は指値。
+      </div>
+    </div>
+    <div class="card card-y">
+      <div class="tag tag-y">成行注文</div>
+      <div class="term">Market Order</div>
+      <div class="body-text">
+        価格を指定せず<b>今すぐ約定</b>させる注文。板には表示されず、すぐに最良気配で約定する。
+        約定は確実だが<span style="color:var(--r);font-weight:500">スリッページのリスク</span>がある。
+        板が薄い銘柄や急騰・急落時は思わぬ価格で約定することも。
+      </div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card card-g">
+      <div class="tag tag-g">逆指値注文</div>
+      <div class="term">Stop Order</div>
+      <div class="body-text">
+        「〇〇円になったら注文執行」という条件付き注文。<b>損切りの自動化</b>に必須。
+        例：2,500円で買い→2,480円の逆指値売りを同時に設定。板には通常表示されない。
+      </div>
+    </div>
+    <div class="card card-p">
+      <div class="tag tag-p">IFD・OCO・IFDOCO</div>
+      <div class="term">複合注文</div>
+      <div class="body-text">
+        <b>IFD</b>：エントリーが約定したら自動で利確・損切りを発注。<br>
+        <b>OCO</b>：2つの注文を同時に出し、一方が約定したら他方を自動キャンセル。<br>
+        <b>IFDOCO</b>：上記を組み合わせた自動化の完成形。
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-t">板薄銘柄の成行注文は危険</div>
+    出来高が少ない銘柄で成行注文を出すと、板の注文を「食い尽くして」大幅なスリッページが発生することがある。
+    <b>1日の出来高が100万株未満の銘柄では成行を避け、指値を使う</b>のが基本。
+  </div>
+</section>
+
+<!-- 04 歩み値 -->
+<section id="s-ayumi">
+  <div class="shdr">
+    <div class="shdr-n">04</div>
+    <div class="shdr-body">
+      <div class="shdr-t">TIME & SALES</div>
+      <div class="shdr-s">歩み値で約定の流れを読む</div>
+    </div>
+  </div>
+
+  <div class="card card-c">
+    <div class="tag tag-c">CONCEPT</div>
+    <div class="body-text">
+      歩み値（Time & Sales）は<b>実際に約定した取引の時系列記録</b>。
+      板が「注文の意図」を示すのに対し、歩み値は「実際に起きた取引」を示す。
+      価格の方向・勢い・売り買いどちらが積極的かを把握できる。
+    </div>
+  </div>
+
+  <div class="ayumi-demo">
+    <div class="ayumi-header">
+      <div>時刻</div><div>価格（円）</div><div>数量</div><div>変化</div><div>売買</div>
+    </div>
+    <div class="ayumi-row">
+      <div class="ay-time">10:23:41</div><div class="ay-price-up">2,548</div><div class="ay-vol">3,000</div><div style="color:var(--g)">▲3</div><div class="ay-type-buy">買い</div>
+    </div>
+    <div class="ayumi-row">
+      <div class="ay-time">10:23:38</div><div class="ay-price-up">2,545</div><div class="ay-vol">1,500</div><div style="color:var(--g)">▲2</div><div class="ay-type-buy">買い</div>
+    </div>
+    <div class="ayumi-row">
+      <div class="ay-time">10:23:35</div><div class="ay-price-nc">2,543</div><div class="ay-vol">500</div><div style="color:var(--txm)">±0</div><div class="ay-type-sell">売り</div>
+    </div>
+    <div class="ayumi-row">
+      <div class="ay-time">10:23:32</div><div class="ay-price-up">2,543</div><div class="ay-vol">4,200</div><div style="color:var(--g)">▲5</div><div class="ay-type-buy">買い</div>
+    </div>
+    <div class="ayumi-row">
+      <div class="ay-time">10:23:28</div><div class="ay-price-dn">2,538</div><div class="ay-vol">800</div><div style="color:var(--r)">▼1</div><div class="ay-type-sell">売り</div>
+    </div>
+    <div class="ayumi-row">
+      <div class="ay-time">10:23:25</div><div class="ay-price-dn">2,539</div><div class="ay-vol">2,100</div><div style="color:var(--r)">▼3</div><div class="ay-type-sell">売り</div>
+    </div>
+  </div>
+
+  <table class="tbl">
+    <tr><th>歩み値のパターン</th><th>読み取れること</th></tr>
+    <tr><td>大量の買い約定が連続</td><td class="td-g">強い買いの勢い。機関・仕手が買っている可能性</td></tr>
+    <tr><td>小口の売り約定が断続的</td><td class="td-y">個人の利確売り。トレンドは継続しやすい</td></tr>
+    <tr><td>大量の売り約定が突然</td><td class="td-r">大口が手仕舞い。天井のシグナルになりやすい</td></tr>
+    <tr><td>高値圏で買いと売りが交互</td><td>攻防中。どちらか勝つと大きく動く</td></tr>
+    <tr><td>約定が急減（疎ら）</td><td class="td-y">参加者が減少。動きが止まりやすい</td></tr>
+  </table>
+</section>
+
+<!-- 05 板圧・見せ板 -->
+<section id="s-pressure">
+  <div class="shdr">
+    <div class="shdr-n">05</div>
+    <div class="shdr-body">
+      <div class="shdr-t">PRESSURE & SPOOFING</div>
+      <div class="shdr-s">板圧の読み方と見せ板の見抜き方</div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card card-c">
+      <div class="tag tag-c">概念</div>
+      <div class="term">板圧（オーダーフロー）</div>
+      <div class="body-text">
+        買い板と売り板の<b>数量の比率</b>から需給の強さを読む手法。
+        買い板の総数量が売り板を大きく上回っている→短期的に上昇しやすい。
+        ただし板の注文が全て本物とは限らない点に注意。
+      </div>
+    </div>
+    <div class="card card-r">
+      <div class="tag tag-r">罠</div>
+      <div class="term">見せ板（スプーフィング）</div>
+      <div class="body-text">
+        大量の注文を板に並べて<b>相場参加者を誘導し、約定直前にキャンセル</b>する行為。
+        「大量の買い板があるから上がりそう」と思わせて、逆に売り抜ける罠。
+        法律違反だが市場で実際に起きている。対策は板の変化スピードを見ること。
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-y">
+    <div class="tag tag-y">見分け方</div>
+    <div class="term">本物の板 vs 見せ板</div>
+    <div class="body-text">
+      <b>本物の板の特徴：</b>価格が近づいても消えない。約定時に実際に数量が減る。<br>
+      <b>見せ板の特徴：</b>価格が近づくと突然消える。何度も現れては消える。
+      全て消えたと思ったら違う価格にまた大量注文が出る。<br><br>
+      板読みを信じすぎず、<strong>歩み値（実際の約定）と組み合わせて判断する</strong>のが正しいアプローチ。
+    </div>
+  </div>
+</section>
+
+<!-- 06 寄り付きの板 -->
+<section id="s-open">
+  <div class="shdr">
+    <div class="shdr-n">06</div>
+    <div class="shdr-body">
+      <div class="shdr-t">MARKET OPEN</div>
+      <div class="shdr-s">寄り付き前の板の読み方</div>
+    </div>
+  </div>
+
+  <div class="card card-c">
+    <div class="tag tag-c">開場前</div>
+    <div class="body-text">
+      東証の開場は9:00。開場前（8:00〜9:00）の板を<b>「板寄せ前の気配」</b>といい、
+      売り・買いの注文が集まりながら<b>「特別気配（ストップ気配）」</b>が形成される。
+      寄り付きの方向・強さを事前に把握できる重要な時間帯。
+    </div>
+  </div>
+
+  <table class="tbl">
+    <tr><th>寄り前の板の状態</th><th>意味</th><th>開場後の展開</th></tr>
+    <tr><td class="td-g">買い気配（買いが上回る）</td><td>需要過多。高く寄り付く</td><td>ギャップアップスタート。追いかけは要注意</td></tr>
+    <tr><td class="td-r">売り気配（売りが上回る）</td><td>供給過多。安く寄り付く</td><td>ギャップダウンスタート。ショート有利な局面</td></tr>
+    <tr><td>買いと売りが均衡</td><td>前日終値近辺で寄り付く</td><td>方向性はオープン後の流れを見てから判断</td></tr>
+    <tr><td class="td-r">特別売り気配（ストップ安方向）</td><td>売りが極端に多い</td><td>ストップ安寄りつきの可能性。その日は避けた方が無難</td></tr>
+  </table>
+
+  <div class="tip tip-y">
+    <div class="tip-t">寄り付き直後は慎重に</div>
+    9:00〜9:15の15分間は板が荒れやすく、方向感が定まらない。経験者でも
+    <b>9:15〜9:30以降に落ち着いてからエントリー</b>する人が多い。
+    板読みが慣れない初期は寄り付き直後を避けることも選択肢。
+  </div>
+</section>
+
+<!-- 07 実践テクニック -->
+<section id="s-practice">
+  <div class="shdr">
+    <div class="shdr-n">07</div>
+    <div class="shdr-body">
+      <div class="shdr-t">PRACTICE TIPS</div>
+      <div class="shdr-s">板読みを実践で使うテクニック</div>
+    </div>
+  </div>
+
+  <div class="g3">
+    <div class="card card-g">
+      <div class="tag tag-g">エントリー精度</div>
+      <div class="term">板でエントリー価格を最適化</div>
+      <div class="body-text">「2,545円の買い板が5,000株ある」→2,546円で指値買いを入れると、サポートすぐ上での買いができる。被弾リスクを最小化した合理的なエントリー。</div>
+    </div>
+    <div class="card card-c">
+      <div class="tag tag-c">突破判断</div>
+      <div class="term">壁が消えたらブレイク確認</div>
+      <div class="body-text">2,550円の大量売り板が約定で消えた→需要が供給を上回った証拠。歩み値に大量買いが続くなら上方向のブレイクを確認してエントリー検討。</div>
+    </div>
+    <div class="card card-y">
+      <div class="tag tag-y">イグジット判断</div>
+      <div class="term">大量売り板が出たら利確検討</div>
+      <div class="body-text">持ちポジションの上に突然大量の売り板が現れた→誰かが大きく売り抜けようとしている可能性。利確のタイミングのひとつ。</div>
+    </div>
+  </div>
+
+  <div class="alert">
+    <div class="alert-t">板読みは補助ツールに過ぎない</div>
+    板読みだけでトレードするのは上級者でも難しい。<b>チャート（テクニカル）と板を組み合わせて</b>使うのが現実的。
+    「チャートで方向を決め、板でタイミングを微調整する」が実践的な使い方。
+    最初は板を見ながら取引を何十回も眺めることで感覚を養うことが大切。
+  </div>
+</section>
+
+</div>
+</body>
+</html>

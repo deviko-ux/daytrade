@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>信用取引・税金・確定申告 完全ガイド | 株式投資ガイド</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050507;--s1:#0d0d16;--s2:#141420;--s3:#1c1c2a;--s4:#22222e;--c:#00d4ff;--g:#00e87d;--r:#ff3358;--y:#ffd600;--p:#b06aff;--o:#ff8c42;--teal:#00c9a7;--tx:#e8eaf6;--txm:#64648a;--txd:#9696b8;--bd:rgba(255,255,255,0.07);--bd2:rgba(255,255,255,0.13);--fs-base:15px;--lh:1.85}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:var(--fs-base)}
+body{background:var(--bg);color:var(--tx);font-family:'Noto Sans JP',sans-serif;font-weight:300;line-height:var(--lh);overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 55px,rgba(0,212,255,0.015) 55px,rgba(0,212,255,0.015) 56px),repeating-linear-gradient(90deg,transparent,transparent 55px,rgba(0,212,255,0.015) 55px,rgba(0,212,255,0.015) 56px);pointer-events:none;z-index:0}
+ruby{ruby-align:center}rt{font-size:.55em;color:var(--txd);letter-spacing:.5px}
+.sitenav{position:sticky;top:0;z-index:300;background:rgba(5,5,7,0.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--bd2)}
+.sitenav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;height:52px;padding:0 24px;gap:0}
+.site-logo{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:5px;color:var(--c);margin-right:8px;flex-shrink:0;text-decoration:none;display:flex;align-items:center;gap:6px}
+.logo-arr{font-size:11px;color:var(--txm)}
+.nav-div{width:1px;height:20px;background:var(--bd2);margin:0 10px;flex-shrink:0}
+.snlinks{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1}
+.snlinks::-webkit-scrollbar{display:none}
+.snl{font-size:11px;letter-spacing:1px;padding:6px 13px;color:var(--txm);border-radius:4px;text-decoration:none;white-space:nowrap;transition:all .2s;border:1px solid transparent;font-weight:400}
+.snl:hover{color:var(--tx);background:rgba(255,255,255,0.05)}
+.snl.cur{color:var(--c);border-color:rgba(0,212,255,0.2);background:rgba(0,212,255,0.06)}
+.ng{font-size:9px;letter-spacing:2px;color:var(--txm);padding:0 6px;opacity:.6;white-space:nowrap;display:flex;align-items:center}
+.page-nav{position:relative;z-index:1;border-bottom:1px solid var(--bd2);background:var(--s1)}
+.page-nav-inner{max-width:1100px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none;height:44px;padding:0 24px}
+.page-nav-inner::-webkit-scrollbar{display:none}
+.pnl{font-size:11.5px;letter-spacing:1px;padding:0 14px;color:var(--txm);text-decoration:none;display:flex;align-items:center;white-space:nowrap;border-bottom:2px solid transparent;transition:all .18s}
+.pnl:hover{color:var(--c);border-color:var(--c)}
+.hero{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:56px 24px 44px}
+.hero-tag{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:6px;color:var(--c);opacity:.7;margin-bottom:14px}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,9vw,104px);line-height:1;background:linear-gradient(135deg,#fff 10%,var(--p) 65%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
+.hero-sub{font-size:13px;letter-spacing:3px;color:var(--txm);margin-bottom:22px}
+.hero-desc{font-size:15px;color:#c4c8e0;max-width:680px;line-height:2}
+.hero-stats{display:flex;gap:32px;margin-top:32px;flex-wrap:wrap}
+.hstat{text-align:center}
+.hstat-n{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--p);line-height:1}
+.hstat-l{font-size:10px;letter-spacing:2px;color:var(--txm);margin-top:4px}
+.main{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 24px 120px}
+section{padding-top:40px;margin-bottom:72px}
+.shdr{display:flex;align-items:flex-end;gap:14px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--bd2)}
+.shdr-n{font-family:'Bebas Neue',sans-serif;font-size:52px;line-height:1;opacity:.18;flex-shrink:0}
+.shdr-body{flex:1}
+.shdr-t{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:4px;color:#fff;line-height:1}
+.shdr-s{font-size:11px;color:var(--txm);letter-spacing:3px;margin-top:4px}
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:8px;padding:26px 30px;margin-bottom:16px}
+.card-c{border-left:4px solid var(--c)}.card-g{border-left:4px solid var(--g)}.card-y{border-left:4px solid var(--y)}.card-r{border-left:4px solid var(--r)}.card-p{border-left:4px solid var(--p)}.card-o{border-left:4px solid var(--o)}
+.tag{display:inline-block;font-size:10px;letter-spacing:2px;padding:3px 10px;border-radius:3px;margin-bottom:10px}
+.tag-c{background:rgba(0,212,255,0.1);color:var(--c)}.tag-g{background:rgba(0,232,125,0.1);color:var(--g)}.tag-y{background:rgba(255,214,0,0.1);color:var(--y)}.tag-r{background:rgba(255,51,88,0.1);color:var(--r)}.tag-p{background:rgba(176,106,255,0.1);color:var(--p)}
+.term{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;margin-bottom:8px}
+.body-text{font-size:15px;color:#c0c4dc;line-height:1.95}
+.body-text b{color:#e8eaf6;font-weight:500}
+.body-text strong{color:var(--c);font-weight:500}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.g2,.g3{grid-template-columns:1fr}}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0}
+.tbl th{background:rgba(0,212,255,0.07);color:var(--c);font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:2px;padding:12px 16px;text-align:left;border:1px solid var(--bd2);font-weight:400}
+.tbl td{padding:12px 16px;border:1px solid var(--bd);color:#c0c4dc;line-height:1.75;vertical-align:top;font-size:14px}
+.tbl tr:hover td{background:rgba(255,255,255,0.02)}
+.td-c{color:var(--c);font-weight:500}.td-g{color:var(--g);font-weight:500}.td-r{color:var(--r)}.td-y{color:var(--y)}.td-p{color:var(--p)}
+.tip{background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.18);border-left:4px solid var(--c);border-radius:5px;padding:18px 22px;margin:16px 0;font-size:14.5px;color:#c0c4dc;line-height:1.95}
+.tip-t{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:3px;color:var(--c);margin-bottom:7px}
+.tip-g{background:rgba(0,232,125,0.05);border-color:rgba(0,232,125,0.18);border-left-color:var(--g)}.tip-g .tip-t{color:var(--g)}
+.tip-y{background:rgba(255,214,0,0.05);border-color:rgba(255,214,0,0.18);border-left-color:var(--y)}.tip-y .tip-t{color:var(--y)}
+.tip-p{background:rgba(176,106,255,0.05);border-color:rgba(176,106,255,0.18);border-left-color:var(--p)}.tip-p .tip-t{color:var(--p)}
+.alert{background:rgba(255,51,88,0.06);border:1px solid rgba(255,51,88,0.2);border-left:4px solid var(--r);border-radius:5px;padding:18px 22px;margin:16px 0;font-size:14.5px;color:#c0c4dc;line-height:1.95}
+.alert-t{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:3px;color:var(--r);margin-bottom:7px}
+.chk{list-style:none;display:flex;flex-direction:column;gap:10px;margin:12px 0}
+.chk li{font-size:14.5px;color:#c0c4dc;display:flex;gap:10px;align-items:flex-start;line-height:1.75}
+.chk li::before{content:'✓';color:var(--g);font-weight:700;flex-shrink:0;margin-top:1px}
+.chk li.no::before{content:'✗';color:var(--r)}
+.chk li.warn::before{content:'!';color:var(--y)}
+.bignum-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;margin:16px 0}
+.bignum-box{background:var(--s2);border:1px solid var(--bd);border-radius:8px;padding:20px 22px;position:relative;overflow:hidden}
+.bignum-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.bn-c::before{background:var(--c)}.bn-g::before{background:var(--g)}.bn-y::before{background:var(--y)}.bn-r::before{background:var(--r)}.bn-p::before{background:var(--p)}
+.bn-label{font-size:11px;letter-spacing:2px;color:var(--txm);margin-bottom:8px}
+.bn-val{font-family:'Bebas Neue',sans-serif;font-size:32px;line-height:1;margin-bottom:4px}
+.bn-c .bn-val{color:var(--c)}.bn-g .bn-val{color:var(--g)}.bn-y .bn-val{color:var(--y)}.bn-r .bn-val{color:var(--r)}.bn-p .bn-val{color:var(--p)}
+.bn-sub{font-size:12px;color:var(--txm);line-height:1.6}
+/* tax specific */
+.tax-breakdown{background:var(--s2);border:1px solid var(--bd);border-radius:8px;overflow:hidden;margin:16px 0}
+.tb-row{display:flex;justify-content:space-between;align-items:center;padding:14px 22px;border-bottom:1px solid var(--bd);font-size:14px}
+.tb-row:last-child{border-bottom:none;background:rgba(176,106,255,0.06)}
+.tb-label{color:#c0c4dc}
+.tb-val{font-family:'JetBrains Mono',monospace;font-size:14px}
+.lev-table{width:100%;border-collapse:collapse;margin:16px 0}
+.lev-table th{background:rgba(176,106,255,0.07);color:var(--p);font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:2px;padding:11px 16px;border:1px solid var(--bd2);font-weight:400;text-align:left}
+.lev-table td{padding:11px 16px;border:1px solid var(--bd);font-size:14px;color:#c0c4dc;vertical-align:top}
+.flow{display:flex;align-items:center;gap:0;margin:16px 0;flex-wrap:wrap}
+.flow-box{background:var(--s2);border:1px solid var(--bd);border-radius:6px;padding:14px 16px;font-size:13px;flex:1;min-width:140px;text-align:center}
+.flow-arrow{font-size:20px;color:var(--txm);padding:0 8px;flex-shrink:0}
+.flow-box b{display:block;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;margin-bottom:4px}
+.deduct-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:16px 0}
+.deduct-card{background:var(--s2);border:1px solid var(--bd);border-radius:8px;padding:18px 20px}
+.dc-title{font-size:15px;font-weight:500;color:#e8eaf6;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.dc-body{font-size:13.5px;color:#9696b8;line-height:1.85}
+.chapter-band{background:rgba(176,106,255,0.06);border:1px solid rgba(176,106,255,0.15);border-radius:8px;padding:16px 24px;margin:40px 0 0;display:flex;align-items:center;gap:16px}
+.cb-label{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:4px;color:var(--p)}
+.cb-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:#fff}
+.divider{border:none;border-top:1px solid var(--bd);margin:56px 0;position:relative}
+.divider::after{content:'◆';position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 14px;color:var(--txm);font-size:9px;letter-spacing:4px}
+</style>
+</head>
+<body>
+
+<nav class="sitenav">
+  <div class="sitenav-inner">
+    <a href="index.html" class="site-logo"><span class="logo-arr">←</span>TOP</a>
+    <div class="nav-div"></div>
+    <div class="snlinks">
+      <span class="ng">DAYTRADE</span>
+      <a href="daytrade-basics.html" class="snl">基礎</a>
+      <a href="daytrade-advanced.html" class="snl">応用</a>
+      <a href="daytrade-board.html" class="snl">板読み</a>
+      <a href="daytrade-strategy.html" class="snl">戦略</a>
+      <a href="daytrade-tool.html" class="snl">ツール</a>
+      <a href="daytrade-journal.html" class="snl">日誌</a>
+      <a href="daytrade-tax.html" class="snl cur">税金</a>
+      <a href="daytrade-mistakes.html" class="snl">失敗集</a>
+      <a href="daytrade-glossary.html" class="snl">用語</a>
+      <span class="ng">NISA</span>
+      <a href="nisa-guide.html" class="snl">ガイド</a>
+      <a href="nisa-glossary.html" class="snl">用語</a>
+      <span class="ng">MACRO</span>
+      <a href="macro-guide.html" class="snl">ガイド</a>
+      <a href="macro-glossary.html" class="snl">用語</a>
+      <span class="ng">ALL</span>
+      <a href="glossary-all.html" class="snl">全用語集</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-nav">
+  <div class="page-nav-inner">
+    <a href="#s-cash" class="pnl">現物取引</a>
+    <a href="#s-margin" class="pnl">信用取引</a>
+    <a href="#s-leverage" class="pnl">レバレッジ</a>
+    <a href="#s-types" class="pnl">制度 vs 一般</a>
+    <a href="#s-call" class="pnl">追証</a>
+    <a href="#s-tax" class="pnl">税金の基本</a>
+    <a href="#s-filing" class="pnl">確定申告</a>
+    <a href="#s-offset" class="pnl">損益通算</a>
+    <a href="#s-deduct" class="pnl">節税テクニック</a>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-tag">DAYTRADE — TAX & MARGIN</div>
+  <div class="hero-title">TAX</div>
+  <div class="hero-sub">信用取引・税金・確定申告 完全ガイド</div>
+  <p class="hero-desc">
+    現物・信用の違いから、追証のリスク、確定申告の手順、節税まで。<br>
+    知らないと損をする税と制度の知識をまるごと解説します。
+  </p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-n">9</div><div class="hstat-l">SECTIONS</div></div>
+    <div class="hstat"><div class="hstat-n" style="color:var(--r)">20.315%</div><div class="hstat-l">TAX RATE</div></div>
+    <div class="hstat"><div class="hstat-n" style="color:var(--g)">3年</div><div class="hstat-l">繰越控除</div></div>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- 01 現物取引 -->
+<section id="s-cash">
+  <div class="shdr">
+    <div class="shdr-n">01</div>
+    <div class="shdr-body">
+      <div class="shdr-t">CASH TRADING</div>
+      <div class="shdr-s">現物取引の基本とリスク</div>
+    </div>
+  </div>
+
+  <div class="card card-g">
+    <div class="tag tag-g">DEFINITION</div>
+    <div class="term">現物取引</div>
+    <div class="body-text">
+      <b>自分が持っているお金の範囲内だけで株を売買する</b>最もシンプルな取引方法。
+      100万円の口座があれば最大100万円分しか買えない。借金にならず、
+      <strong>買った株が0円になっても損失は投資額まで</strong>（元本割れ止まり）。<br><br>
+      デイトレードを始めるなら<b>まず現物でルール・感覚・損切り習慣を身につける</b>のが先決。
+      信用取引は現物で安定して利益を出せるようになってから。
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card card-g">
+      <div class="tag tag-g">メリット</div>
+      <ul class="chk">
+        <li>損失が投資額を超えることがない</li>
+        <li>追証（マージンコール）が発生しない</li>
+        <li>金利・貸株料などのコストがない</li>
+        <li>保有期間に制限がなく長期保有もできる</li>
+        <li>配当金・株主優待を受け取れる</li>
+      </ul>
+    </div>
+    <div class="card card-r">
+      <div class="tag tag-r">デメリット</div>
+      <ul class="chk">
+        <li class="no">自己資金以上の取引はできない</li>
+        <li class="no">空売りで下落局面の利益が取れない</li>
+        <li class="no">少額だと利益の絶対額が小さい</li>
+        <li class="no">資金効率が信用取引より低い</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 02 信用取引 -->
+<section id="s-margin">
+  <div class="shdr">
+    <div class="shdr-n">02</div>
+    <div class="shdr-body">
+      <div class="shdr-t">MARGIN TRADING</div>
+      <div class="shdr-s">信用取引の仕組みとリスク</div>
+    </div>
+  </div>
+
+  <div class="card card-y">
+    <div class="tag tag-y">DEFINITION</div>
+    <div class="term">信用取引</div>
+    <div class="body-text">
+      証券会社に<b>担保（保証金）を預けて、それをもとにお金や株を借りて取引する</b>仕組み。
+      自己資金の最大約3.3倍（保証金率30%）の取引が可能。
+      大きな利益を狙える一方、<span style="color:var(--r);font-weight:500">損失も同じ倍率で拡大する</span>。<br><br>
+      株を借りて売る「<strong>空売り</strong>」が可能になり、株価下落局面でも利益を狙える。
+      デイトレーダーの多くは資金効率を上げるために信用取引を活用している。
+    </div>
+  </div>
+
+  <table class="tbl">
+    <tr><th>比較項目</th><th>現物取引</th><th>信用取引</th></tr>
+    <tr><td>最大取引額</td><td>自己資金のみ</td><td class="td-y">自己資金の最大3.3倍</td></tr>
+    <tr><td>空売り</td><td class="td-r">不可</td><td class="td-g">可能</td></tr>
+    <tr><td>損失の上限</td><td class="td-g">投資額まで</td><td class="td-r">元本以上になる可能性あり</td></tr>
+    <tr><td>追証リスク</td><td class="td-g">なし</td><td class="td-r">あり</td></tr>
+    <tr><td>金利・貸株料</td><td class="td-g">なし</td><td class="td-r">発生する（日計りなら無料の場合も）</td></tr>
+    <tr><td>保有期間の制限</td><td class="td-g">なし</td><td class="td-r">制度信用は最長6ヶ月</td></tr>
+  </table>
+</section>
+
+<!-- 03 レバレッジ -->
+<section id="s-leverage">
+  <div class="shdr">
+    <div class="shdr-n">03</div>
+    <div class="shdr-body">
+      <div class="shdr-t">LEVERAGE</div>
+      <div class="shdr-s">レバレッジ・証拠金の計算</div>
+    </div>
+  </div>
+
+  <div class="card card-y">
+    <div class="tag tag-y">KEY FORMULA</div>
+    <div class="term">証拠金とレバレッジの計算式</div>
+    <div class="body-text">
+      <b>委託保証金率 = 最低30%（国内株式信用取引）</b><br>
+      → 100万円の保証金で最大<strong>333万円（約3.3倍）</strong>の取引が可能<br><br>
+      最大取引額 = 保証金 ÷ 0.30<br>
+      必要保証金 = 取引額 × 30%以上を常に維持
+    </div>
+  </div>
+
+  <table class="lev-table">
+    <tr><th>レバレッジ</th><th>取引額（元手100万円）</th><th>株価+10%の利益</th><th>株価−10%の損失</th></tr>
+    <tr><td>×1（現物）</td><td>100万円</td><td class="td-g">+10万円</td><td class="td-r">−10万円</td></tr>
+    <tr><td>×2</td><td>200万円</td><td class="td-g">+20万円</td><td class="td-r">−20万円</td></tr>
+    <tr><td>×3（推奨上限）</td><td>300万円</td><td class="td-g">+30万円</td><td class="td-r">−30万円</td></tr>
+    <tr><td>×3.3（最大）</td><td>330万円</td><td class="td-g">+33万円</td><td class="td-r" style="font-weight:600">−33万円 ⚠</td></tr>
+  </table>
+
+  <div class="alert">
+    <div class="alert-t">レバレッジは両刃の剣</div>
+    レバレッジ×3.3で株価が−30%下落した場合、<b>担保100万円がほぼ全滅する</b>水準になります。
+    日本株でも急落時に1日で−10〜20%動くことは稀ではありません。
+    信用取引は常に「元本以上の損失が出るリスク」と隣り合わせです。
+  </div>
+</section>
+
+<!-- 04 制度 vs 一般 -->
+<section id="s-types">
+  <div class="shdr">
+    <div class="shdr-n">04</div>
+    <div class="shdr-body">
+      <div class="shdr-t">STANDARD VS GENERAL</div>
+      <div class="shdr-s">制度信用取引 vs 一般信用取引</div>
+    </div>
+  </div>
+
+  <table class="tbl">
+    <tr><th>比較項目</th><th>制度信用取引</th><th>一般信用取引</th></tr>
+    <tr><td>ルール設定者</td><td>取引所（統一ルール）</td><td>証券会社（各社が設定）</td></tr>
+    <tr><td>建玉の期限</td><td class="td-r"><b>最長6ヶ月</b>（期日あり）</td><td class="td-g"><b>無期限</b>（証券会社により異なる）</td></tr>
+    <tr><td>金利・費用</td><td class="td-g">比較的低め</td><td class="td-y">やや高め（証券会社による）</td></tr>
+    <tr><td>空売り可能銘柄</td><td class="td-y">制度信用銘柄のみ（指定あり）</td><td class="td-g">より幅広い銘柄で可能</td></tr>
+    <tr><td>逆日歩（ぎゃくひぶ）</td><td class="td-r">発生することがある（追加コスト）</td><td class="td-g">発生しない</td></tr>
+    <tr><td>デイトレ向き</td><td>○</td><td class="td-g">◎（特に「一日信用取引」）</td></tr>
+  </table>
+
+  <div class="tip tip-g">
+    <div class="tip-t">一日信用取引を活用する</div>
+    松井証券の「一日信用取引」など、<b>当日中に決済することを前提にした専用商品は金利・貸株料が0円</b>のものもあります。
+    デイトレードでは建玉を翌日に持ち越さないため、このような「日計り専用」プランを活用することでコストを大幅に削減できます。
+  </div>
+
+  <div class="card card-r">
+    <div class="tag tag-r">重要用語</div>
+    <div class="term">逆日歩（ぎゃくひぶ）</div>
+    <div class="body-text">
+      空売りをする人が多すぎて借りる株が不足した場合に、<b>空売りをしている投資家が支払う追加コスト</b>。
+      制度信用取引でのみ発生する。人気銘柄の空売りや決算前後に高額になることがあり、予期せぬ損失につながる可能性がある。
+      <strong>一般信用取引では発生しない</strong>ため、空売りをするなら一般信用が安全。
+    </div>
+  </div>
+</section>
+
+<!-- 05 追証 -->
+<section id="s-call">
+  <div class="shdr">
+    <div class="shdr-n">05</div>
+    <div class="shdr-body">
+      <div class="shdr-t">MARGIN CALL</div>
+      <div class="shdr-s">追証・強制決済のリスクと対処</div>
+    </div>
+  </div>
+
+  <div class="card card-r">
+    <div class="tag tag-r">DANGER</div>
+    <div class="term">追証（マージンコール）</div>
+    <div class="body-text">
+      信用取引で損失が拡大し、<b>担保（保証金）が最低維持率を下回ったとき</b>に
+      証券会社から追加の保証金を求められること。
+      期限内に追証を入金しないと、<span style="color:var(--r);font-weight:500">保有ポジションを強制的に決済される</span>（強制ロスカット）。
+      最悪の場合、元の保証金以上の損失になることも。
+    </div>
+  </div>
+
+  <div class="flow">
+    <div class="flow-box" style="border-color:rgba(0,232,125,0.3)">
+      <b style="color:var(--g)">信用取引開始</b>
+      保証金100万円<br>取引額330万円
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="border-color:rgba(255,214,0,0.3)">
+      <b style="color:var(--y)">含み損拡大</b>
+      株価下落で<br>評価額減少
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="border-color:rgba(255,51,88,0.4)">
+      <b style="color:var(--r)">追証発生！</b>
+      維持率20%割れ<br>翌営業日15:30まで
+    </div>
+    <div class="flow-arrow" style="color:var(--r)">→</div>
+    <div class="flow-box" style="border-color:var(--r);background:rgba(255,51,88,0.06)">
+      <b style="color:var(--r)">強制決済</b>
+      証券会社が強制的に<br>ポジション決済・損失確定
+    </div>
+  </div>
+
+  <div class="g2" style="margin-top:16px">
+    <div class="card card-g">
+      <div class="tag tag-g">対策</div>
+      <div class="body-text">
+        証拠金維持率を常に<b>30〜40%以上</b>に保つ。
+        余裕資金を手元に残して追証入金できる準備をしておく。
+        レバレッジをかけすぎない（×2以内が推奨）。
+        1日の損失上限に達したら強制的にポジションをゼロにする。
+      </div>
+    </div>
+    <div class="card card-c">
+      <div class="tag tag-c">計算式</div>
+      <div class="body-text">
+        委託保証金維持率 = （保証金 ÷ 建玉評価額）× 100%<br><br>
+        <b>20%を下回ると追証が発生</b>（証券会社により異なる）<br>
+        ロスカット率 = 各証券会社が設定する強制決済の基準<br>
+        （例：評価損が保証金の50%超）
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="chapter-band">
+  <div class="cb-label">CHAPTER 2</div>
+  <div class="cb-title">株式投資と税金</div>
+  <span style="font-size:11px;color:var(--txm);letter-spacing:2px;margin-left:auto">TAX GUIDE FOR TRADERS</span>
+</div>
+
+<!-- 06 税金の基本 -->
+<section id="s-tax">
+  <div class="shdr">
+    <div class="shdr-n">06</div>
+    <div class="shdr-body">
+      <div class="shdr-t">TAX BASICS</div>
+      <div class="shdr-s">株の税金の基本（申告分離課税）</div>
+    </div>
+  </div>
+
+  <div class="card card-p">
+    <div class="tag tag-p">TAX TYPE</div>
+    <div class="term">申告分離課税 20.315%</div>
+    <div class="body-text">
+      株式の売買益（譲渡益）・配当金は、<b>「申告分離課税」として一律20.315%</b>の税率がかかる。
+      給与所得など他の所得とは分けて計算・申告するため、高収入の人でも税率は変わらない。
+    </div>
+  </div>
+
+  <div class="tax-breakdown">
+    <div class="tb-row">
+      <div class="tb-label">年間利益（例）</div>
+      <div class="tb-val" style="color:#fff">1,000,000 円</div>
+    </div>
+    <div class="tb-row">
+      <div class="tb-label">所得税（15%）</div>
+      <div class="tb-val" style="color:var(--r)">− 150,000 円</div>
+    </div>
+    <div class="tb-row">
+      <div class="tb-label">復興特別所得税（0.315%）</div>
+      <div class="tb-val" style="color:var(--r)">− 3,150 円</div>
+    </div>
+    <div class="tb-row">
+      <div class="tb-label">住民税（5%）</div>
+      <div class="tb-val" style="color:var(--r)">− 50,000 円</div>
+    </div>
+    <div class="tb-row">
+      <div class="tb-label" style="color:#fff;font-weight:500">税金合計（20.315%） → 手取り 796,850円</div>
+      <div class="tb-val" style="color:var(--p);font-size:17px">− 203,150 円</div>
+    </div>
+  </div>
+
+  <div class="bignum-grid">
+    <div class="bignum-box bn-p">
+      <div class="bn-label">株売買益・配当の税率</div>
+      <div class="bn-val">20.315%</div>
+      <div class="bn-sub">申告分離課税（一律）</div>
+    </div>
+    <div class="bignum-box bn-y">
+      <div class="bn-label">損失の繰越控除期間</div>
+      <div class="bn-val">3年</div>
+      <div class="bn-sub">確定申告が必要</div>
+    </div>
+    <div class="bignum-box bn-g">
+      <div class="bn-label">NISA口座の税率</div>
+      <div class="bn-val">0%</div>
+      <div class="bn-sub">売買益・配当が非課税</div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-t">NISAはデイトレードに使えるか？</div>
+    成長投資枠（240万円/年）は個別株の売買に使えますが、<b>NISAで発生した損失は他口座と損益通算できません</b>。
+    デイトレードの主戦場は<strong>特定口座（課税）</strong>と考えるのが一般的です。
+  </div>
+</section>
+
+<!-- 07 確定申告 -->
+<section id="s-filing">
+  <div class="shdr">
+    <div class="shdr-n">07</div>
+    <div class="shdr-body">
+      <div class="shdr-t">TAX FILING</div>
+      <div class="shdr-s">確定申告の種類と口座選び</div>
+    </div>
+  </div>
+
+  <table class="tbl">
+    <tr><th>口座の種類</th><th>特定口座・源泉徴収あり</th><th>特定口座・源泉徴収なし</th><th>一般口座</th></tr>
+    <tr><td>確定申告</td><td class="td-g"><b>原則不要</b>（自動処理）</td><td class="td-y">年間損益20万円超なら必要</td><td class="td-r">自分で計算・申告が必要</td></tr>
+    <tr><td>税金の納付</td><td class="td-g">取引のたびに自動天引き</td><td>自分で確定申告・納付</td><td class="td-r">自分で計算・納付</td></tr>
+    <tr><td>損益通算</td><td>◯（申告すれば可能）</td><td class="td-g">◯（確定申告時）</td><td>◯（確定申告時）</td></tr>
+    <tr><td>繰越控除</td><td>◯（申告が必要）</td><td class="td-g">◯（確定申告が必要）</td><td>◯（確定申告が必要）</td></tr>
+    <tr><td>こんな人向き</td><td class="td-g">手間をかけたくない人</td><td>損益通算を積極活用したい人</td><td class="td-r">基本的に非推奨</td></tr>
+  </table>
+
+  <div class="tip tip-g">
+    <div class="tip-t">デイトレーダーのおすすめは「特定口座・源泉徴収なし」</div>
+    複数の証券会社を使っている場合、各社の損益を<b>確定申告で合算（損益通算）</b>すると税金を減らせます。
+    「源泉徴収なし」口座で確定申告するか、「源泉徴収あり」口座でも任意で確定申告を行うことで対応できます。
+  </div>
+
+  <div class="card card-y">
+    <div class="tag tag-y">ANNUAL SCHEDULE</div>
+    <div class="term">確定申告スケジュール</div>
+    <div class="body-text">
+      <b>1月1日〜12月31日</b>：その年の全取引の損益が確定。証券会社から年間取引報告書が届く（1〜2月）<br>
+      <b>翌年2月16日〜3月15日</b>：確定申告の受付期間。e-Tax（オンライン）が最も手軽。複数口座の損益通算・繰越控除はここで実施<br>
+      <b>4〜6月頃</b>：住民税の決定通知が届く。<span style="color:var(--r)">⚠ 会社員は「住民税を自分で納付（普通徴収）」に設定しないと勤務先に株の利益がバレる可能性がある</span>
+    </div>
+  </div>
+</section>
+
+<!-- 08 損益通算 -->
+<section id="s-offset">
+  <div class="shdr">
+    <div class="shdr-n">08</div>
+    <div class="shdr-body">
+      <div class="shdr-t">LOSS OFFSETTING</div>
+      <div class="shdr-s">損益通算・繰越控除の使い方</div>
+    </div>
+  </div>
+
+  <div class="card card-g">
+    <div class="tag tag-g">TAX REDUCTION</div>
+    <div class="term">損益通算</div>
+    <div class="body-text">
+      <b>複数の口座・商品の利益と損失を合算して、税金を減らせる</b>仕組み。<br><br>
+      例：A証券で+50万円の利益、B証券で−30万円の損失<br>
+      → 合算すると課税対象は<strong>20万円だけ</strong>（節税額：30万 × 20.315% ≒ <b>約6万円</b>）
+    </div>
+  </div>
+
+  <div class="card card-p">
+    <div class="tag tag-p">CARRYOVER</div>
+    <div class="term">繰越控除（3年間）</div>
+    <div class="body-text">
+      その年の損失が大きくて利益と相殺しきれなかった場合、<b>残った損失を翌年以降3年間繰り越せる</b>制度。
+    </div>
+  </div>
+
+  <table class="tbl">
+    <tr><th>年</th><th>損益</th><th>課税対象</th><th>繰越残</th></tr>
+    <tr><td>2024年</td><td class="td-r">損失 −100万円</td><td class="td-g">0円（確定申告で繰越申請）</td><td class="td-r">−100万円</td></tr>
+    <tr><td>2025年</td><td class="td-g">利益 +40万円</td><td class="td-g">0円（損失と相殺）</td><td class="td-r">−60万円</td></tr>
+    <tr><td>2026年</td><td class="td-g">利益 +60万円</td><td class="td-g">0円（損失と相殺）</td><td class="td-g">繰越消滅</td></tr>
+    <tr><td colspan="2">節税効果合計</td><td class="td-g" colspan="2">100万 × 20.315% ≒ <b>約20万円</b>の節税</td></tr>
+  </table>
+
+  <div class="alert">
+    <div class="alert-t">繰越控除は確定申告が必須</div>
+    繰越控除は<b>毎年確定申告をしないと権利が消滅します</b>。
+    「特定口座・源泉徴収あり」でも、損失を翌年に繰り越すためには確定申告が必要。
+    損失が出た年こそ、忘れずに申告しましょう。
+  </div>
+
+  <div class="tip">
+    <div class="tip-t">損益通算できるもの・できないもの</div>
+    <b>通算できる：</b>株式（現物・信用）、ETF、株式投信の売買損益、配当金（申告分離課税を選択した場合）<br>
+    <b>通算できない：</b>FX（雑所得で別扱い）、不動産所得、給与所得
+  </div>
+</section>
+
+<!-- 09 節税テクニック -->
+<section id="s-deduct">
+  <div class="shdr">
+    <div class="shdr-n">09</div>
+    <div class="shdr-body">
+      <div class="shdr-t">TAX TIPS</div>
+      <div class="shdr-s">経費・節税テクニック集</div>
+    </div>
+  </div>
+
+  <div class="deduct-grid">
+    <div class="deduct-card" style="border-top:3px solid var(--g)">
+      <div class="dc-title">📊 損益通算を活用する</div>
+      <div class="dc-body">複数口座・複数銘柄の利益と損失を合算して課税額を減らす。証券会社をまたいだ場合は確定申告が必要。</div>
+    </div>
+    <div class="deduct-card" style="border-top:3px solid var(--g)">
+      <div class="dc-title">📅 繰越控除を忘れずに</div>
+      <div class="dc-body">損失が出た年は必ず確定申告し、3年間繰り越す。翌年以降の利益に当てることで実質的な税率を下げられる。</div>
+    </div>
+    <div class="deduct-card" style="border-top:3px solid var(--y)">
+      <div class="dc-title">🏦 NISA口座の活用</div>
+      <div class="dc-body">成長投資枠（240万/年）は売買益・配当が非課税。デイトレではなく中長期保有向き。</div>
+    </div>
+    <div class="deduct-card" style="border-top:3px solid var(--y)">
+      <div class="dc-title">💼 個人事業主の場合の経費</div>
+      <div class="dc-body">トレードを事業として行っている場合、PC・モニター・書籍・通信費・セミナー代などを経費計上できる可能性がある（税理士に要確認）。</div>
+    </div>
+    <div class="deduct-card" style="border-top:3px solid var(--c)">
+      <div class="dc-title">📝 住民税の納付方法</div>
+      <div class="dc-body">会社員は確定申告時に「住民税を自分で納付（普通徴収）」を選択することで、勤務先に株の利益が通知されるのを防げる。</div>
+    </div>
+    <div class="deduct-card" style="border-top:3px solid var(--c)">
+      <div class="dc-title">📈 配当金の確定申告選択</div>
+      <div class="dc-body">配当金は「申告分離課税」を選べば損失と損益通算できる。特定口座の取引に損失がある年に有効。</div>
+    </div>
+    <div class="deduct-card" style="border-top:3px solid var(--p)">
+      <div class="dc-title">🏢 法人化の検討</div>
+      <div class="dc-body">利益が年間数百万円を超えてきたら法人化を検討。法人税率は中小企業で約15〜23%。経費計上の幅が広がる。</div>
+    </div>
+    <div class="deduct-card" style="border-top:3px solid var(--p)">
+      <div class="dc-title">⚖️ 税理士への相談</div>
+      <div class="dc-body">年間利益が数十万円を超えてきたら、投資専門の税理士に相談することで思わぬ節税策が見つかることも。</div>
+    </div>
+  </div>
+
+  <div class="card card-g" style="margin-top:8px">
+    <div class="tag tag-g">CHECKLIST</div>
+    <div class="term">デイトレーダーの税金チェックリスト</div>
+    <ul class="chk">
+      <li>特定口座（源泉徴収あり）で始めると税務手続きが最もシンプル</li>
+      <li>複数の証券会社を使うなら確定申告で損益通算を必ず実施</li>
+      <li>損失が出た年は確定申告して3年間の繰越控除を確保</li>
+      <li>会社員は住民税を「普通徴収（自分で納付）」に設定して副業バレを防ぐ</li>
+      <li class="warn">利益が年100万円を超えてきたら税理士への相談を検討</li>
+      <li class="warn">NISAとデイトレ口座は分けて考える（NISAは損益通算不可）</li>
+      <li class="no">無申告・過少申告は絶対にしない（税務署はデータを持っている）</li>
+    </ul>
+  </div>
+
+  <div class="alert">
+    <div class="alert-t">税金の無申告・脱税は厳禁</div>
+    証券会社は取引情報を税務署に提出しており、<b>無申告は税務調査の対象</b>になります。
+    無申告加算税・延滞税は通常の税額より高くつきます。
+    税制は改正されることがあります。最新情報は国税庁（nta.go.jp）または税理士にご確認ください。
+  </div>
+</section>
+
+</div>
+</body>
+</html>

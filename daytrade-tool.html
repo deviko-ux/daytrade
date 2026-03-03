@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デイトレードツール完全ガイド | 株式投資ガイド</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050507;--s1:#0d0d16;--s2:#141420;--s3:#1c1c2a;--s4:#22222e;--c:#00d4ff;--g:#00e87d;--r:#ff3358;--y:#ffd600;--p:#b06aff;--o:#ff8c42;--teal:#00c9a7;--tx:#e8eaf6;--txm:#64648a;--txd:#9696b8;--bd:rgba(255,255,255,0.07);--bd2:rgba(255,255,255,0.13);--fs-base:15px;--lh:1.85}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:var(--fs-base)}
+body{background:var(--bg);color:var(--tx);font-family:'Noto Sans JP',sans-serif;font-weight:300;line-height:var(--lh);overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 55px,rgba(0,212,255,0.015) 55px,rgba(0,212,255,0.015) 56px),repeating-linear-gradient(90deg,transparent,transparent 55px,rgba(0,212,255,0.015) 55px,rgba(0,212,255,0.015) 56px);pointer-events:none;z-index:0}
+ruby{ruby-align:center}rt{font-size:.55em;color:var(--txd);letter-spacing:.5px}
+.sitenav{position:sticky;top:0;z-index:300;background:rgba(5,5,7,0.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--bd2)}
+.sitenav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;height:52px;padding:0 24px;gap:0}
+.site-logo{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:5px;color:var(--c);margin-right:8px;flex-shrink:0;text-decoration:none;display:flex;align-items:center;gap:6px}
+.logo-arr{font-size:11px;color:var(--txm)}
+.nav-div{width:1px;height:20px;background:var(--bd2);margin:0 10px;flex-shrink:0}
+.snlinks{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1}
+.snlinks::-webkit-scrollbar{display:none}
+.snl{font-size:11px;letter-spacing:1px;padding:6px 13px;color:var(--txm);border-radius:4px;text-decoration:none;white-space:nowrap;transition:all .2s;border:1px solid transparent;font-weight:400}
+.snl:hover{color:var(--tx);background:rgba(255,255,255,0.05)}
+.snl.cur{color:var(--c);border-color:rgba(0,212,255,0.2);background:rgba(0,212,255,0.06)}
+.ng{font-size:9px;letter-spacing:2px;color:var(--txm);padding:0 6px;opacity:.6;white-space:nowrap;display:flex;align-items:center}
+.page-nav{position:relative;z-index:1;border-bottom:1px solid var(--bd2);background:var(--s1)}
+.page-nav-inner{max-width:1100px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none;height:44px;padding:0 24px}
+.page-nav-inner::-webkit-scrollbar{display:none}
+.pnl{font-size:11.5px;letter-spacing:1px;padding:0 14px;color:var(--txm);text-decoration:none;display:flex;align-items:center;white-space:nowrap;border-bottom:2px solid transparent;transition:all .18s}
+.pnl:hover{color:var(--c);border-color:var(--c)}
+.hero{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:56px 24px 44px}
+.hero-tag{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:6px;color:var(--c);opacity:.7;margin-bottom:14px}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,9vw,104px);line-height:1;background:linear-gradient(135deg,#fff 10%,var(--c) 65%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
+.hero-sub{font-size:13px;letter-spacing:3px;color:var(--txm);margin-bottom:22px}
+.hero-desc{font-size:15px;color:#c4c8e0;max-width:680px;line-height:2}
+.hero-stats{display:flex;gap:32px;margin-top:32px;flex-wrap:wrap}
+.hstat{text-align:center}
+.hstat-n{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--c);line-height:1}
+.hstat-l{font-size:10px;letter-spacing:2px;color:var(--txm);margin-top:4px}
+.main{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 24px 120px}
+section{padding-top:40px;margin-bottom:72px}
+.shdr{display:flex;align-items:flex-end;gap:14px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--bd2)}
+.shdr-n{font-family:'Bebas Neue',sans-serif;font-size:52px;line-height:1;opacity:.18;flex-shrink:0}
+.shdr-body{flex:1}
+.shdr-t{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:4px;color:#fff;line-height:1}
+.shdr-s{font-size:11px;color:var(--txm);letter-spacing:3px;margin-top:4px}
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:8px;padding:26px 30px;margin-bottom:16px}
+.card-c{border-left:4px solid var(--c)}.card-g{border-left:4px solid var(--g)}.card-y{border-left:4px solid var(--y)}.card-r{border-left:4px solid var(--r)}.card-p{border-left:4px solid var(--p)}.card-o{border-left:4px solid var(--o)}
+.tag{display:inline-block;font-size:10px;letter-spacing:2px;padding:3px 10px;border-radius:3px;margin-bottom:10px}
+.tag-c{background:rgba(0,212,255,0.1);color:var(--c)}.tag-g{background:rgba(0,232,125,0.1);color:var(--g)}.tag-y{background:rgba(255,214,0,0.1);color:var(--y)}.tag-r{background:rgba(255,51,88,0.1);color:var(--r)}.tag-p{background:rgba(176,106,255,0.1);color:var(--p)}.tag-o{background:rgba(255,140,66,0.1);color:var(--o)}
+.term{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;margin-bottom:8px}
+.body-text{font-size:15px;color:#c0c4dc;line-height:1.95}
+.body-text b{color:#e8eaf6;font-weight:500}
+.body-text strong{color:var(--c);font-weight:500}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.g2,.g3{grid-template-columns:1fr}}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0}
+.tbl th{background:rgba(0,212,255,0.07);color:var(--c);font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:2px;padding:12px 16px;text-align:left;border:1px solid var(--bd2);font-weight:400}
+.tbl td{padding:12px 16px;border:1px solid var(--bd);color:#c0c4dc;line-height:1.75;vertical-align:top;font-size:14px}
+.tbl tr:hover td{background:rgba(255,255,255,0.02)}
+.td-c{color:var(--c);font-weight:500}.td-g{color:var(--g);font-weight:500}.td-r{color:var(--r)}.td-y{color:var(--y)}.td-free{color:var(--g)}.td-paid{color:var(--y)}
+.tip{background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.18);border-left:4px solid var(--c);border-radius:5px;padding:18px 22px;margin:16px 0;font-size:14.5px;color:#c0c4dc;line-height:1.95}
+.tip-t{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:3px;color:var(--c);margin-bottom:7px}
+.tip-g{background:rgba(0,232,125,0.05);border-color:rgba(0,232,125,0.18);border-left-color:var(--g)}.tip-g .tip-t{color:var(--g)}
+.tip-y{background:rgba(255,214,0,0.05);border-color:rgba(255,214,0,0.18);border-left-color:var(--y)}.tip-y .tip-t{color:var(--y)}
+.alert{background:rgba(255,51,88,0.06);border:1px solid rgba(255,51,88,0.2);border-left:4px solid var(--r);border-radius:5px;padding:18px 22px;margin:16px 0;font-size:14.5px;color:#c0c4dc;line-height:1.95}
+.alert-t{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:3px;color:var(--r);margin-bottom:7px}
+/* CALCULATOR */
+.calc-box{background:var(--s2);border:1px solid rgba(0,212,255,0.25);border-radius:12px;padding:28px 32px;margin:20px 0}
+.calc-title{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:4px;color:var(--c);margin-bottom:20px}
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-bottom:20px}
+.calc-field{display:flex;flex-direction:column;gap:6px}
+.calc-label{font-size:11px;letter-spacing:2px;color:var(--txm)}
+.calc-input{background:var(--s3);border:1px solid var(--bd2);border-radius:6px;padding:10px 14px;color:var(--tx);font-family:'JetBrains Mono',monospace;font-size:15px;outline:none;transition:border-color .2s;width:100%}
+.calc-input:focus{border-color:var(--c)}
+.calc-btn{display:inline-block;background:rgba(0,212,255,0.12);border:1px solid rgba(0,212,255,0.3);color:var(--c);font-family:'Bebas Neue',sans-serif;letter-spacing:3px;font-size:14px;padding:11px 28px;border-radius:6px;cursor:pointer;transition:all .2s;margin-top:4px}
+.calc-btn:hover{background:rgba(0,212,255,0.22)}
+.calc-result{background:var(--s3);border:1px solid var(--bd2);border-radius:8px;padding:18px 22px;margin-top:16px;display:none}
+.calc-result.show{display:block}
+.cr-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--bd);font-size:14px}
+.cr-row:last-child{border-bottom:none}
+.cr-label{color:var(--txd)}
+.cr-val{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500}
+/* TOOL CARDS */
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin:16px 0}
+.tool-card{background:var(--s2);border:1px solid var(--bd);border-radius:10px;padding:22px 24px;transition:border-color .2s}
+.tool-card:hover{border-color:var(--bd2)}
+.tc-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.tc-name{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:2px;color:#fff}
+.tc-badge{font-size:10px;letter-spacing:2px;padding:3px 10px;border-radius:3px}
+.tc-free{background:rgba(0,232,125,0.1);color:var(--g)}
+.tc-paid{background:rgba(255,214,0,0.1);color:var(--y)}
+.tc-both{background:rgba(0,212,255,0.1);color:var(--c)}
+.tc-desc{font-size:14px;color:#9696b8;line-height:1.85;margin-bottom:12px}
+.tc-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tc-tag{font-size:10px;padding:2px 8px;border-radius:3px;background:rgba(255,255,255,0.05);color:var(--txm)}
+.divider{border:none;border-top:1px solid var(--bd);margin:56px 0;position:relative}
+.divider::after{content:'◆';position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 14px;color:var(--txm);font-size:9px;letter-spacing:4px}
+</style>
+</head>
+<body>
+
+<nav class="sitenav">
+  <div class="sitenav-inner">
+    <a href="index.html" class="site-logo"><span class="logo-arr">←</span>TOP</a>
+    <div class="nav-div"></div>
+    <div class="snlinks">
+      <span class="ng">DAYTRADE</span>
+      <a href="daytrade-basics.html" class="snl">基礎</a>
+      <a href="daytrade-advanced.html" class="snl">応用</a>
+      <a href="daytrade-board.html" class="snl">板読み</a>
+      <a href="daytrade-strategy.html" class="snl">戦略</a>
+      <a href="daytrade-tool.html" class="snl cur">ツール</a>
+      <a href="daytrade-journal.html" class="snl">日誌</a>
+      <a href="daytrade-tax.html" class="snl">税金</a>
+      <a href="daytrade-mistakes.html" class="snl">失敗集</a>
+      <a href="daytrade-glossary.html" class="snl">用語</a>
+      <span class="ng">NISA</span>
+      <a href="nisa-guide.html" class="snl">ガイド</a>
+      <a href="nisa-glossary.html" class="snl">用語</a>
+      <span class="ng">MACRO</span>
+      <a href="macro-guide.html" class="snl">ガイド</a>
+      <a href="macro-glossary.html" class="snl">用語</a>
+      <span class="ng">ALL</span>
+      <a href="glossary-all.html" class="snl">全用語集</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-nav">
+  <div class="page-nav-inner">
+    <a href="#s-calc" class="pnl">計算ツール</a>
+    <a href="#s-broker" class="pnl">証券会社</a>
+    <a href="#s-chart" class="pnl">チャートツール</a>
+    <a href="#s-screen" class="pnl">スクリーナー</a>
+    <a href="#s-info" class="pnl">情報収集</a>
+    <a href="#s-setup" class="pnl">環境セットアップ</a>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-tag">DAYTRADE — TOOLS</div>
+  <div class="hero-title">TOOLS</div>
+  <div class="hero-sub">デイトレードに必要なツール完全ガイド</div>
+  <p class="hero-desc">
+    証券会社の選び方からチャートツール、情報収集サービスまで。<br>
+    デイトレードに必要な環境とツールを総まとめします。
+  </p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-n">6</div><div class="hstat-l">SECTIONS</div></div>
+    <div class="hstat"><div class="hstat-n" style="color:var(--g)">無料</div><div class="hstat-l">TOOLS FIRST</div></div>
+    <div class="hstat"><div class="hstat-n" style="color:var(--y)">計算機</div><div class="hstat-l">BUILT-IN</div></div>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- 01 計算ツール -->
+<section id="s-calc">
+  <div class="shdr">
+    <div class="shdr-n">01</div>
+    <div class="shdr-body">
+      <div class="shdr-t">CALCULATORS</div>
+      <div class="shdr-s">ポジションサイズ・損益計算ツール</div>
+    </div>
+  </div>
+
+  <!-- ポジションサイズ計算機 -->
+  <div class="calc-box">
+    <div class="calc-title">📐 ポジションサイズ計算機</div>
+    <div class="body-text" style="margin-bottom:18px;font-size:14px">
+      1トレードで許容する損失（リスク額）から、最適なポジションサイズを計算します。
+    </div>
+    <div class="calc-grid">
+      <div class="calc-field">
+        <div class="calc-label">総資産（円）</div>
+        <input class="calc-input" id="c1-capital" type="number" placeholder="1000000" value="1000000">
+      </div>
+      <div class="calc-field">
+        <div class="calc-label">1トレードのリスク（%）</div>
+        <input class="calc-input" id="c1-risk-pct" type="number" placeholder="2" value="2">
+      </div>
+      <div class="calc-field">
+        <div class="calc-label">エントリー価格（円）</div>
+        <input class="calc-input" id="c1-entry" type="number" placeholder="2500">
+      </div>
+      <div class="calc-field">
+        <div class="calc-label">ストップロス価格（円）</div>
+        <input class="calc-input" id="c1-stop" type="number" placeholder="2450">
+      </div>
+    </div>
+    <button class="calc-btn" onclick="calcPositionSize()">CALCULATE</button>
+    <div class="calc-result" id="c1-result">
+      <div class="cr-row"><div class="cr-label">許容リスク額</div><div class="cr-val" id="c1-r1" style="color:var(--r)">—</div></div>
+      <div class="cr-row"><div class="cr-label">1株あたりリスク</div><div class="cr-val" id="c1-r2" style="color:var(--y)">—</div></div>
+      <div class="cr-row"><div class="cr-label">推奨株数</div><div class="cr-val" id="c1-r3" style="color:var(--c)">—</div></div>
+      <div class="cr-row"><div class="cr-label">必要資金（概算）</div><div class="cr-val" id="c1-r4" style="color:var(--g)">—</div></div>
+    </div>
+  </div>
+
+  <!-- 損益計算機 -->
+  <div class="calc-box">
+    <div class="calc-title">📊 損益・RR比計算機</div>
+    <div class="calc-grid">
+      <div class="calc-field">
+        <div class="calc-label">エントリー価格（円）</div>
+        <input class="calc-input" id="c2-entry" type="number" placeholder="2500">
+      </div>
+      <div class="calc-field">
+        <div class="calc-label">目標価格（利確）（円）</div>
+        <input class="calc-input" id="c2-target" type="number" placeholder="2600">
+      </div>
+      <div class="calc-field">
+        <div class="calc-label">ストップ価格（円）</div>
+        <input class="calc-input" id="c2-stop" type="number" placeholder="2450">
+      </div>
+      <div class="calc-field">
+        <div class="calc-label">株数</div>
+        <input class="calc-input" id="c2-shares" type="number" placeholder="200">
+      </div>
+    </div>
+    <button class="calc-btn" onclick="calcPnL()">CALCULATE</button>
+    <div class="calc-result" id="c2-result">
+      <div class="cr-row"><div class="cr-label">期待利益</div><div class="cr-val" id="c2-r1" style="color:var(--g)">—</div></div>
+      <div class="cr-row"><div class="cr-label">最大損失</div><div class="cr-val" id="c2-r2" style="color:var(--r)">—</div></div>
+      <div class="cr-row"><div class="cr-label">RR比（リスクリワード）</div><div class="cr-val" id="c2-r3" style="color:var(--c)">—</div></div>
+      <div class="cr-row"><div class="cr-label">上昇率 / 下落率</div><div class="cr-val" id="c2-r4" style="color:var(--y)">—</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 証券会社 -->
+<section id="s-broker">
+  <div class="shdr">
+    <div class="shdr-n">02</div>
+    <div class="shdr-body">
+      <div class="shdr-t">BROKERS</div>
+      <div class="shdr-s">デイトレード向け証券会社の選び方</div>
+    </div>
+  </div>
+
+  <table class="tbl">
+    <tr><th>証券会社</th><th>特徴</th><th>手数料（目安）</th><th>デイトレ向き度</th></tr>
+    <tr>
+      <td class="td-c">SBI証券</td>
+      <td>国内最大手。アクティブプランで1日100万円まで無料</td>
+      <td class="td-g">0円〜（アクティブプラン）</td>
+      <td>★★★★★</td>
+    </tr>
+    <tr>
+      <td class="td-c">楽天証券</td>
+      <td>いちにち定額コースで1日200万円まで手数料無料</td>
+      <td class="td-g">0円〜（定額コース）</td>
+      <td>★★★★★</td>
+    </tr>
+    <tr>
+      <td class="td-c">松井証券</td>
+      <td>1日50万円まで無料。ボックスレート採用の老舗</td>
+      <td class="td-g">0円〜（〜50万）</td>
+      <td>★★★★☆</td>
+    </tr>
+    <tr>
+      <td class="td-y">マネックス証券</td>
+      <td>銘柄スクリーニングが充実。ツールが使いやすい</td>
+      <td>55円〜（都度）</td>
+      <td>★★★★☆</td>
+    </tr>
+    <tr>
+      <td class="td-y">auカブコム証券</td>
+      <td>逆指値・自動売買機能が充実。信用取引の金利が低め</td>
+      <td>0円〜（一日定額）</td>
+      <td>★★★☆☆</td>
+    </tr>
+  </table>
+
+  <div class="tip">
+    <div class="tip-t">証券会社選びのチェックポイント</div>
+    ①<b>手数料</b>（1日定額プランが有利）　②<b>注文機能</b>（逆指値・トレール注文に対応しているか）
+    ③<b>ツール</b>（リアルタイムの板・歩み値が見えるか）　④<b>信用取引</b>（空売りができるか）
+    ⑤<b>スマホアプリ</b>（外出中でも確認・決済できるか）
+  </div>
+</section>
+
+<!-- 03 チャートツール -->
+<section id="s-chart">
+  <div class="shdr">
+    <div class="shdr-n">03</div>
+    <div class="shdr-body">
+      <div class="shdr-t">CHARTING TOOLS</div>
+      <div class="shdr-s">チャート・テクニカル分析ツール</div>
+    </div>
+  </div>
+
+  <div class="tool-grid">
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">TradingView</div>
+        <div class="tc-badge tc-both">無料〜有料</div>
+      </div>
+      <div class="tc-desc">世界最大のチャートプラットフォーム。インジケーターの種類が豊富でカスタマイズ性が高い。無料でも十分使える。</div>
+      <div class="tc-tags"><span class="tc-tag">ブラウザ</span><span class="tc-tag">スマホ対応</span><span class="tc-tag">日本株対応</span><span class="tc-tag">コミュニティ充実</span></div>
+    </div>
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">株探（かぶたん）チャート</div>
+        <div class="tc-badge tc-free">無料</div>
+      </div>
+      <div class="tc-desc">日本株特化の情報サイト。チャートはシンプルだが決算情報・適時開示との連携が便利。スクリーナーも充実。</div>
+      <div class="tc-tags"><span class="tc-tag">ブラウザ</span><span class="tc-tag">日本株特化</span><span class="tc-tag">決算情報</span></div>
+    </div>
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">ストックウェザー</div>
+        <div class="tc-badge tc-both">無料〜有料</div>
+      </div>
+      <div class="tc-desc">日本株向けの本格的なチャートツール。出来高分析・板読みに優れ、デイトレーダーに人気が高い。</div>
+      <div class="tc-tags"><span class="tc-tag">日本株特化</span><span class="tc-tag">板読み</span><span class="tc-tag">出来高分析</span></div>
+    </div>
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">SBI / 楽天 純正ツール</div>
+        <div class="tc-badge tc-free">無料（口座開設で）</div>
+      </div>
+      <div class="tc-desc">各証券会社の高機能取引ツール。SBIのHYPER SBI 2、楽天のマーケットスピードIIはリアルタイム対応で優秀。</div>
+      <div class="tc-tags"><span class="tc-tag">リアルタイム</span><span class="tc-tag">板・歩み値</span><span class="tc-tag">口座開設不要</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 スクリーナー -->
+<section id="s-screen">
+  <div class="shdr">
+    <div class="shdr-n">04</div>
+    <div class="shdr-body">
+      <div class="shdr-t">SCREENERS</div>
+      <div class="shdr-s">銘柄スクリーニングツール</div>
+    </div>
+  </div>
+
+  <div class="body-text" style="margin-bottom:18px">
+    毎朝の「今日どの銘柄を狙うか」を絞り込むためのツール。条件を設定して候補を自動で抽出します。
+  </div>
+
+  <table class="tbl">
+    <tr><th>ツール</th><th>特徴</th><th>料金</th><th>推奨条件例</th></tr>
+    <tr>
+      <td class="td-c">株探スクリーナー</td>
+      <td>日本株最強。出来高・騰落率・決算など豊富な条件設定</td>
+      <td class="td-free">無料〜月額330円</td>
+      <td>前日比+3%以上、出来高前日比200%以上</td>
+    </tr>
+    <tr>
+      <td class="td-c">マネックス銘柄スカウター</td>
+      <td>財務データとテクニカルを組み合わせた高機能スクリーナー</td>
+      <td class="td-free">口座開設で無料</td>
+      <td>移動平均線ゴールデンクロス、RSI30以下</td>
+    </tr>
+    <tr>
+      <td class="td-c">TradingViewスクリーナー</td>
+      <td>グローバル対応。テクニカル条件が多彩</td>
+      <td class="td-free">無料〜</td>
+      <td>ボリンジャーバンドスクイーズ後のブレイク</td>
+    </tr>
+  </table>
+
+  <div class="card card-g">
+    <div class="tag tag-g">実践</div>
+    <div class="term">前日夜のスクリーニング手順</div>
+    <div class="body-text">
+      ①出来高急増銘柄（前日比150%以上）をリストアップ<br>
+      ②その中からトレンドが出ている銘柄に絞る（MA上向き）<br>
+      ③翌朝の値動きが期待できる理由（ニュース・決算・セクター動向）を確認<br>
+      ④ウォッチリストに追加し、開場後のセットアップを待つ
+    </div>
+  </div>
+</section>
+
+<!-- 05 情報収集 -->
+<section id="s-info">
+  <div class="shdr">
+    <div class="shdr-n">05</div>
+    <div class="shdr-body">
+      <div class="shdr-t">INFORMATION</div>
+      <div class="shdr-s">デイトレードに必要な情報収集ツール</div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card card-c">
+      <div class="tag tag-c">ニュース</div>
+      <div class="term">リアルタイム情報源</div>
+      <div class="body-text">
+        <b>日経電子版</b>：月額4,277円。速報ニュースが最速。<br>
+        <b>Bloomberg / Reuters</b>：米国発の重要情報。英語だが無料で主要ニュースが読める。<br>
+        <b>適時開示サービス（TDnet）</b>：東証の公式開示。決算・M&Aなど重要情報を無料でリアルタイム確認。
+      </div>
+    </div>
+    <div class="card card-y">
+      <div class="tag tag-y">SNS・コミュニティ</div>
+      <div class="term">市場の雰囲気を掴む</div>
+      <div class="body-text">
+        <b>X（旧Twitter）</b>：機関投資家・アナリストの発言、速報ニュース。ただし噂も多いため裏取り必須。<br>
+        <b>Yahoo!ファイナンス掲示板</b>：個人投資家の動向確認。過熱感・天井の指標になることも。
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-r">
+    <div class="tag tag-r">注意</div>
+    <div class="term">情報の取捨選択</div>
+    <div class="body-text">
+      SNSの「○○が上がる」情報の多くは<b>ポジショントークや誘導</b>。情報は参考にしても鵜呑みにしない。
+      最終的な判断根拠は<b>自分のチャート分析とルール</b>に置くことが大切。
+      情報過多になると判断力が下がるため、使う情報源を3〜4つに絞るのが推奨。
+    </div>
+  </div>
+</section>
+
+<!-- 06 環境セットアップ -->
+<section id="s-setup">
+  <div class="shdr">
+    <div class="shdr-n">06</div>
+    <div class="shdr-body">
+      <div class="shdr-t">ENVIRONMENT</div>
+      <div class="shdr-s">トレード環境のセットアップ</div>
+    </div>
+  </div>
+
+  <table class="tbl">
+    <tr><th>機材</th><th>推奨スペック</th><th>理由</th></tr>
+    <tr><td>PC</td><td>メモリ16GB以上、SSD搭載</td><td>複数チャート・スクリーナー・ニュースを同時起動するため</td></tr>
+    <tr><td>モニター</td><td>27インチ以上 × 2台</td><td>メインチャート＋板・ニュース画面の分離で見やすくなる</td></tr>
+    <tr><td>インターネット回線</td><td>光回線（有線LAN接続）</td><td>WiFiは遅延や切断リスクがある。注文執行時に致命的</td></tr>
+    <tr><td>スマホ</td><td>モバイル回線でのバックアップ</td><td>PC回線障害時の緊急決済用</td></tr>
+    <tr><td>電源</td><td>UPS（無停電電源装置）推奨</td><td>停電時の強制切断を防ぐ。大口ポジション保有時は特に重要</td></tr>
+  </table>
+
+  <div class="tip">
+    <div class="tip-t">モニター配置の推奨レイアウト</div>
+    <b>メインモニター</b>：5〜15分足チャート × 3〜4銘柄 + 板（注文画面）<br>
+    <b>サブモニター</b>：日足チャート（大局確認）+ ニュース + 指数（日経・TOPIX）
+  </div>
+
+  <div class="g2">
+    <div class="card card-g">
+      <div class="tag tag-g">スタート</div>
+      <div class="term">最低限の始め方</div>
+      <div class="body-text">
+        高額な機材は最初は不要。<b>ノートPC + スマホ</b>で始めて、利益が出てから環境を整えるのが合理的。
+        最初から完璧な環境を揃えても、トレード技術がなければ損するだけ。
+      </div>
+    </div>
+    <div class="card card-c">
+      <div class="tag tag-c">ルーティン</div>
+      <div class="term">毎朝の準備チェックリスト</div>
+      <div class="body-text">
+        □ 前日の米国市場の動きを確認<br>
+        □ 日経先物の動きを確認<br>
+        □ 本日の主要ニュース・経済指標を確認<br>
+        □ ウォッチリスト銘柄のチャートチェック<br>
+        □ 本日のルールと損失上限を記入
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<script>
+function calcPositionSize() {
+  const capital = parseFloat(document.getElementById('c1-capital').value) || 0;
+  const riskPct = parseFloat(document.getElementById('c1-risk-pct').value) || 0;
+  const entry = parseFloat(document.getElementById('c1-entry').value) || 0;
+  const stop = parseFloat(document.getElementById('c1-stop').value) || 0;
+
+  if (!capital || !riskPct || !entry || !stop) return;
+
+  const riskAmt = capital * (riskPct / 100);
+  const riskPerShare = Math.abs(entry - stop);
+  const shares = riskPerShare > 0 ? Math.floor(riskAmt / riskPerShare / 100) * 100 : 0;
+  const totalCost = shares * entry;
+
+  document.getElementById('c1-r1').textContent = '¥' + riskAmt.toLocaleString();
+  document.getElementById('c1-r2').textContent = '¥' + riskPerShare.toLocaleString() + ' / 株';
+  document.getElementById('c1-r3').textContent = shares.toLocaleString() + ' 株';
+  document.getElementById('c1-r4').textContent = '¥' + totalCost.toLocaleString();
+
+  document.getElementById('c1-result').classList.add('show');
+}
+
+function calcPnL() {
+  const entry = parseFloat(document.getElementById('c2-entry').value) || 0;
+  const target = parseFloat(document.getElementById('c2-target').value) || 0;
+  const stop = parseFloat(document.getElementById('c2-stop').value) || 0;
+  const shares = parseFloat(document.getElementById('c2-shares').value) || 0;
+
+  if (!entry || !target || !stop || !shares) return;
+
+  const profit = (target - entry) * shares;
+  const loss = (entry - stop) * shares;
+  const rr = loss > 0 ? (profit / loss).toFixed(2) : '—';
+  const upPct = ((target - entry) / entry * 100).toFixed(2);
+  const dnPct = ((entry - stop) / entry * 100).toFixed(2);
+
+  document.getElementById('c2-r1').textContent = '¥' + profit.toLocaleString();
+  document.getElementById('c2-r2').textContent = '▲¥' + Math.abs(loss).toLocaleString();
+  document.getElementById('c2-r3').textContent = rr + ' : 1';
+  document.getElementById('c2-r4').textContent = '+' + upPct + '% / ▲' + dnPct + '%';
+
+  document.getElementById('c2-result').classList.add('show');
+}
+</script>
+</body>
+</html>
