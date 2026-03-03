@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>トレードジャーナル完全ガイド | 株式投資ガイド</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050507;--s1:#0d0d16;--s2:#141420;--s3:#1c1c2a;--s4:#22222e;--c:#00d4ff;--g:#00e87d;--r:#ff3358;--y:#ffd600;--p:#b06aff;--o:#ff8c42;--teal:#00c9a7;--tx:#e8eaf6;--txm:#64648a;--txd:#9696b8;--bd:rgba(255,255,255,0.07);--bd2:rgba(255,255,255,0.13);--fs-base:15px;--lh:1.85}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:var(--fs-base)}
+body{background:var(--bg);color:var(--tx);font-family:'Noto Sans JP',sans-serif;font-weight:300;line-height:var(--lh);overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 55px,rgba(0,212,255,0.015) 55px,rgba(0,212,255,0.015) 56px),repeating-linear-gradient(90deg,transparent,transparent 55px,rgba(0,212,255,0.015) 55px,rgba(0,212,255,0.015) 56px);pointer-events:none;z-index:0}
+ruby{ruby-align:center}rt{font-size:.55em;color:var(--txd);letter-spacing:.5px}
+.sitenav{position:sticky;top:0;z-index:300;background:rgba(5,5,7,0.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--bd2)}
+.sitenav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;height:52px;padding:0 24px;gap:0}
+.site-logo{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:5px;color:var(--c);margin-right:8px;flex-shrink:0;text-decoration:none;display:flex;align-items:center;gap:6px}
+.logo-arr{font-size:11px;color:var(--txm)}
+.nav-div{width:1px;height:20px;background:var(--bd2);margin:0 10px;flex-shrink:0}
+.snlinks{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1}
+.snlinks::-webkit-scrollbar{display:none}
+.snl{font-size:11px;letter-spacing:1px;padding:6px 13px;color:var(--txm);border-radius:4px;text-decoration:none;white-space:nowrap;transition:all .2s;border:1px solid transparent;font-weight:400}
+.snl:hover{color:var(--tx);background:rgba(255,255,255,0.05)}
+.snl.cur{color:var(--c);border-color:rgba(0,212,255,0.2);background:rgba(0,212,255,0.06)}
+.ng{font-size:9px;letter-spacing:2px;color:var(--txm);padding:0 6px;opacity:.6;white-space:nowrap;display:flex;align-items:center}
+.page-nav{position:relative;z-index:1;border-bottom:1px solid var(--bd2);background:var(--s1)}
+.page-nav-inner{max-width:1100px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none;height:44px;padding:0 24px}
+.page-nav-inner::-webkit-scrollbar{display:none}
+.pnl{font-size:11.5px;letter-spacing:1px;padding:0 14px;color:var(--txm);text-decoration:none;display:flex;align-items:center;white-space:nowrap;border-bottom:2px solid transparent;transition:all .18s}
+.pnl:hover{color:var(--c);border-color:var(--c)}
+.hero{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:56px 24px 44px}
+.hero-tag{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:6px;color:var(--c);opacity:.7;margin-bottom:14px}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,9vw,104px);line-height:1;background:linear-gradient(135deg,#fff 10%,var(--c) 65%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
+.hero-sub{font-size:13px;letter-spacing:3px;color:var(--txm);margin-bottom:22px}
+.hero-desc{font-size:15px;color:#c4c8e0;max-width:680px;line-height:2}
+.hero-stats{display:flex;gap:32px;margin-top:32px;flex-wrap:wrap}
+.hstat{text-align:center}
+.hstat-n{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--c);line-height:1}
+.hstat-l{font-size:10px;letter-spacing:2px;color:var(--txm);margin-top:4px}
+.main{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 24px 120px}
+section{padding-top:40px;margin-bottom:72px}
+.shdr{display:flex;align-items:flex-end;gap:14px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--bd2)}
+.shdr-n{font-family:'Bebas Neue',sans-serif;font-size:52px;line-height:1;opacity:.18;flex-shrink:0}
+.shdr-body{flex:1}
+.shdr-t{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:4px;color:#fff;line-height:1}
+.shdr-s{font-size:11px;color:var(--txm);letter-spacing:3px;margin-top:4px}
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:8px;padding:26px 30px;margin-bottom:16px}
+.card-c{border-left:4px solid var(--c)}.card-g{border-left:4px solid var(--g)}.card-y{border-left:4px solid var(--y)}.card-r{border-left:4px solid var(--r)}.card-p{border-left:4px solid var(--p)}
+.tag{display:inline-block;font-size:10px;letter-spacing:2px;padding:3px 10px;border-radius:3px;margin-bottom:10px}
+.tag-c{background:rgba(0,212,255,0.1);color:var(--c)}.tag-g{background:rgba(0,232,125,0.1);color:var(--g)}.tag-y{background:rgba(255,214,0,0.1);color:var(--y)}.tag-r{background:rgba(255,51,88,0.1);color:var(--r)}.tag-p{background:rgba(176,106,255,0.1);color:var(--p)}
+.term{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;margin-bottom:8px}
+.body-text{font-size:15px;color:#c0c4dc;line-height:1.95}
+.body-text b{color:#e8eaf6;font-weight:500}
+.body-text strong{color:var(--c);font-weight:500}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.g2,.g3{grid-template-columns:1fr}}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0}
+.tbl th{background:rgba(0,212,255,0.07);color:var(--c);font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:2px;padding:12px 16px;text-align:left;border:1px solid var(--bd2);font-weight:400}
+.tbl td{padding:12px 16px;border:1px solid var(--bd);color:#c0c4dc;line-height:1.75;vertical-align:top;font-size:14px}
+.tbl tr:hover td{background:rgba(255,255,255,0.02)}
+.td-c{color:var(--c);font-weight:500}.td-g{color:var(--g);font-weight:500}.td-r{color:var(--r)}.td-y{color:var(--y)}
+.tip{background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.18);border-left:4px solid var(--c);border-radius:5px;padding:18px 22px;margin:16px 0;font-size:14.5px;color:#c0c4dc;line-height:1.95}
+.tip-t{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:3px;color:var(--c);margin-bottom:7px}
+.tip-g{background:rgba(0,232,125,0.05);border-color:rgba(0,232,125,0.18);border-left-color:var(--g)}.tip-g .tip-t{color:var(--g)}
+.tip-y{background:rgba(255,214,0,0.05);border-color:rgba(255,214,0,0.18);border-left-color:var(--y)}.tip-y .tip-t{color:var(--y)}
+.alert{background:rgba(255,51,88,0.06);border:1px solid rgba(255,51,88,0.2);border-left:4px solid var(--r);border-radius:5px;padding:18px 22px;margin:16px 0;font-size:14.5px;color:#c0c4dc;line-height:1.95}
+.alert-t{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:3px;color:var(--r);margin-bottom:7px}
+.chk{list-style:none;display:flex;flex-direction:column;gap:10px;margin:12px 0}
+.chk li{font-size:14.5px;color:#c0c4dc;display:flex;gap:10px;align-items:flex-start;line-height:1.75}
+.chk li::before{content:'✓';color:var(--c);font-weight:700;flex-shrink:0;margin-top:1px}
+.chk li.warn::before{content:'!';color:var(--y)}
+/* Journal-specific */
+.journal-form{background:var(--s2);border:1px solid rgba(0,212,255,0.2);border-radius:10px;overflow:hidden;margin:16px 0}
+.jf-header{background:rgba(0,212,255,0.08);padding:16px 24px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--bd2)}
+.jf-title{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:3px;color:var(--c)}
+.jf-body{padding:24px}
+.jf-row{display:grid;grid-template-columns:180px 1fr;gap:0;border-bottom:1px solid var(--bd);align-items:stretch}
+.jf-row:last-child{border-bottom:none}
+.jf-label{padding:14px 18px;font-size:12px;letter-spacing:2px;color:var(--txm);background:rgba(0,0,0,0.2);display:flex;align-items:center;border-right:1px solid var(--bd)}
+.jf-value{padding:14px 18px;font-size:14px;color:#c0c4dc;line-height:1.75;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--txd)}
+.jf-value.example{color:#c0c4dc;font-family:'Noto Sans JP',sans-serif;font-size:14px}
+.mono{font-family:'JetBrains Mono',monospace;font-size:13px;background:var(--s3);padding:16px 20px;border-radius:6px;line-height:2.2;border:1px solid var(--bd);margin:14px 0;overflow-x:auto}
+.mono .lbl{color:var(--c)}.mono .val{color:var(--y)}.mono .cmt{color:var(--txm)}.mono .good{color:var(--g)}.mono .bad{color:var(--r)}
+.pdca{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.pdca-box{background:var(--s2);border:1px solid var(--bd);border-radius:8px;padding:20px 22px;position:relative}
+.pdca-label{font-family:'Bebas Neue',sans-serif;font-size:32px;opacity:.15;position:absolute;right:16px;top:10px}
+.pdca-title{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:3px;margin-bottom:10px}
+.pdca-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.pdca-list li{font-size:13.5px;color:#9696b8;padding-left:14px;position:relative;line-height:1.7}
+.pdca-list li::before{content:'›';position:absolute;left:0;color:var(--c)}
+@media(max-width:640px){.pdca,.jf-row{grid-template-columns:1fr}}
+.jf-row.section-break{background:rgba(0,212,255,0.03);border-top:2px solid rgba(0,212,255,0.15)}
+.jf-row.section-break .jf-label{color:var(--c);font-size:11px;background:rgba(0,212,255,0.06)}
+.divider{border:none;border-top:1px solid var(--bd);margin:56px 0;position:relative}
+.divider::after{content:'◆';position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 14px;color:var(--txm);font-size:9px;letter-spacing:4px}
+</style>
+</head>
+<body>
+
+<nav class="sitenav">
+  <div class="sitenav-inner">
+    <a href="index.html" class="site-logo"><span class="logo-arr">←</span>TOP</a>
+    <div class="nav-div"></div>
+    <div class="snlinks">
+      <span class="ng">DAYTRADE</span>
+      <a href="daytrade-basics.html" class="snl">基礎</a>
+      <a href="daytrade-advanced.html" class="snl">応用</a>
+      <a href="daytrade-strategy.html" class="snl">戦略</a>
+      <a href="daytrade-tool.html" class="snl">ツール</a>
+      <a href="daytrade-journal.html" class="snl cur">ジャーナル</a>
+      <a href="daytrade-glossary.html" class="snl">用語</a>
+      <span class="ng">NISA</span>
+      <a href="nisa-guide.html" class="snl">ガイド</a>
+      <a href="nisa-glossary.html" class="snl">用語</a>
+      <span class="ng">MACRO</span>
+      <a href="macro-guide.html" class="snl">ガイド</a>
+      <a href="macro-glossary.html" class="snl">用語</a>
+      <span class="ng">ALL</span>
+      <a href="glossary-all.html" class="snl">全用語集</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-nav">
+  <div class="page-nav-inner">
+    <a href="#s-why" class="pnl">なぜ記録するか</a>
+    <a href="#s-daily" class="pnl">日次日誌テンプレ</a>
+    <a href="#s-trade" class="pnl">1トレード記録</a>
+    <a href="#s-weekly" class="pnl">週次PDCA</a>
+    <a href="#s-log" class="pnl">検証ログ</a>
+    <a href="#s-monthly" class="pnl">月次レビュー</a>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-tag">DAYTRADE — JOURNAL</div>
+  <div class="hero-title">JOURNAL</div>
+  <div class="hero-sub">トレードジャーナル・記録と改善の技術</div>
+  <p class="hero-desc">
+    プロトレーダーと素人を分ける最大の差は「記録するかどうか」。<br>
+    日次・週次・月次のサイクルで記録・分析・改善を繰り返すことが成長の核心です。
+  </p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-n">6</div><div class="hstat-l">TEMPLATES</div></div>
+    <div class="hstat"><div class="hstat-n" style="color:var(--g)">毎日</div><div class="hstat-l">ROUTINE</div></div>
+    <div class="hstat"><div class="hstat-n" style="color:var(--y)">PDCA</div><div class="hstat-l">CYCLE</div></div>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- 01 なぜ記録するか -->
+<section id="s-why">
+  <div class="shdr">
+    <div class="shdr-n">01</div>
+    <div class="shdr-body">
+      <div class="shdr-t">WHY JOURNAL</div>
+      <div class="shdr-s">記録が最速の成長ツールである理由</div>
+    </div>
+  </div>
+
+  <div class="card card-c">
+    <div class="tag tag-c">CORE IDEA</div>
+    <div class="body-text">
+      ほとんどのトレーダーが損を出し続ける理由は、<b>同じ失敗を繰り返している</b>から。
+      記録がなければ、パターンに気づけない。ジャーナルは「自分専用の弱点データベース」です。
+      記録するだけで<strong>勝率が上がる</strong>ことはよく知られており、プロが最も重視するルーティンのひとつ。
+    </div>
+  </div>
+
+  <div class="g3">
+    <div class="card">
+      <div class="tag tag-g">気づき</div>
+      <div class="term">失敗パターンの発見</div>
+      <div class="body-text">「月曜の寄り付きは負けが多い」「決算またぎで必ず損する」など、データで初めて見えてくる弱点。</div>
+    </div>
+    <div class="card">
+      <div class="tag tag-c">精度向上</div>
+      <div class="term">エントリー根拠の明確化</div>
+      <div class="body-text">「なんとなく買った」をなくす。根拠を言語化することで、再現性のあるトレードだけを残せる。</div>
+    </div>
+    <div class="card">
+      <div class="tag tag-y">メンタル</div>
+      <div class="term">感情を切り離す</div>
+      <div class="body-text">興奮・恐怖・後悔を「テキスト化」することで感情が落ち着く。記録は最良のメンタルケア。</div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-t">記録の最低限ルール</div>
+    完璧なジャーナルより<b>続けられるジャーナル</b>の方が価値が高い。最初はExcel・Notionでも、手書きでもよい。
+    大事なのは「エントリー根拠・損益・反省」この3つだけでも毎日書き続けること。
+  </div>
+</section>
+
+<!-- 02 日次日誌テンプレ -->
+<section id="s-daily">
+  <div class="shdr">
+    <div class="shdr-n">02</div>
+    <div class="shdr-body">
+      <div class="shdr-t">DAILY LOG TEMPLATE</div>
+      <div class="shdr-s">日次日誌テンプレート</div>
+    </div>
+  </div>
+
+  <div class="body-text" style="margin-bottom:20px">
+    毎営業日、<b>前場前（市場前）</b>と<b>引け後（市場後）</b>の2回記入するのが理想。市場前で計画を立て、引け後で振り返る。
+  </div>
+
+  <div class="journal-form">
+    <div class="jf-header">
+      <div class="jf-title">📋 日次日誌 — 市場前チェック</div>
+    </div>
+    <div class="jf-body">
+      <div class="jf-row">
+        <div class="jf-label">DATE</div>
+        <div class="jf-value">20XX年XX月XX日（月）</div>
+      </div>
+      <div class="jf-row">
+        <div class="jf-label">前日の引け値・雰囲気</div>
+        <div class="jf-value example">日経平均 38,500円 ±0.2%。方向感なし。先物は+50円。米国はS&P500 +0.5%の上昇。</div>
+      </div>
+      <div class="jf-row">
+        <div class="jf-label">今日の主要イベント</div>
+        <div class="jf-value example">10:00 日銀総裁発言予定。米国：本日なし。決算：〇〇ホールディングス（引け後）</div>
+      </div>
+      <div class="jf-row">
+        <div class="jf-label">相場環境の把握</div>
+        <div class="jf-value example">トレンド：レンジ気味 ／ リスクオン・オフ：ニュートラル ／ VIX：18.5（落ち着き）</div>
+      </div>
+      <div class="jf-row">
+        <div class="jf-label">今日の注目銘柄</div>
+        <div class="jf-value example">①〇〇（出来高増加＋上昇トレンド）②〇〇（決算ギャップ狙い）</div>
+      </div>
+      <div class="jf-row">
+        <div class="jf-label">今日のルール・意識すること</div>
+        <div class="jf-value example">昨日FOMOエントリーして損したので、今日はセットアップが揃うまで待つ。最大3トレードまで。</div>
+      </div>
+      <div class="jf-row">
+        <div class="jf-label">今日の損失上限（日次DD）</div>
+        <div class="jf-value">▲ _____ 円　（この金額に達したら即トレード終了）</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="journal-form" style="margin-top:20px">
+    <div class="jf-header">
+      <div class="jf-title">📝 日次日誌 — 引け後振り返り</div>
+    </div>
+    <div class="jf-body">
+      <div class="jf-row">
+        <div class="jf-label">本日の損益</div>
+        <div class="jf-value example">＋12,500円（勝ち3 / 負け1）</div>
+      </div>
+      <div class="jf-row">
+        <div class="jf-label">トレード数・勝率</div>
+        <div class="jf-value example">4トレード　勝率75%　PF：2.1</div>
+      </div>
+      <div class="jf-row">
+        <div class="jf-label">ベストトレード</div>
+        <div class="jf-value example">〇〇 09:45エントリー。MAタッチからの反発で根拠通り。＋8,000円。</div>
+      </div>
+      <div class="jf-row">
+        <div class="jf-label">ワーストトレード</div>
+        <div class="jf-value example">〇〇 10:30 FOMOエントリー。根拠なし。▲2,500円。ルール違反。</div>
+      </div>
+      <div class="jf-row">
+        <div class="jf-label">ルール遵守度（10点満点）</div>
+        <div class="jf-value example">7点。1回FOMOがあったが損失は小さく抑えた。</div>
+      </div>
+      <div class="jf-row">
+        <div class="jf-label">明日への改善点</div>
+        <div class="jf-value example">10時台は動きが迷いやすい。この時間帯のトレードは控えるか、条件を厳しくする。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 1トレード記録 -->
+<section id="s-trade">
+  <div class="shdr">
+    <div class="shdr-n">03</div>
+    <div class="shdr-body">
+      <div class="shdr-t">TRADE LOG</div>
+      <div class="shdr-s">1トレード記録シート</div>
+    </div>
+  </div>
+
+  <div class="body-text" style="margin-bottom:20px">
+    トレードごとに詳細を記録する。面倒でも<b>エントリー根拠の言語化</b>が最重要。「なんとなく」をなくす。
+  </div>
+
+  <div class="journal-form">
+    <div class="jf-header">
+      <div class="jf-title">📊 トレード記録シート</div>
+    </div>
+    <div class="jf-body">
+      <div class="jf-row section-break">
+        <div class="jf-label">── 基本情報 ──</div>
+        <div class="jf-value"></div>
+      </div>
+      <div class="jf-row">
+        <div class="jf-label">銘柄 / コード</div>
+        <div class="jf-value">____________ ／ ______</div>
+      </div>
+      <div class="jf-row">
+        <div class="jf-label">売買 / 枚数</div>
+        <div class="jf-value">買い・空売り　　_____ 株</div>
+      </div>
+      <div class="jf-row">
+        <div class="jf-label">エントリー</div>
+        <div class="jf-value">_____ 円　@　_____ 時 _____ 分</div>
+      </div>
+      <div class="jf-row">
+        <div class="jf-label">イグジット（決済）</div>
+        <div class="jf-value">_____ 円　@　_____ 時 _____ 分</div>
+      </div>
+      <div class="jf-row">
+        <div class="jf-label">損益</div>
+        <div class="jf-value">± _____ 円（手数料込み）</div>
+      </div>
+      <div class="jf-row">
+        <div class="jf-label">ストップ設定値</div>
+        <div class="jf-value">_____ 円（リスク額：_____ 円）</div>
+      </div>
+      <div class="jf-row section-break">
+        <div class="jf-label">── 根拠・判断 ──</div>
+        <div class="jf-value"></div>
+      </div>
+      <div class="jf-row">
+        <div class="jf-label">エントリー根拠（具体的に）</div>
+        <div class="jf-value example">25SMAの上で推移 ＋ 前日高値ブレイク後の戻り ＋ RSI45→上昇 ＋ 出来高増加</div>
+      </div>
+      <div class="jf-row">
+        <div class="jf-label">イグジット根拠</div>
+        <div class="jf-value example">目標値（前回高値）到達。MACDがデッドクロス傾向のため早めに利確。</div>
+      </div>
+      <div class="jf-row">
+        <div class="jf-label">計画通りだったか</div>
+        <div class="jf-value">◎ 計画通り　／　○ ほぼ計画通り　／　△ 感情が入った　／　✗ ルール違反</div>
+      </div>
+      <div class="jf-row section-break">
+        <div class="jf-label">── 振り返り ──</div>
+        <div class="jf-value"></div>
+      </div>
+      <div class="jf-row">
+        <div class="jf-label">良かった点</div>
+        <div class="jf-value example">ストップを事前に設定し、損切りを躊躇なく実行できた。</div>
+      </div>
+      <div class="jf-row">
+        <div class="jf-label">改善すべき点</div>
+        <div class="jf-value example">利確が早すぎた。もう少しトレーリングストップを使えば+30%多く取れた。</div>
+      </div>
+      <div class="jf-row">
+        <div class="jf-label">スコア（10点満点）</div>
+        <div class="jf-value">_____ 点　（根拠・執行・メンタルの総合評価）</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 週次PDCA -->
+<section id="s-weekly">
+  <div class="shdr">
+    <div class="shdr-n">04</div>
+    <div class="shdr-body">
+      <div class="shdr-t">WEEKLY PDCA</div>
+      <div class="shdr-s">週次PDCAテンプレート</div>
+    </div>
+  </div>
+
+  <div class="pdca">
+    <div class="pdca-box" style="border-top:3px solid var(--c)">
+      <div class="pdca-label">P</div>
+      <div class="pdca-title" style="color:var(--c)">PLAN — 計画</div>
+      <ul class="pdca-list">
+        <li>今週の相場環境の予測（強気・弱気・レンジ）</li>
+        <li>狙うセクター・銘柄の選定根拠</li>
+        <li>今週試したいセットアップ・実験</li>
+        <li>今週の改善テーマ（先週の振り返りから）</li>
+        <li>週間損失上限（週次DD）の設定</li>
+      </ul>
+    </div>
+    <div class="pdca-box" style="border-top:3px solid var(--g)">
+      <div class="pdca-label">D</div>
+      <div class="pdca-title" style="color:var(--g)">DO — 実行</div>
+      <ul class="pdca-list">
+        <li>日次日誌を毎日記入（省略しない）</li>
+        <li>トレード記録シートを毎トレード記入</li>
+        <li>ルール違反は必ずメモ（言い訳しない）</li>
+        <li>感情の変化・コンディションも記録</li>
+      </ul>
+    </div>
+    <div class="pdca-box" style="border-top:3px solid var(--y)">
+      <div class="pdca-label">C</div>
+      <div class="pdca-title" style="color:var(--y)">CHECK — 確認</div>
+      <ul class="pdca-list">
+        <li>週間損益・勝率・PF・RR比の集計</li>
+        <li>曜日別・時間帯別のパフォーマンス分析</li>
+        <li>ルール違反の回数と理由の整理</li>
+        <li>負けトレードの共通パターン抽出</li>
+        <li>勝ちトレードの再現性確認</li>
+      </ul>
+    </div>
+    <div class="pdca-box" style="border-top:3px solid var(--p)">
+      <div class="pdca-label">A</div>
+      <div class="pdca-title" style="color:var(--p)">ACT — 改善</div>
+      <ul class="pdca-list">
+        <li>ルールの追加・修正・削除を決定</li>
+        <li>次週の改善テーマを1〜2個に絞る</li>
+        <li>取引量・ポジションサイズの再設定</li>
+        <li>改善テーマを次週のPLANへ引き継ぐ</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mono">
+    <span class="lbl">週次統計テンプレ（例）</span><br>
+    ─────────────────────────────────<br>
+    <span class="lbl">期間：</span><span class="val">20XX/XX/XX（月）〜 20XX/XX/XX（金）</span><br>
+    <span class="lbl">総トレード数：</span><span class="val">18</span>　<span class="lbl">勝ち：</span><span class="good">13</span>　<span class="lbl">負け：</span><span class="bad">5</span><br>
+    <span class="lbl">勝率：</span><span class="good">72.2%</span>　<span class="lbl">PF（損益分岐）：</span><span class="val">2.14</span><br>
+    <span class="lbl">週間損益：</span><span class="good">＋47,800円</span><br>
+    <span class="lbl">最大勝ちトレード：</span><span class="good">＋22,000円</span>　<span class="lbl">最大負けトレード：</span><span class="bad">▲6,500円</span><br>
+    <span class="lbl">ルール違反回数：</span><span class="bad">2回</span>　<span class="cmt">（FOMO×1、損切り遅延×1）</span><br>
+    ─────────────────────────────────<br>
+    <span class="cmt"># 改善テーマ</span><br>
+    <span class="val">→ FOMOエントリーをゼロにする（セットアップチェックリストを使う）</span>
+  </div>
+</section>
+
+<!-- 05 検証ログ -->
+<section id="s-log">
+  <div class="shdr">
+    <div class="shdr-n">05</div>
+    <div class="shdr-body">
+      <div class="shdr-t">BACKTEST LOG</div>
+      <div class="shdr-s">戦略検証ログの書き方</div>
+    </div>
+  </div>
+
+  <div class="card card-c">
+    <div class="tag tag-c">PURPOSE</div>
+    <div class="body-text">
+      新しい戦略・セットアップを本番資金でいきなり試すのは危険。
+      まず<b>過去チャート（バックテスト）</b>で50〜100サンプルを検証し、有効性を確認してから実運用に移す。
+    </div>
+  </div>
+
+  <table class="tbl">
+    <tr><th>#</th><th>銘柄</th><th>日時</th><th>エントリー根拠</th><th>結果</th><th>備考</th></tr>
+    <tr><td class="td-c">001</td><td>〇〇</td><td>1/15 09:32</td><td>VWAPタッチ反発＋出来高増</td><td class="td-g">＋1.8%</td><td>想定通り</td></tr>
+    <tr><td class="td-c">002</td><td>〇〇</td><td>1/16 10:05</td><td>VWAPタッチ反発＋出来高増</td><td class="td-r">▲0.9%</td><td>出来高確認が甘かった</td></tr>
+    <tr><td class="td-c">003</td><td>〇〇</td><td>1/17 09:48</td><td>VWAPタッチ反発＋出来高増</td><td class="td-g">＋2.3%</td><td>完璧なセットアップ</td></tr>
+    <tr><td class="td-c">...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+    <tr><td colspan="2" style="color:var(--txm)">50サンプル集計</td><td>勝率 66%</td><td>PF 2.3</td><td class="td-g">有効性あり</td><td>実運用開始可</td></tr>
+  </table>
+
+  <div class="tip tip-y">
+    <div class="tip-t">検証の注意点</div>
+    バックテストは「後出しじゃんけん」になりやすい。実際のエントリー条件を明確に決めてから検証すること。
+    また50サンプル以上取らないと統計的に有意ではない。<b>最低50、理想は100サンプル</b>。
+  </div>
+</section>
+
+<!-- 06 月次レビュー -->
+<section id="s-monthly">
+  <div class="shdr">
+    <div class="shdr-n">06</div>
+    <div class="shdr-body">
+      <div class="shdr-t">MONTHLY REVIEW</div>
+      <div class="shdr-s">月次パフォーマンスレビュー</div>
+    </div>
+  </div>
+
+  <table class="tbl">
+    <tr><th>分析項目</th><th>確認内容</th><th>目標水準</th></tr>
+    <tr><td>月間損益</td><td>総利益・総損失・純損益</td><td>プラス（最低でも手数料超え）</td></tr>
+    <tr><td>勝率</td><td>勝ちトレード÷総トレード数</td><td>50%以上（RR比1.5以上なら40%でも黒字）</td></tr>
+    <tr><td>プロフィットファクター</td><td>総利益÷総損失</td><td class="td-g">1.5以上が目標、2以上で優秀</td></tr>
+    <tr><td>平均RR比</td><td>平均利益÷平均損失</td><td>1.5以上</td></tr>
+    <tr><td>最大ドローダウン</td><td>月内の資産最高値からの最大下落</td><td class="td-r">月間資産の10%以内に抑える</td></tr>
+    <tr><td>ルール遵守率</td><td>ルール違反なしのトレード÷総数</td><td>90%以上</td></tr>
+    <tr><td>時間帯別成績</td><td>寄り付き・前場・後場・大引けの成績</td><td>苦手な時間帯を特定・排除</td></tr>
+    <tr><td>銘柄タイプ別成績</td><td>グロース・バリュー・ETFなど分類</td><td>得意ジャンルに集中</td></tr>
+  </table>
+
+  <div class="card card-g">
+    <div class="tag tag-g">成長の証</div>
+    <div class="term">月次レビューで問う3つの質問</div>
+    <div class="body-text">
+      ① <b>今月の自分は先月の自分より上手くなったか？</b>（損益ではなくプロセスの質で答える）<br>
+      ② <b>同じ失敗を繰り返していないか？</b>（ルール違反の種類と原因を追跡する）<br>
+      ③ <b>来月に向けて、ルールやプロセスで変えることは何か？</b>（1〜2つに絞って具体的に決める）
+    </div>
+  </div>
+
+  <div class="alert">
+    <div class="alert-t">損益だけで評価しない</div>
+    悪い月でも「ルールを守り続けた」なら良いトレードができている証拠。
+    良い月でも「運でたまたま儲かった」なら次月は危険。
+    <b>結果ではなくプロセスの質を評価する</b>ことが長期的な成長につながる。
+  </div>
+</section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デイトレード用語集 — テクニカル・注文・資金管理・心理</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050507;--s1:#0d0d16;--s2:#141420;--s3:#1c1c2a;--c:#00d4ff;--g:#00e87d;--r:#ff3358;--y:#ffd600;--p:#b06aff;--o:#ff8c42;--teal:#00c9a7;--tx:#f0f2ff;--txm:#7878a0;--txd:#b0b4d0;--bd:rgba(255,255,255,0.07);--bd2:rgba(255,255,255,0.13)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:'Noto Sans JP',sans-serif;font-weight:300;line-height:1.85;overflow-x:hidden;font-size:15px}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 55px,rgba(0,212,255,0.012) 55px,rgba(0,212,255,0.012) 56px),repeating-linear-gradient(90deg,transparent,transparent 55px,rgba(0,212,255,0.012) 55px,rgba(0,212,255,0.012) 56px);pointer-events:none;z-index:0}
+ruby{ruby-align:center}rt{font-size:.55em;color:var(--txd)}
+.sitenav{position:sticky;top:0;z-index:300;background:rgba(5,5,7,0.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--bd2)}
+.sitenav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;height:52px;padding:0 24px}
+.site-logo{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:4px;color:var(--c);margin-right:6px;flex-shrink:0;text-decoration:none;display:flex;align-items:center;gap:5px}
+.logo-arr{font-size:11px;color:var(--txm)}
+.nav-div{width:1px;height:20px;background:var(--bd2);margin:0 10px;flex-shrink:0}
+.snlinks{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1}
+.snlinks::-webkit-scrollbar{display:none}
+.snl{font-size:11px;letter-spacing:.5px;padding:6px 11px;color:var(--txm);border-radius:4px;text-decoration:none;white-space:nowrap;transition:all .18s;border:1px solid transparent}
+.snl:hover{color:var(--tx);background:rgba(255,255,255,0.05)}
+.snl.cur{color:var(--c);border-color:rgba(0,212,255,0.2);background:rgba(0,212,255,0.06)}
+.ng{font-size:9px;letter-spacing:2px;color:var(--txm);padding:0 8px;opacity:.55;white-space:nowrap;flex-shrink:0}
+.hero{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:52px 24px 40px}
+.hero-tag{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:6px;color:var(--c);opacity:.7;margin-bottom:14px}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,8vw,90px);line-height:1;letter-spacing:2px;padding-top:4px;background:linear-gradient(135deg,#fff 15%,var(--c) 70%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px}
+.hero-sub{font-size:13px;letter-spacing:3px;color:var(--txm);margin-bottom:16px}
+.hero-desc{font-size:15px;color:#c4c8e0;max-width:640px;line-height:2}
+.cat-bar{position:relative;z-index:1;border-bottom:1px solid var(--bd2);background:var(--s1);overflow-x:auto;scrollbar-width:none}
+.cat-bar::-webkit-scrollbar{display:none}
+.cat-bar-inner{max-width:1100px;margin:0 auto;display:flex;gap:4px;padding:10px 24px}
+.cat-btn{font-size:11.5px;letter-spacing:1.5px;padding:6px 16px;border-radius:20px;border:1px solid var(--bd2);color:var(--txm);background:transparent;cursor:pointer;transition:all .18s;white-space:nowrap;font-family:'Noto Sans JP',sans-serif}
+.cat-btn:hover{color:var(--txd);background:rgba(255,255,255,0.04)}
+.cat-btn.active{color:var(--c);border-color:rgba(0,212,255,0.3);background:rgba(0,212,255,0.07)}
+.search-wrap{position:relative;z-index:1;max-width:1100px;margin:24px auto 0;padding:0 24px}
+.search-input{width:100%;background:var(--s1);border:1px solid var(--bd2);border-radius:8px;padding:14px 20px 14px 48px;font-size:15px;color:var(--tx);outline:none;font-family:'Noto Sans JP',sans-serif;transition:border-color .2s}
+.search-input:focus{border-color:rgba(0,212,255,0.35)}
+.search-icon{position:absolute;left:40px;top:50%;transform:translateY(-50%);color:var(--txm);font-size:16px;pointer-events:none}
+.search-count{font-size:12px;color:var(--txm);margin-top:8px;letter-spacing:1px}
+.wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:24px 24px 100px}
+.cat-section{margin-bottom:52px}
+.cat-hdr{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--bd2)}
+.cat-hdr-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.cat-hdr-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:4px;color:#fff}
+.cat-hdr-count{font-size:11px;color:var(--txm);letter-spacing:2px;margin-left:auto}
+.gloss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+.gloss-item{background:var(--s1);border:1px solid var(--bd);border-radius:8px;padding:18px 20px;transition:border-color .18s;display:flex;flex-direction:column;gap:8px}
+.gloss-item:hover{border-color:var(--bd2)}
+.gloss-item.hidden{display:none}
+.gloss-top{display:flex;align-items:flex-start;gap:12px}
+.gloss-term-wrap{flex:1}
+.gloss-term{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:1.5px;line-height:1.1;margin-bottom:2px}
+.gloss-en{font-size:11px;color:var(--txm);letter-spacing:1px;font-family:'JetBrains Mono',monospace}
+.gloss-badge{font-size:9.5px;letter-spacing:2px;padding:2px 8px;border-radius:2px;flex-shrink:0;margin-top:2px;font-family:'Bebas Neue',sans-serif}
+.gloss-def{font-size:14px;color:#c0c4da;line-height:1.9}
+.gloss-def b{color:#f0f2ff;font-weight:500}
+.gloss-def .up{color:var(--g)}.gloss-def .dn{color:var(--r)}.gloss-def .note{color:var(--y)}
+.gloss-example{background:rgba(255,255,255,0.03);border-left:3px solid var(--bd2);padding:8px 12px;font-size:13px;color:#9090b0;line-height:1.75;border-radius:0 4px 4px 0}
+/* colors by cat */
+.c-market .gloss-term{color:var(--c)}.c-market .gloss-badge{background:rgba(0,212,255,0.1);color:var(--c)}.c-market{border-top:2px solid rgba(0,212,255,0.3)}
+.c-tech .gloss-term{color:var(--g)}.c-tech .gloss-badge{background:rgba(0,232,125,0.1);color:var(--g)}.c-tech{border-top:2px solid rgba(0,232,125,0.3)}
+.c-adv .gloss-term{color:var(--p)}.c-adv .gloss-badge{background:rgba(176,106,255,0.1);color:var(--p)}.c-adv{border-top:2px solid rgba(176,106,255,0.3)}
+.c-order .gloss-term{color:var(--y)}.c-order .gloss-badge{background:rgba(255,214,0,0.1);color:var(--y)}.c-order{border-top:2px solid rgba(255,214,0,0.3)}
+.c-risk .gloss-term{color:var(--o)}.c-risk .gloss-badge{background:rgba(255,140,66,0.1);color:var(--o)}.c-risk{border-top:2px solid rgba(255,140,66,0.3)}
+.c-psych .gloss-term{color:var(--r)}.c-psych .gloss-badge{background:rgba(255,51,88,0.1);color:var(--r)}.c-psych{border-top:2px solid rgba(255,51,88,0.3)}
+footer{position:relative;z-index:1;background:var(--s1);border-top:1px solid var(--bd2);padding:32px 24px;text-align:center;font-size:12px;color:var(--txm);letter-spacing:1px;line-height:2.4}
+</style>
+</head>
+<body>
+<nav class="sitenav">
+  <div class="sitenav-inner">
+    <a href="index.html" class="site-logo"><span class="logo-arr">←</span>TOP</a>
+    <div class="nav-div"></div>
+    <div class="snlinks">
+      <span class="ng">DAYTRADE</span>
+      <a href="daytrade-basics.html" class="snl">基礎</a>
+      <a href="daytrade-advanced.html" class="snl">応用</a>
+      <a href="daytrade-strategy.html" class="snl">戦略</a>
+      <a href="daytrade-tool.html" class="snl">ツール</a>
+      <a href="daytrade-journal.html" class="snl">ジャーナル</a>
+      <a href="daytrade-glossary.html" class="snl cur">用語</a>
+      <span class="ng">NISA</span>
+      <a href="nisa-guide.html" class="snl">ガイド</a>
+      <a href="nisa-glossary.html" class="snl">用語</a>
+      <span class="ng">MACRO</span>
+      <a href="macro-guide.html" class="snl">ガイド</a>
+      <a href="macro-glossary.html" class="snl">用語</a>
+      <span class="ng">ALL</span>
+      <a href="glossary-all.html" class="snl">全用語集</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <p class="hero-tag">DAYTRADE GLOSSARY</p>
+  <h1 class="hero-title">デイトレード<br>用語集</h1>
+  <p class="hero-sub">市場・テクニカル・上級分析・注文・資金管理・心理</p>
+  <p class="hero-desc">デイトレードに必要な用語を6カテゴリに整理。テクニカル分析の基礎から上級指標、注文種別、資金管理、行動心理まで完全網羅。難読語にはルビ付き。</p>
+</header>
+
+<div class="cat-bar">
+  <div class="cat-bar-inner">
+    <button class="cat-btn active" onclick="filterCat('all',this)">すべて</button>
+    <button class="cat-btn" onclick="filterCat('market',this)">📊 市場・価格</button>
+    <button class="cat-btn" onclick="filterCat('tech',this)">📈 テクニカル基礎</button>
+    <button class="cat-btn" onclick="filterCat('adv',this)">🔬 上級テクニカル</button>
+    <button class="cat-btn" onclick="filterCat('order',this)">📋 注文・執行</button>
+    <button class="cat-btn" onclick="filterCat('risk',this)">🛡 資金管理</button>
+    <button class="cat-btn" onclick="filterCat('psych',this)">🧠 心理・行動</button>
+  </div>
+</div>
+
+<div class="search-wrap">
+  <span class="search-icon">🔍</span>
+  <input type="text" class="search-input" id="search-input" placeholder="用語を検索… 例：ローソク足、VWAP、損切り" oninput="searchTerms()">
+  <p class="search-count" id="search-count">全82語を表示中</p>
+</div>
+
+<div class="wrap" id="glossary-wrap">
+
+<!-- 市場・価格 -->
+<div class="cat-section" id="cat-market">
+  <div class="cat-hdr"><div class="cat-hdr-dot" style="background:var(--c)"></div><span class="cat-hdr-title">市場・価格</span><span class="cat-hdr-count">MARKET & PRICE</span></div>
+  <div class="gloss-grid">
+
+    <div class="gloss-item c-market" data-cat="market" data-terms="現物株 かぶしき 株式">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>現物株<rt>げんぶつかぶ</rt></ruby></div><div class="gloss-en">Cash Equity / Physical Stock</div></div><span class="gloss-badge">市場</span></div>
+      <div class="gloss-def">企業が発行する<b>株式そのもの</b>。購入した分だけ保有でき、下落しても追証（追加証拠金）は発生しない。デイトレードでは信用取引と対比して使う。資金の範囲内でのみ取引できる安全な取引形態。</div>
+    </div>
+
+    <div class="gloss-item c-market" data-cat="market" data-terms="ボラティリティ 価格変動率 volatility">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">ボラティリティ</div><div class="gloss-en">Volatility / 価格変動率</div></div><span class="gloss-badge">市場</span></div>
+      <div class="gloss-def">価格の変動の大きさ。<b>高ボラ＝値動きが激しく利益も損失も大きくなりやすい</b>。デイトレードはある程度のボラティリティがないと利益が取れない。ヒストリカルボラティリティ（過去の実績値）とインプライドボラティリティ（オプション市場からの将来予測値）がある。</div>
+    </div>
+
+    <div class="gloss-item c-market" data-cat="market" data-terms="出来高 volume 売買量">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>出来高<rt>できだか</rt></ruby></div><div class="gloss-en">Volume / 売買成立数量</div></div><span class="gloss-badge">市場</span></div>
+      <div class="gloss-def">一定期間内に売買が成立した<b>株数（または契約数）の合計</b>。出来高が多いほど市場参加者が多く、価格操作が難しく信頼性が高い。<b>上昇＋出来高増加＝強いトレンド確認</b>のサイン。急騰時に出来高を伴わない場合は「ダマシ」の可能性。</div>
+    </div>
+
+    <div class="gloss-item c-market" data-cat="market" data-terms="流動性 liquidity 売買のしやすさ">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>流動性<rt>りゅうどうせい</rt></ruby></div><div class="gloss-en">Liquidity</div></div><span class="gloss-badge">市場</span></div>
+      <div class="gloss-def">売りたいとき・買いたいときに<b>すぐ約定できる「売買のしやすさ」</b>。出来高が多い大型株・主要ETFは流動性が高い。流動性が低い銘柄はスプレッドが広く、意図した価格で約定しにくい。デイトレードでは流動性の高い銘柄を選ぶのが基本。</div>
+    </div>
+
+    <div class="gloss-item c-market" data-cat="market" data-terms="スプレッド bid ask 売買差">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">スプレッド（Bid-Ask）</div><div class="gloss-en">Bid-Ask Spread</div></div><span class="gloss-badge">市場</span></div>
+      <div class="gloss-def">売値（Ask）と買値（Bid）の差額。スプレッドが広いほど取引コストが高い。<b>流動性が高い銘柄ほどスプレッドが狭く、取引効率が良い</b>。デイトレードで薄利を積み重ねる戦略では、スプレッドの影響が無視できない。</div>
+    </div>
+
+    <div class="gloss-item c-market" data-cat="market" data-terms="ギャップ 窓 gap 価格空白">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">ギャップ（窓）</div><div class="gloss-en">Gap / Price Gap</div></div><span class="gloss-badge">市場</span></div>
+      <div class="gloss-def">前日終値と翌日始値の間に生じる<b>価格の空白</b>。決算・重大ニュースなどで発生することが多い。「<b>窓を埋める</b>」（ギャップフィル）という言葉通り、空いた窓は後から埋めにくる傾向があると言われる。上方向のギャップ＝ギャップアップ、下方向＝ギャップダウン。</div>
+    </div>
+
+    <div class="gloss-item c-market" data-cat="market" data-terms="板 order book 気配値 注文板">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">板（<ruby>注文板<rt>ちゅうもんいた</rt></ruby>）</div><div class="gloss-en">Order Book / Level 2</div></div><span class="gloss-badge">市場</span></div>
+      <div class="gloss-def">現在出ている<b>売り注文・買い注文の価格と数量の一覧</b>。板が厚い（注文が多い）価格帯はサポート・レジスタンスになりやすい。板読みとは、この注文板の変化を見て需給バランス・大口の動きを読む技術。</div>
+    </div>
+
+    <div class="gloss-item c-market" data-cat="market" data-terms="先物 futures 指数先物 日経先物">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>先物<rt>さきもの</rt></ruby></div><div class="gloss-en">Futures</div></div><span class="gloss-badge">市場</span></div>
+      <div class="gloss-def">将来の特定日に、あらかじめ決めた価格で売買する契約。日経225先物・S&P500先物など<b>指数先物は現物市場の先行指標</b>として機能する。現物市場が開く前に先物の動きを見ることで、今日の相場の方向感をつかめる。</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- テクニカル基礎 -->
+<div class="cat-section" id="cat-tech">
+  <div class="cat-hdr"><div class="cat-hdr-dot" style="background:var(--g)"></div><span class="cat-hdr-title">テクニカル基礎</span><span class="cat-hdr-count">TECHNICAL BASICS</span></div>
+  <div class="gloss-grid">
+
+    <div class="gloss-item c-tech" data-cat="tech" data-terms="ローソク足 candlestick 日足 四本値">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">ローソク足</div><div class="gloss-en">Candlestick Chart</div></div><span class="gloss-badge">テクニカル</span></div>
+      <div class="gloss-def">始値・高値・安値・終値（<b>四本値</b>）を視覚化したチャート。実体（始値〜終値）とヒゲ（高値・安値）で構成される。陽線（終値＞始値）は白・緑、陰線（終値＜始値）は黒・赤で表示するのが一般的。</div>
+    </div>
+
+    <div class="gloss-item c-tech" data-cat="tech" data-terms="移動平均線 MA moving average 25日 75日 200日">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>移動平均線<rt>いどうへいきんせん</rt></ruby>（MA）</div><div class="gloss-en">Moving Average</div></div><span class="gloss-badge">テクニカル</span></div>
+      <div class="gloss-def">一定期間の価格の平均を繋いだ線。<b>25日線（短期）・75日線（中期）・200日線（長期）</b>が基本。価格が移動平均線の上にあれば上昇トレンド、下にあれば下降トレンドの判断材料になる。</div>
+    </div>
+
+    <div class="gloss-item c-tech" data-cat="tech" data-terms="ゴールデンクロス golden cross 買いシグナル">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">ゴールデンクロス</div><div class="gloss-en">Golden Cross</div></div><span class="gloss-badge">テクニカル</span></div>
+      <div class="gloss-def">短期移動平均線が長期移動平均線を<b>下から上に突き抜ける</b>状態。一般的に<b>買いシグナル</b>と解釈される。例：25日線が75日線を上抜けるとゴールデンクロス。ただし遅行指標なので確認後に動くと遅い場合も。</div>
+    </div>
+
+    <div class="gloss-item c-tech" data-cat="tech" data-terms="デッドクロス dead cross 売りシグナル">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">デッドクロス</div><div class="gloss-en">Dead Cross</div></div><span class="gloss-badge">テクニカル</span></div>
+      <div class="gloss-def">短期移動平均線が長期移動平均線を<b>上から下に突き抜ける</b>状態。一般的に<b>売りシグナル</b>と解釈される。ゴールデンクロスと同様、遅行指標なので確認後の動きには注意が必要。</div>
+    </div>
+
+    <div class="gloss-item c-tech" data-cat="tech" data-terms="サポートライン 下値支持線 support">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">サポートライン</div><div class="gloss-en">Support Line / 下値支持線</div></div><span class="gloss-badge">テクニカル</span></div>
+      <div class="gloss-def">価格が何度も反発している<b>下値の目安となる水平線または斜線</b>。「ここまで下がると買い支えが入る」水準。サポートを割り込むと（ブレイクダウン）急落するリスクが高まる。過去の安値・移動平均線・整数値が目安になりやすい。</div>
+    </div>
+
+    <div class="gloss-item c-tech" data-cat="tech" data-terms="レジスタンスライン 上値抵抗線 resistance">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">レジスタンスライン</div><div class="gloss-en">Resistance Line / 上値抵抗線</div></div><span class="gloss-badge">テクニカル</span></div>
+      <div class="gloss-def">価格が何度も跳ね返されている<b>上値の目安となる線</b>。「ここまで上がると売り圧力が強まる」水準。レジスタンスを上抜けると（ブレイクアウト）急騰する可能性が高まる。過去の高値・移動平均線・節目価格が目安。</div>
+    </div>
+
+    <div class="gloss-item c-tech" data-cat="tech" data-terms="RSI 相対力指数 過買 過売">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">RSI</div><div class="gloss-en">Relative Strength Index / 相対力指数</div></div><span class="gloss-badge">テクニカル</span></div>
+      <div class="gloss-def">一定期間の上昇幅と下落幅の比率から算出する<b>0〜100のオシレーター指標</b>。<b>70以上＝買われすぎ（売り検討）、30以下＝売られすぎ（買い検討）</b>が目安。ダイバージェンスとの組み合わせで精度が上がる。</div>
+    </div>
+
+    <div class="gloss-item c-tech" data-cat="tech" data-terms="MACD マックディー トレンド転換">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">MACD</div><div class="gloss-en">Moving Average Convergence Divergence</div></div><span class="gloss-badge">テクニカル</span></div>
+      <div class="gloss-def">短期EMAと長期EMAの差（MACDライン）とそのシグナルライン（MACDの移動平均）を使うトレンド系指標。<b>MACDラインがシグナルラインを上抜け→買い、下抜け→売り</b>のサインとされる。ヒストグラムで視覚化するのが一般的。</div>
+    </div>
+
+    <div class="gloss-item c-tech" data-cat="tech" data-terms="ボリンジャーバンド bollinger bands 標準偏差">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">ボリンジャーバンド</div><div class="gloss-en">Bollinger Bands</div></div><span class="gloss-badge">テクニカル</span></div>
+      <div class="gloss-def">移動平均線の上下に<b>標準偏差×倍数のバンドを描いた指標</b>。±1σ内に約68%、±2σ内に約95%の価格が収まる。バンドの幅が縮む（スクイーズ）と大きな動きの前兆。バンドの端（バンドウォーク）は強いトレンドのサイン。</div>
+    </div>
+
+    <div class="gloss-item c-tech" data-cat="tech" data-terms="チャートパターン chart pattern ヘッドアンドショルダー 三角保ち合い">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">チャートパターン</div><div class="gloss-en">Chart Pattern</div></div><span class="gloss-badge">テクニカル</span></div>
+      <div class="gloss-def">価格の動きが繰り返す<b>特定の形状（パターン）</b>。代表的なものに「ヘッドアンドショルダー（天井反転）」「ダブルボトム（底値反転）」「三角保ち合い（ブレイク待ち）」「カップアンドハンドル（上昇継続）」などがある。</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 上級テクニカル -->
+<div class="cat-section" id="cat-adv">
+  <div class="cat-hdr"><div class="cat-hdr-dot" style="background:var(--p)"></div><span class="cat-hdr-title">上級テクニカル</span><span class="cat-hdr-count">ADVANCED TECHNICAL</span></div>
+  <div class="gloss-grid">
+
+    <div class="gloss-item c-adv" data-cat="adv" data-terms="ダウ理論 トレンド 高値 安値">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">ダウ理論</div><div class="gloss-en">Dow Theory</div></div><span class="gloss-badge">上級</span></div>
+      <div class="gloss-def">チャールズ・ダウが提唱したトレンド分析の基礎理論。<b>高値と安値がともに切り上がっていれば上昇トレンド、ともに切り下がっていれば下降トレンド</b>と判断する。「高値を更新したが安値が切り下がった」場合はトレンド転換の警戒シグナル。</div>
+    </div>
+
+    <div class="gloss-item c-adv" data-cat="adv" data-terms="フィボナッチ fibonacci リトレースメント 押し目">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">フィボナッチリトレースメント</div><div class="gloss-en">Fibonacci Retracement</div></div><span class="gloss-badge">上級</span></div>
+      <div class="gloss-def">フィボナッチ数列から導かれる<b>23.6%・38.2%・50%・61.8%・78.6%</b>が、押し目・戻り目の目安になるという分析手法。特に<b>38.2%と61.8%</b>は多くのトレーダーが意識するため、自己実現的に機能する場面が多い。</div>
+      <div class="gloss-example">例：100円から200円に上昇後、161.8円（38.2%戻し）や138.2円（61.8%戻し）で反発しやすい</div>
+    </div>
+
+    <div class="gloss-item c-adv" data-cat="adv" data-terms="VWAP 出来高加重平均価格 機関投資家">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">VWAP</div><div class="gloss-en">Volume Weighted Average Price / 出来高加重平均価格</div></div><span class="gloss-badge">上級</span></div>
+      <div class="gloss-def">その日の出来高で加重した平均価格。<b>機関投資家の売買の基準値</b>として使われるため、強いサポート・レジスタンスになりやすい。<b>株価がVWAPを上回って推移＝強気、下回って推移＝弱気</b>の判断に使える。デイトレードの必須指標。</div>
+    </div>
+
+    <div class="gloss-item c-adv" data-cat="adv" data-terms="ATR average true range 真の値幅 ボラ測定">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">ATR</div><div class="gloss-en">Average True Range / 平均真の値幅</div></div><span class="gloss-badge">上級</span></div>
+      <div class="gloss-def">一定期間の<b>真の値幅（高値〜安値、前日終値を考慮）の平均</b>。そのとき市場がどれだけ動いているかを示す。<b>損切り幅の設定</b>（例：ATRの1.5倍を損切り幅にする）や、ポジションサイズの計算に使われる。</div>
+      <div class="gloss-example">例：ATR=200円の銘柄 → 損切り幅をATR×1.5=300円に設定</div>
+    </div>
+
+    <div class="gloss-item c-adv" data-cat="adv" data-terms="ダイバージェンス divergence 価格と指標の逆行">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">ダイバージェンス</div><div class="gloss-en">Divergence / 逆行現象</div></div><span class="gloss-badge">上級</span></div>
+      <div class="gloss-def">価格の動きとオシレーター指標（RSI・MACDなど）の動きが<b>逆行する</b>現象。価格が新高値を更新しているのにRSIが前回高値を下回っている場合、トレンドの勢いが弱まっているサインで<b>反転の予兆</b>として重視される。</div>
+    </div>
+
+    <div class="gloss-item c-adv" data-cat="adv" data-terms="一目均衡表 いちもくきんこうひょう 雲 転換線">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>一目均衡表<rt>いちもくきんこうひょう</rt></ruby></div><div class="gloss-en">Ichimoku Cloud</div></div><span class="gloss-badge">上級</span></div>
+      <div class="gloss-def">日本発のテクニカル指標。<b>転換線・基準線・雲（先行スパン）・遅行スパン</b>の5要素で構成。雲の上にある価格は上昇トレンド、雲の下は下降トレンド。外国人投資家も多く使っており、日本株分析で特に有効とされる。</div>
+    </div>
+
+    <div class="gloss-item c-adv" data-cat="adv" data-terms="オプション コール プット 権利">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">オプション取引</div><div class="gloss-en">Options Trading</div></div><span class="gloss-badge">上級</span></div>
+      <div class="gloss-def">将来、特定の価格で売買する「<b>権利</b>」を取引する金融商品。<b>コール（買う権利）</b>と<b>プット（売る権利）</b>がある。インプライドボラティリティ（IV）はオプション価格から逆算した市場の変動率予測値。VIXはS&P500オプションのIVから算出される。</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 注文・執行 -->
+<div class="cat-section" id="cat-order">
+  <div class="cat-hdr"><div class="cat-hdr-dot" style="background:var(--y)"></div><span class="cat-hdr-title">注文・執行</span><span class="cat-hdr-count">ORDER TYPES</span></div>
+  <div class="gloss-grid">
+
+    <div class="gloss-item c-order" data-cat="order" data-terms="成行注文 なりゆきちゅうもん market order">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>成行注文<rt>なりゆきちゅうもん</rt></ruby></div><div class="gloss-en">Market Order</div></div><span class="gloss-badge">注文</span></div>
+      <div class="gloss-def">価格を指定せず<b>その時点の最良価格で即座に約定させる</b>注文。確実に約定できるが、流動性が低い銘柄ではスリッページ（想定価格とのズレ）が大きくなるリスクがある。急いで建てたい・決済したいときに使う。</div>
+    </div>
+
+    <div class="gloss-item c-order" data-cat="order" data-terms="指値注文 さしねちゅうもん limit order">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>指値注文<rt>さしねちゅうもん</rt></ruby></div><div class="gloss-en">Limit Order</div></div><span class="gloss-badge">注文</span></div>
+      <div class="gloss-def">あらかじめ指定した価格（またはそれより有利な価格）でのみ約定する注文。<b>希望価格で約定できるが、指値に届かなければ約定しない</b>。価格優先で、急いでいない場面に有効。スプレッドの無駄がなく取引コストを抑えられる。</div>
+    </div>
+
+    <div class="gloss-item c-order" data-cat="order" data-terms="逆指値 ぎゃくさしね stop order ストップ">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>逆指値注文<rt>ぎゃくさしねちゅうもん</rt></ruby></div><div class="gloss-en">Stop Order</div></div><span class="gloss-badge">注文</span></div>
+      <div class="gloss-def">指定した価格に<b>達したときに発動</b>する注文。下落時の損切り（ストップロス）や、上昇ブレイクアウト後のエントリーに使う。「1,000円を下回ったら成行売り」のように設定。<b>損切りの自動化に不可欠</b>なツール。</div>
+    </div>
+
+    <div class="gloss-item c-order" data-cat="order" data-terms="トレイリングストップ trailing stop 追随型">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">トレイリングストップ</div><div class="gloss-en">Trailing Stop</div></div><span class="gloss-badge">注文</span></div>
+      <div class="gloss-def">価格の上昇に追随して損切り水準を自動的に引き上げる機能。例：「高値から200円下落したら損切り」と設定すると、株価が上昇するたびに損切りラインも上昇する。<b>利益を守りながらトレンドに乗り続ける</b>のに有効。</div>
+    </div>
+
+    <div class="gloss-item c-order" data-cat="order" data-terms="スリッページ slippage 約定ずれ">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">スリッページ</div><div class="gloss-en">Slippage</div></div><span class="gloss-badge">注文</span></div>
+      <div class="gloss-def">注文した価格と<b>実際に約定した価格のズレ</b>。成行注文・流動性が低い銘柄・相場が急変動しているときに発生しやすい。損切りの成行注文が急落局面で大きくスリッページすることがある。デイトレードのコスト管理で重要な概念。</div>
+    </div>
+
+    <div class="gloss-item c-order" data-cat="order" data-terms="空売り 信用売り ショート short">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>空売り<rt>からうり</rt></ruby>（ショート）</div><div class="gloss-en">Short Selling</div></div><span class="gloss-badge">注文</span></div>
+      <div class="gloss-def">株を借りて先に売り、<b>後で安く買い戻すことで利益を得る</b>取引。信用取引でのみ可能。下落局面でも利益が出るため、デイトレードの重要な戦略。<b>損失は理論上無制限</b>（株価が無限に上がりうるため）なので損切りは必須。</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 資金管理 -->
+<div class="cat-section" data-cat="risk" id="cat-risk">
+  <div class="cat-hdr"><div class="cat-hdr-dot" style="background:var(--o)"></div><span class="cat-hdr-title">資金管理</span><span class="cat-hdr-count">RISK MANAGEMENT</span></div>
+  <div class="gloss-grid">
+
+    <div class="gloss-item c-risk" data-cat="risk" data-terms="損切り ロスカット stop loss 損失限定">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>損切り<rt>そんぎり</rt></ruby>（ロスカット）</div><div class="gloss-en">Stop Loss / Loss Cut</div></div><span class="gloss-badge">資金管理</span></div>
+      <div class="gloss-def">保有ポジションの損失が<b>あらかじめ設定したラインに達したら強制的に売る</b>こと。「<span class="note">損切りはトレーダーの最も重要なスキル</span>」と言われる。損切りを遅らせると小さな損失が致命傷に発展する。<b>エントリー前に損切りラインを決める</b>のが鉄則。</div>
+    </div>
+
+    <div class="gloss-item c-risk" data-cat="risk" data-terms="利確 りかく 利食い 利益確定">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>利確<rt>りかく</rt></ruby>（利食い）</div><div class="gloss-en">Take Profit / Profit Taking</div></div><span class="gloss-badge">資金管理</span></div>
+      <div class="gloss-def">含み益が出たポジションを決済して<b>利益を確定する</b>行為。「含み益は幻」「利食い千人力」という格言通り、確定するまで利益は存在しない。目標価格をエントリー前に決め、到達したら機械的に利確する規律が重要。</div>
+    </div>
+
+    <div class="gloss-item c-risk" data-cat="risk" data-terms="リスクリワード比 RR ratio 利益幅 損失幅">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">リスクリワード比（RR比）</div><div class="gloss-en">Risk-Reward Ratio</div></div><span class="gloss-badge">資金管理</span></div>
+      <div class="gloss-def">期待利益幅 ÷ 損失幅。<b>最低でも1:1.5以上、理想は1:2以上</b>を目標にする。RR比が低いトレードは勝率が高くても長期的に勝てない。エントリー前に「損切り〇円・目標〇円」を計算してRR比を確認するのが基本。</div>
+      <div class="gloss-example">例：損切り100円・目標200円 → RR比1:2。勝率40%でも期待値プラス</div>
+    </div>
+
+    <div class="gloss-item c-risk" data-cat="risk" data-terms="1%ルール ポジションサイズ リスク管理">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">1%ルール</div><div class="gloss-en">1% Rule / Position Sizing</div></div><span class="gloss-badge">資金管理</span></div>
+      <div class="gloss-def">1回のトレードで<b>口座資金の1%以上のリスクを取らない</b>ルール。口座100万円なら最大損失1万円以内に抑える。これにより連続して損失が出ても資金が急速に減らない。<b>プロのトレーダーが最も重視するリスク管理の基本原則</b>。</div>
+    </div>
+
+    <div class="gloss-item c-risk" data-cat="risk" data-terms="最大ドローダウン max drawdown 最大下落率">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">最大<ruby>ドローダウン<rt>どろーだうん</rt></ruby></div><div class="gloss-en">Maximum Drawdown</div></div><span class="gloss-badge">資金管理</span></div>
+      <div class="gloss-def">資産のピーク（最高値）から<b>谷（最安値）までの最大の下落率</b>。運用戦略のリスクを評価する指標。最大ドローダウンが大きいほど、精神的・資金的ダメージが大きい。目標：日次−3%・月次−10%以内に抑えること。</div>
+    </div>
+
+    <div class="gloss-item c-risk" data-cat="risk" data-terms="ナンピン 難平 下落時追加購入">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">ナンピン（<ruby>難平<rt>なんぴん</rt></ruby>）</div><div class="gloss-en">Averaging Down</div></div><span class="gloss-badge">資金管理</span></div>
+      <div class="gloss-def">保有株が下落したときに<b>追加購入して平均取得単価を下げる</b>手法。長期投資では有効なケースもあるが、<b>デイトレードでは原則禁止</b>。損失が拡大するだけでなく、資金の大半を一つの負けポジションに集中させてしまうリスクがある。</div>
+    </div>
+
+    <div class="gloss-item c-risk" data-cat="risk" data-terms="信用取引 しんようとりひき レバレッジ 追証">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>信用取引<rt>しんようとりひき</rt></ruby></div><div class="gloss-en">Margin Trading</div></div><span class="gloss-badge">資金管理</span></div>
+      <div class="gloss-def">証券会社に保証金（証拠金）を預けて<b>最大3.3倍のレバレッジで取引</b>できる制度。空売りも可能になる。レバレッジは利益も損失も拡大させる諸刃の剣。<b><ruby>追証<rt>おいしょう</rt></ruby>（追加証拠金）</b>が発生すると強制的にポジションが決済される危険がある。</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 心理・行動 -->
+<div class="cat-section" id="cat-psych">
+  <div class="cat-hdr"><div class="cat-hdr-dot" style="background:var(--r)"></div><span class="cat-hdr-title">心理・行動ファイナンス</span><span class="cat-hdr-count">PSYCHOLOGY & BEHAVIORAL FINANCE</span></div>
+  <div class="gloss-grid">
+
+    <div class="gloss-item c-psych" data-cat="psych" data-terms="FOMO 乗り遅れ恐怖 Fear Of Missing Out">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">FOMO</div><div class="gloss-en">Fear Of Missing Out / 乗り遅れ恐怖</div></div><span class="gloss-badge">心理</span></div>
+      <div class="gloss-def">「このトレンドに乗らなければ損をする」という<b>焦りから冷静な判断ができなくなる</b>心理状態。急騰している銘柄に飛び乗ったり、自分のルールを無視してエントリーしてしまう。<b>FOMOを感じたときこそ、一度立ち止まる</b>ことが大切。</div>
+    </div>
+
+    <div class="gloss-item c-psych" data-cat="psych" data-terms="パニックセル 狼狽売り panic sell">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>パニックセル<rt>ぱにっくせる</rt></ruby>（<ruby>狼狽売り<rt>ろうばいうり</rt></ruby>）</div><div class="gloss-en">Panic Selling</div></div><span class="gloss-badge">心理</span></div>
+      <div class="gloss-def">相場が急落したときに恐怖に駆られて<b>冷静な判断なしに売り払う</b>行動。多くの場合、パニックセルの直後が底値になりやすい。損切りとパニックセルは別物——損切りはルールに基づく規律ある行動、パニックセルは感情による衝動的行動。</div>
+    </div>
+
+    <div class="gloss-item c-psych" data-cat="psych" data-terms="リベンジトレード 取り返し 感情トレード">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">リベンジトレード</div><div class="gloss-en">Revenge Trading</div></div><span class="gloss-badge">心理</span></div>
+      <div class="gloss-def">損失を出した後に「取り返そう」という感情で<b>衝動的にエントリーする</b>行動。冷静な判断ができない状態でのトレードは失敗率が高く、損失をさらに拡大させる悪循環に陥りやすい。日次損失−3%に達したら即座に<b>取引を停止する</b>ルールが有効。</div>
+    </div>
+
+    <div class="gloss-item c-psych" data-cat="psych" data-terms="損失回避 プロスペクト理論 損失嫌悪">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>損失回避<rt>そんしつかいひ</rt></ruby>バイアス</div><div class="gloss-en">Loss Aversion Bias</div></div><span class="gloss-badge">心理</span></div>
+      <div class="gloss-def">人間は<b>同じ金額でも「得する喜び」より「損する苦しみ」の方を約2倍強く感じる</b>という心理的傾向（プロスペクト理論）。「含み損を認めたくない」から損切りができなくなる原因。これを克服するためにルールを機械的に守る必要がある。</div>
+    </div>
+
+    <div class="gloss-item c-psych" data-cat="psych" data-terms="確証バイアス 自分の意見 都合の良い情報">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>確証バイアス<rt>かくしょうばいあす</rt></ruby></div><div class="gloss-en">Confirmation Bias</div></div><span class="gloss-badge">心理</span></div>
+      <div class="gloss-def">自分がすでに持っている意見（「この株は上がる」）に<b>都合の良い情報だけを集め、反対意見を無視する</b>傾向。「上がると思って買ったからネガティブなニュースは気にしない」というのが典型。客観的に情報を収集・評価する習慣が必要。</div>
+    </div>
+
+    <div class="gloss-item c-psych" data-cat="psych" data-terms="過剰自信 overconfidence 連勝後の油断">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>過剰自信<rt>かじょうじしん</rt></ruby>バイアス</div><div class="gloss-en">Overconfidence Bias</div></div><span class="gloss-badge">心理</span></div>
+      <div class="gloss-def">連勝が続くと「自分には才能がある」と<b>実力以上の自信を持ってしまう</b>心理。ポジションサイズを大きくしすぎ、損切りを怠るなど、リスク管理が甘くなる。<b>勝ちが続くときほど謙虚に、ルールを厳守する</b>ことが重要。</div>
+    </div>
+
+    <div class="gloss-item c-psych" data-cat="psych" data-terms="利食い千人力 含み益 格言">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">利食い千人力</div><div class="gloss-en">A Profit Taken is Always Real</div></div><span class="gloss-badge">心理</span></div>
+      <div class="gloss-def">「利益は確定するまで本物ではない」という相場格言。<b>含み益があっても売らなければただの数字</b>。利確のタイミングを逃して結局損になるパターンは初心者に多い。目標価格を決めたら感情を排除して機械的に実行する規律が求められる。</div>
+    </div>
+
+    <div class="gloss-item c-psych" data-cat="psych" data-terms="メンタル ゾーン フロー状態 集中">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">トレーダーのメンタル管理</div><div class="gloss-en">Trading Psychology / Mental Management</div></div><span class="gloss-badge">心理</span></div>
+      <div class="gloss-def">トレードの勝敗を分けるのは<b>分析力よりも感情コントロールの方が大きい</b>とも言われる。睡眠・食事・運動など身体的コンディションも判断力に直結する。<b>取引ルールを文書化し、感情ではなくルールに従って執行する</b>システム化が上達への近道。</div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- /wrap -->
+
+<footer>
+  <p style="font-size:13px;color:var(--txd);margin-bottom:6px">デイトレード用語集 — DAYTRADE GLOSSARY</p>
+  <p>市場・価格 ／ テクニカル基礎 ／ 上級テクニカル ／ 注文・執行 ／ 資金管理 ／ 心理・行動</p>
+</footer>
+
+<script>
+function filterCat(cat,btn){
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('search-input').value='';
+  document.querySelectorAll('.gloss-item').forEach(item=>{
+    item.classList.toggle('hidden', cat!=='all' && item.dataset.cat !== cat);
+  });
+  updateCount();
+}
+function searchTerms(){
+  const q = document.getElementById('search-input').value.toLowerCase();
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector('.cat-btn').classList.add('active');
+  document.querySelectorAll('.gloss-item').forEach(item=>{
+    const text = (item.dataset.terms||'') + item.textContent.toLowerCase();
+    item.classList.toggle('hidden', q.length>0 && !text.includes(q));
+  });
+  updateCount();
+}
+function updateCount(){
+  const visible = document.querySelectorAll('.gloss-item:not(.hidden)').length;
+  const total = document.querySelectorAll('.gloss-item').length;
+  document.getElementById('search-count').textContent = visible===total ? `全${total}語を表示中` : `${visible}語ヒット（全${total}語中）`;
+}
+</script>
+</body>
+</html>

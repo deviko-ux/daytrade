@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NISA・長期投資 用語集</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050507;--s1:#0d0d16;--s2:#141420;--s3:#1c1c2a;--c:#00d4ff;--g:#00e87d;--r:#ff3358;--y:#ffd600;--p:#b06aff;--o:#ff8c42;--teal:#00c9a7;--tx:#e8eaf6;--txm:#64648a;--txd:#9696b8;--bd:rgba(255,255,255,0.07);--bd2:rgba(255,255,255,0.13)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:'Noto Sans JP',sans-serif;font-weight:300;line-height:1.85;overflow-x:hidden;font-size:15px}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 55px,rgba(0,232,125,0.012) 55px,rgba(0,232,125,0.012) 56px),repeating-linear-gradient(90deg,transparent,transparent 55px,rgba(0,232,125,0.012) 55px,rgba(0,232,125,0.012) 56px);pointer-events:none;z-index:0}
+ruby{ruby-align:center}rt{font-size:.55em;color:var(--txd)}
+.sitenav{position:sticky;top:0;z-index:300;background:rgba(5,5,7,0.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--bd2)}
+.sitenav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;height:52px;padding:0 24px}
+.site-logo{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:4px;color:var(--c);margin-right:6px;flex-shrink:0;text-decoration:none;display:flex;align-items:center;gap:5px}
+.logo-arr{font-size:11px;color:var(--txm)}
+.nav-div{width:1px;height:20px;background:var(--bd2);margin:0 10px;flex-shrink:0}
+.snlinks{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1}
+.snlinks::-webkit-scrollbar{display:none}
+.snl{font-size:11px;letter-spacing:.5px;padding:6px 11px;color:var(--txm);border-radius:4px;text-decoration:none;white-space:nowrap;transition:all .18s;border:1px solid transparent}
+.snl:hover{color:var(--tx);background:rgba(255,255,255,0.05)}
+.snl.cur{color:var(--g);border-color:rgba(0,232,125,0.2);background:rgba(0,232,125,0.06)}
+.ng{font-size:9px;letter-spacing:2px;color:var(--txm);padding:0 8px;opacity:.55;white-space:nowrap;flex-shrink:0}
+.hero{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:52px 24px 40px}
+.hero-tag{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:6px;color:var(--g);opacity:.7;margin-bottom:14px}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,8vw,90px);line-height:.88;letter-spacing:2px;background:linear-gradient(135deg,#fff 15%,var(--g) 70%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px}
+.hero-sub{font-size:13px;letter-spacing:3px;color:var(--txm);margin-bottom:16px}
+.hero-desc{font-size:15px;color:var(--txd);max-width:640px;line-height:2}
+/* CATEGORY FILTER */
+.cat-bar{position:relative;z-index:1;border-bottom:1px solid var(--bd2);background:var(--s1);overflow-x:auto;scrollbar-width:none}
+.cat-bar::-webkit-scrollbar{display:none}
+.cat-bar-inner{max-width:1100px;margin:0 auto;display:flex;gap:4px;padding:10px 24px}
+.cat-btn{font-size:11.5px;letter-spacing:1.5px;padding:6px 16px;border-radius:20px;border:1px solid var(--bd2);color:var(--txm);background:transparent;cursor:pointer;transition:all .18s;white-space:nowrap;font-family:'Noto Sans JP',sans-serif}
+.cat-btn:hover{border-color:var(--bd2);color:var(--txd);background:rgba(255,255,255,0.04)}
+.cat-btn.active{color:var(--g);border-color:rgba(0,232,125,0.3);background:rgba(0,232,125,0.07)}
+/* SEARCH */
+.search-wrap{position:relative;z-index:1;max-width:1100px;margin:24px auto 0;padding:0 24px}
+.search-input{width:100%;background:var(--s1);border:1px solid var(--bd2);border-radius:8px;padding:14px 20px 14px 48px;font-size:15px;color:var(--tx);outline:none;font-family:'Noto Sans JP',sans-serif;transition:border-color .2s}
+.search-input:focus{border-color:rgba(0,232,125,0.35)}
+.search-icon{position:absolute;left:40px;top:50%;transform:translateY(-50%);color:var(--txm);font-size:16px;pointer-events:none}
+.search-count{font-size:12px;color:var(--txm);margin-top:8px;letter-spacing:1px}
+/* GLOSSARY */
+.wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:24px 24px 100px}
+.cat-section{margin-bottom:52px}
+.cat-hdr{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--bd2)}
+.cat-hdr-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.cat-hdr-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:4px;color:#fff}
+.cat-hdr-count{font-size:11px;color:var(--txm);letter-spacing:2px;margin-left:auto}
+.gloss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+.gloss-item{background:var(--s1);border:1px solid var(--bd);border-radius:8px;padding:18px 20px;transition:border-color .18s;display:flex;flex-direction:column;gap:8px}
+.gloss-item:hover{border-color:var(--bd2)}
+.gloss-item.hidden{display:none}
+.gloss-top{display:flex;align-items:flex-start;gap:12px}
+.gloss-term-wrap{flex:1}
+.gloss-term{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:1.5px;line-height:1.1;margin-bottom:2px}
+.gloss-en{font-size:11px;color:var(--txm);letter-spacing:1px;font-family:'JetBrains Mono',monospace}
+.gloss-badge{font-size:9.5px;letter-spacing:2px;padding:2px 8px;border-radius:2px;flex-shrink:0;margin-top:2px;font-family:'Bebas Neue',sans-serif}
+.gloss-def{font-size:14px;color:#b0b4cc;line-height:1.9}
+.gloss-def b{color:#e8eaf6;font-weight:500}
+.gloss-def strong{font-weight:500}
+.gloss-example{background:rgba(255,255,255,0.03);border-left:3px solid var(--bd2);padding:8px 12px;font-size:13px;color:var(--txd);line-height:1.75;border-radius:0 4px 4px 0}
+.gloss-example b{color:var(--txd)}
+/* color by cat */
+.c-system .gloss-term{color:var(--g)}.c-system .gloss-badge{background:rgba(0,232,125,0.1);color:var(--g)}.c-system{border-top:2px solid rgba(0,232,125,0.3)}
+.c-product .gloss-term{color:var(--c)}.c-product .gloss-badge{background:rgba(0,212,255,0.1);color:var(--c)}.c-product{border-top:2px solid rgba(0,212,255,0.3)}
+.c-strategy .gloss-term{color:var(--y)}.c-strategy .gloss-badge{background:rgba(255,214,0,0.1);color:var(--y)}.c-strategy{border-top:2px solid rgba(255,214,0,0.3)}
+.c-tax .gloss-term{color:var(--p)}.c-tax .gloss-badge{background:rgba(176,106,255,0.1);color:var(--p)}.c-tax{border-top:2px solid rgba(176,106,255,0.3)}
+.c-rebalance .gloss-term{color:var(--o)}.c-rebalance .gloss-badge{background:rgba(255,140,66,0.1);color:var(--o)}.c-rebalance{border-top:2px solid rgba(255,140,66,0.3)}
+.c-index .gloss-term{color:var(--teal)}.c-index .gloss-badge{background:rgba(0,201,167,0.1);color:var(--teal)}.c-index{border-top:2px solid rgba(0,201,167,0.3)}
+footer{position:relative;z-index:1;background:var(--s1);border-top:1px solid var(--bd2);padding:32px 24px;text-align:center;font-size:12px;color:var(--txm);letter-spacing:1px;line-height:2.4}
+</style>
+</head>
+<body>
+<nav class="sitenav">
+  <div class="sitenav-inner">
+    <a href="index.html" class="site-logo"><span class="logo-arr">←</span>TOP</a>
+    <div class="nav-div"></div>
+    <div class="snlinks">
+      <span class="ng">DAYTRADE</span>
+      <a href="daytrade-basics.html" class="snl">基礎</a>
+      <a href="daytrade-advanced.html" class="snl">応用</a>
+      <a href="daytrade-strategy.html" class="snl">戦略</a>
+      <a href="daytrade-tool.html" class="snl">ツール</a>
+      <a href="daytrade-glossary.html" class="snl">用語</a>
+      <span class="ng">NISA</span>
+      <a href="nisa-guide.html" class="snl">ガイド</a>
+      <a href="nisa-glossary.html" class="snl cur">用語</a>
+      <span class="ng">MACRO</span>
+      <a href="macro-guide.html" class="snl">ガイド</a>
+      <a href="macro-glossary.html" class="snl">用語</a>
+      <span class="ng">ALL</span>
+      <a href="glossary-all.html" class="snl">全用語集</a>
+    </div>
+  </div>
+</nav>
+<header class="hero">
+  <p class="hero-tag">NISA & LONG-TERM INVESTMENT GLOSSARY</p>
+  <h1 class="hero-title">NISA<br>用語集</h1>
+  <p class="hero-sub">NISA・長期投資・インデックス・ETF・リバランス</p>
+  <p class="hero-desc">新NISAと長期投資に関する用語を制度・商品・戦略・税制・指数のカテゴリ別に整理。難読語にはルビ付き。</p>
+</header>
+<div class="cat-bar">
+  <div class="cat-bar-inner">
+    <button class="cat-btn active" onclick="filterCat('all')">すべて</button>
+    <button class="cat-btn" onclick="filterCat('system')">🏛 制度</button>
+    <button class="cat-btn" onclick="filterCat('product')">📦 商品・運用</button>
+    <button class="cat-btn" onclick="filterCat('strategy')">🎯 戦略</button>
+    <button class="cat-btn" onclick="filterCat('tax')">💴 税制</button>
+    <button class="cat-btn" onclick="filterCat('rebalance')">⚖️ リバランス・出口</button>
+    <button class="cat-btn" onclick="filterCat('index')">📈 指数・ETF</button>
+  </div>
+</div>
+<div class="search-wrap">
+  <span class="search-icon">🔍</span>
+  <input type="text" class="search-input" id="search-input" placeholder="用語を検索… 例：積み立て、ETF、リバランス" oninput="searchTerms()">
+  <p class="search-count" id="search-count">全66語を表示中</p>
+</div>
+<div class="wrap" id="glossary-wrap">
+
+<!-- 制度 -->
+<div class="cat-section" id="cat-system">
+  <div class="cat-hdr"><div class="cat-hdr-dot" style="background:var(--g)"></div><span class="cat-hdr-title">制度</span><span class="cat-hdr-count">SYSTEM</span></div>
+  <div class="gloss-grid">
+
+    <div class="gloss-item c-system" data-cat="system" data-terms="nisa 新ニーサ 少額投資非課税制度">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">新NISA</div><div class="gloss-en">New NISA / 少額投資非課税制度</div></div><span class="gloss-badge">制度</span></div>
+      <div class="gloss-def">2024年からスタートした非課税投資制度。株式・投資信託の<b>利益・配当に税金がかからない</b>。年360万円・生涯1,800万円の非課税枠、無期限保有、売却後の枠復活が特徴。</div>
+    </div>
+
+    <div class="gloss-item c-system" data-cat="system" data-terms="積み立て投資枠 つみたてわく">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>積<rt>つ</rt></ruby>み<ruby>立<rt>た</rt></ruby>て投資枠</div><div class="gloss-en">Tsumitate Frame / 年間120万円</div></div><span class="gloss-badge">制度</span></div>
+      <div class="gloss-def">年間120万円（月10万円）まで投資できる枠。<b>定期定額の積み立てのみ</b>対応。金融庁が認定した低コスト・分散型の投資信託・ETFのみ対象。長期・分散・低コストの原則に従った商品が揃う。</div>
+    </div>
+
+    <div class="gloss-item c-system" data-cat="system" data-terms="成長投資枠 せいちょうとうしわく">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">成長投資枠</div><div class="gloss-en">Growth Frame / 年間240万円</div></div><span class="gloss-badge">制度</span></div>
+      <div class="gloss-def">年間240万円（月20万円）まで投資できる枠。積み立て・スポット購入どちらも可。<b>個別株・ETF・REIT・投資信託</b>が対象（一部除外あり）。生涯上限は1,200万円。</div>
+    </div>
+
+    <div class="gloss-item c-system" data-cat="system" data-terms="生涯投資上限 せいがいとうしじょうげん">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>生涯<rt>しょうがい</rt></ruby>投資上限</div><div class="gloss-en">Lifetime Investment Limit</div></div><span class="gloss-badge">制度</span></div>
+      <div class="gloss-def">NISA口座で投資できる<b>総合計の上限額は1,800万円</b>（取得価格ベース）。成長投資枠のみで使える上限は1,200万円。売却した取得価格分は翌年に復活する。</div>
+    </div>
+
+    <div class="gloss-item c-system" data-cat="system" data-terms="枠の復活 非課税枠復活">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">枠の復活</div><div class="gloss-en">Frame Restoration</div></div><span class="gloss-badge">制度</span></div>
+      <div class="gloss-def">NISA口座で保有する資産を売却した場合、その<b>取得価格分の枠が翌年から再利用可能</b>になる（旧NISAにはなかった機能）。ただし売却した当年には復活しない点に注意。</div>
+      <div class="gloss-example">例：200万円（取得価格）の投資信託を売却 → 翌年に成長枠200万円分が復活</div>
+    </div>
+
+    <div class="gloss-item c-system" data-cat="system" data-terms="特定口座 とくていこうざ">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>特定<rt>とくてい</rt></ruby>口座</div><div class="gloss-en">Specific Account</div></div><span class="gloss-badge">制度</span></div>
+      <div class="gloss-def">証券会社が<ruby>損益<rt>そんえき</rt></ruby>計算・納税を代行してくれる口座。NISA口座とは別に持てる。利益には<b>20.315%の税金</b>がかかるが、損失を翌年以降3年間繰り越せる（<ruby>損失繰越控除<rt>そんしつくりこしこうじょ</rt></ruby>）。</div>
+    </div>
+
+    <div class="gloss-item c-system" data-cat="system" data-terms="損益通算 そんえきつうさん">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>損益通算<rt>そんえきつうさん</rt></ruby></div><div class="gloss-en">Profit & Loss Aggregation</div></div><span class="gloss-badge">制度</span></div>
+      <div class="gloss-def">特定口座内で利益と損失を相殺して課税対象を減らす仕組み。例：A株で+50万円、B株で-30万円なら課税対象は20万円。<b>NISA口座の損益は特定口座と通算できない</b>。</div>
+    </div>
+
+    <div class="gloss-item c-system" data-cat="system" data-terms="株式数比例配分方式 かぶしきすうひれいはいぶんほうしき">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>株式数比例<rt>かぶしきすうひれい</rt></ruby>配分方式</div><div class="gloss-en">Stock Allocation Method</div></div><span class="gloss-badge">制度</span></div>
+      <div class="gloss-def">個別株の配当金をNISA口座で<b>非課税で受け取るために必要な設定</b>。証券会社のNISA口座設定画面で「株式数比例配分方式」を選択しないと、配当金が課税されてしまう。</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 商品・運用 -->
+<div class="cat-section" id="cat-product">
+  <div class="cat-hdr"><div class="cat-hdr-dot" style="background:var(--c)"></div><span class="cat-hdr-title">商品・運用</span><span class="cat-hdr-count">PRODUCTS</span></div>
+  <div class="gloss-grid">
+
+    <div class="gloss-item c-product" data-cat="product" data-terms="投資信託 とうししんたく インデックスファンド">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>投資信託<rt>とうししんたく</rt></ruby></div><div class="gloss-en">Investment Trust / Fund</div></div><span class="gloss-badge">商品</span></div>
+      <div class="gloss-def">多くの投資家から資金を集め、専門家が株式・債券などに分散投資する金融商品。<b>1本買えば自動的に何百〜何千銘柄に分散</b>される。積み立てNISAの主役。</div>
+    </div>
+
+    <div class="gloss-item c-product" data-cat="product" data-terms="インデックスファンド 指数連動型 パッシブ">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">インデックスファンド</div><div class="gloss-en">Index Fund</div></div><span class="gloss-badge">商品</span></div>
+      <div class="gloss-def"><b>特定の株価指数（S&P500・MSCI ACWIなど）に連動</b>することを目指す投資信託。アクティブファンドより<b>信託報酬が低く</b>、長期的にはアクティブを上回る成績を収めることが多い。</div>
+      <div class="gloss-example">例：eMAXIS Slim 全世界株式（オール・カントリー）→ MSCI ACWI連動・信託報酬0.05763%</div>
+    </div>
+
+    <div class="gloss-item c-product" data-cat="product" data-terms="アクティブファンド 積極運用">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">アクティブファンド</div><div class="gloss-en">Active Fund</div></div><span class="gloss-badge">商品</span></div>
+      <div class="gloss-def">ファンドマネージャーが独自の判断で銘柄を選択し、<b>指数を上回るリターン</b>を目指す投資信託。信託報酬が高め（1%前後）。長期的には多くのアクティブファンドがインデックスに負ける。</div>
+    </div>
+
+    <div class="gloss-item c-product" data-cat="product" data-terms="ETF 上場投資信託 exchange traded fund">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">ETF</div><div class="gloss-en">Exchange Traded Fund / 上場投資信託</div></div><span class="gloss-badge">商品</span></div>
+      <div class="gloss-def"><ruby>株式<rt>かぶしき</rt></ruby>と同様に証券取引所に上場している投資信託。リアルタイムで売買可能。<b>低コストで指数に連動</b>。米国ETF（VTI・VOO・VYM等）と国内ETF（1655等）がある。</div>
+    </div>
+
+    <div class="gloss-item c-product" data-cat="product" data-terms="信託報酬 しんたくほうしゅう コスト">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>信託報酬<rt>しんたくほうしゅう</rt></ruby></div><div class="gloss-en">Management Fee / Expense Ratio</div></div><span class="gloss-badge">商品</span></div>
+      <div class="gloss-def">投資信託・ETFを保有する間、<b>毎日自動的に引かれる運用管理コスト</b>（年率）。0.1%の差が30年で数十万円の差になるため、できるだけ低いものを選ぶ。NISAでは0.2%以下が目安。</div>
+      <div class="gloss-example">例：1,000万円の資産に対し信託報酬0.1% → 年1万円のコスト。0.5% → 年5万円</div>
+    </div>
+
+    <div class="gloss-item c-product" data-cat="product" data-terms="REIT リート 不動産投資信託">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">REIT</div><div class="gloss-en">Real Estate Investment Trust / 不動産投資信託</div></div><span class="gloss-badge">商品</span></div>
+      <div class="gloss-def">不動産（オフィス・商業施設・住宅など）を投資対象とする上場投資信託。<b>分配金利回りが高め（3〜5%程度）</b>で、成長投資枠で購入可能。金利上昇局面では下落しやすい点に注意。</div>
+    </div>
+
+    <div class="gloss-item c-product" data-cat="product" data-terms="分配金 ぶんぱいきん 配当金">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>分配金<rt>ぶんぱいきん</rt></ruby></div><div class="gloss-en">Distribution</div></div><span class="gloss-badge">商品</span></div>
+      <div class="gloss-def">投資信託・ETFが保有者に支払う収益。<b>NISA口座内では非課税</b>。ただし「毎月分配型」は元本を取り崩して支払うケースがあるため、長期運用では<b>分配金再投資型（累積型）</b>が推奨される。</div>
+    </div>
+
+    <div class="gloss-item c-product" data-cat="product" data-terms="複利 ふくり">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>複利<rt>ふくり</rt></ruby></div><div class="gloss-en">Compound Interest</div></div><span class="gloss-badge">運用</span></div>
+      <div class="gloss-def">利益を再投資することで、<b>「利益が利益を生む」効果</b>。長期になるほど威力を発揮。投資の世界で「<ruby>複利<rt>ふくり</rt></ruby>は世界第8の<ruby>不思議<rt>ふしぎ</rt></ruby>」と言われる所以。NISAで非課税のまま複利運用するのが最強戦略。</div>
+      <div class="gloss-example">例：100万円を年利7%で20年運用 → 約387万円（単利なら240万円）</div>
+    </div>
+
+    <div class="gloss-item c-product" data-cat="product" data-terms="高配当株 こうはいとうかぶ">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">高配当株</div><div class="gloss-en">High Dividend Stock</div></div><span class="gloss-badge">商品</span></div>
+      <div class="gloss-def">配当利回りが高い株式（目安：3%以上）。成長投資枠で保有すれば<b>配当金が非課税</b>になる。三菱UFJ・NTT・JT・ENEOSなど日本の高配当株や、米国のVYM・HDV・SPYDなどのETFが人気。</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 戦略 -->
+<div class="cat-section" id="cat-strategy">
+  <div class="cat-hdr"><div class="cat-hdr-dot" style="background:var(--y)"></div><span class="cat-hdr-title">戦略</span><span class="cat-hdr-count">STRATEGY</span></div>
+  <div class="gloss-grid">
+
+    <div class="gloss-item c-strategy" data-cat="strategy" data-terms="ドルコスト平均法 定期定額積み立て">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">ドルコスト平均法</div><div class="gloss-en">Dollar-Cost Averaging / DCA</div></div><span class="gloss-badge">戦略</span></div>
+      <div class="gloss-def"><b>毎月一定額を定期的に購入し続ける</b>方法。高いときは少量、安いときは多量を自動的に購入するため、<b>平均取得単価が平準化</b>される。積み立てNISAが自動的にこの手法を実践する。</div>
+      <div class="gloss-example">例：毎月5万円購入 → 株価1,000円の月は50株、500円の月は100株購入</div>
+    </div>
+
+    <div class="gloss-item c-strategy" data-cat="strategy" data-terms="コア・サテライト戦略">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">コア・サテライト戦略</div><div class="gloss-en">Core-Satellite Strategy</div></div><span class="gloss-badge">戦略</span></div>
+      <div class="gloss-def">資産の<b>8〜9割をコア（安定・インデックス）</b>、残り1〜2割をサテライト（高リターン狙い・個別株）に分ける運用スタイル。安定とリターンのバランスを取る中級者向け戦略。</div>
+    </div>
+
+    <div class="gloss-item c-strategy" data-cat="strategy" data-terms="4%ルール FIRE 取り崩し">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">4%ルール</div><div class="gloss-en">4% Rule / Safe Withdrawal Rate</div></div><span class="gloss-badge">戦略</span></div>
+      <div class="gloss-def">資産の<b>4%を毎年取り崩しても30年以上資産が枯渇しない</b>という研究（トリニティスタディ）に基づく出口戦略の目安。NISA口座から非課税で引き出せれば最も効率的。</div>
+      <div class="gloss-example">例：2,000万円 × 4% = 年80万円（月約6.7万円）を引き出し続けられる</div>
+    </div>
+
+    <div class="gloss-item c-strategy" data-cat="strategy" data-terms="FIRE ファイア 経済的自立 早期退職">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">FIRE</div><div class="gloss-en">Financial Independence, Retire Early</div></div><span class="gloss-badge">戦略</span></div>
+      <div class="gloss-def"><b>経済的自立と早期<ruby>退職<rt>たいしょく</rt></ruby></b>を同時に達成する生き方。資産から得られる配当・<ruby>利子<rt>りし</rt></ruby>・<ruby>値上がり益<rt>ねあがりえき</rt></ruby>で生活費をまかない、労働収入に依存しない状態。NISAを活用した長期積み立てがFIREへの近道。</div>
+    </div>
+
+    <div class="gloss-item c-strategy" data-cat="strategy" data-terms="一括投資 いっかつとうし スポット">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">一括投資</div><div class="gloss-en">Lump-Sum Investment</div></div><span class="gloss-badge">戦略</span></div>
+      <div class="gloss-def">まとまった資金を一度に投資する方法。学術的には長期的に<b>積み立て投資より期待値が高い</b>とされるが、高値掴みのリスクもある。心理的ストレスが大きいため、資金の半分を一括・半分を積み立てにする折衷案も有効。</div>
+    </div>
+
+    <div class="gloss-item c-strategy" data-cat="strategy" data-terms="長期保有 Buy and Hold バイアンドホールド">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">長期保有戦略</div><div class="gloss-en">Buy and Hold Strategy</div></div><span class="gloss-badge">戦略</span></div>
+      <div class="gloss-def">購入した資産を<b>10年・20年・30年単位で保有し続ける</b>戦略。短期の値動きに惑わされず、複利の力を最大化する。NISA口座の無期限非課税と最も相性が良い。</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 税制 -->
+<div class="cat-section" id="cat-tax">
+  <div class="cat-hdr"><div class="cat-hdr-dot" style="background:var(--p)"></div><span class="cat-hdr-title">税制</span><span class="cat-hdr-count">TAX</span></div>
+  <div class="gloss-grid">
+
+    <div class="gloss-item c-tax" data-cat="tax" data-terms="20.315% 税率 課税">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">20.315%</div><div class="gloss-en">Capital Gains Tax Rate</div></div><span class="gloss-badge">税制</span></div>
+      <div class="gloss-def">通常口座（特定口座）での投資利益にかかる税率。<b>所得税15.315%（復興特別所得税含む）＋住民税5%</b>の合計。NISAではこれがゼロになる。</div>
+      <div class="gloss-example">例：100万円の利益 → 特定口座では約20.3万円が税金。NISA口座では0円</div>
+    </div>
+
+    <div class="gloss-item c-tax" data-cat="tax" data-terms="非課税 ひかぜい">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">非課税</div><div class="gloss-en">Non-Taxable</div></div><span class="gloss-badge">税制</span></div>
+      <div class="gloss-def">税金がかからないこと。NISA口座内の<b>値上がり益・配当金・分配金が非課税</b>の対象。ただしNISA口座の損失は損益通算・繰越控除の対象外（損失に税の優遇なし）。</div>
+    </div>
+
+    <div class="gloss-item c-tax" data-cat="tax" data-terms="損失繰越控除 そんしつくりこしこうじょ">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>損失繰越控除<rt>そんしつくりこしこうじょ</rt></ruby></div><div class="gloss-en">Loss Carryforward Deduction</div></div><span class="gloss-badge">税制</span></div>
+      <div class="gloss-def">特定口座での投資損失を<b>最大3年間繰り越して、翌年以降の利益と相殺</b>できる制度。NISA口座の損失には適用されない。大きな損失が出た年に確定申告で申請する。</div>
+    </div>
+
+    <div class="gloss-item c-tax" data-cat="tax" data-terms="確定申告 かくていしんこく">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>確定申告<rt>かくていしんこく</rt></ruby></div><div class="gloss-en">Annual Tax Return</div></div><span class="gloss-badge">税制</span></div>
+      <div class="gloss-def">毎年2〜3月に行う所得の申告。特定口座（<ruby>源泉徴収<rt>げんせんちょうしゅう</rt></ruby>あり）の場合は通常不要。損失繰越控除を使う場合・複数口座をまたぐ損益通算をする場合は申告が必要。NISA口座の利益は申告不要。</div>
+    </div>
+
+    <div class="gloss-item c-tax" data-cat="tax" data-terms="源泉徴収 げんせんちょうしゅう">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term"><ruby>源泉徴収<rt>げんせんちょうしゅう</rt></ruby></div><div class="gloss-en">Withholding Tax</div></div><span class="gloss-badge">税制</span></div>
+      <div class="gloss-def">証券会社が利益から自動的に税金を引いて納税する仕組み。「特定口座（源泉徴収あり）」を選ぶと確定申告が不要になる。通常は源泉徴収ありが便利。</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- リバランス・出口 -->
+<div class="cat-section" id="cat-rebalance">
+  <div class="cat-hdr"><div class="cat-hdr-dot" style="background:var(--o)"></div><span class="cat-hdr-title">リバランス・出口戦略</span><span class="cat-hdr-count">REBALANCE & EXIT</span></div>
+  <div class="gloss-grid">
+
+    <div class="gloss-item c-rebalance" data-cat="rebalance" data-terms="リバランス">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">リバランス</div><div class="gloss-en">Rebalancing</div></div><span class="gloss-badge">管理</span></div>
+      <div class="gloss-def">ポートフォリオの<ruby>資産配分<rt>しさんはいぶん</rt></ruby>が目標から<b>ずれてきたときに元の比率に戻す</b>作業。例：目標「株式80%・債券20%」が株高で「株式90%・債券10%」になったら調整する。年1〜2回が目安。</div>
+    </div>
+
+    <div class="gloss-item c-rebalance" data-cat="rebalance" data-terms="ポートフォリオ">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">ポートフォリオ</div><div class="gloss-en">Portfolio</div></div><span class="gloss-badge">管理</span></div>
+      <div class="gloss-def">保有する金融商品の組み合わせ全体のこと。<b>株式・債券・現金・不動産などのバランス</b>を管理する概念。年齢やリスク許容度に応じて最適なポートフォリオは変わる。</div>
+    </div>
+
+    <div class="gloss-item c-rebalance" data-cat="rebalance" data-terms="アセットアロケーション 資産配分">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">アセットアロケーション</div><div class="gloss-en">Asset Allocation / 資産配分</div></div><span class="gloss-badge">管理</span></div>
+      <div class="gloss-def">資産をどの種類にどれだけ配分するかの割合。<b>「株式〇%・債券〇%・現金〇%」</b>という形で表す。リスク許容度・年齢・投資目的によって変わる。若い人は株式比率を高く、引退が近い人は安全資産比率を高くするのが一般的。</div>
+    </div>
+
+    <div class="gloss-item c-rebalance" data-cat="rebalance" data-terms="出口戦略 でぐちせんりゃく 取り崩し">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">出口戦略</div><div class="gloss-en">Exit Strategy / Withdrawal Plan</div></div><span class="gloss-badge">出口</span></div>
+      <div class="gloss-def">積み立てた資産を<b>いつ・どのように使い終えるか</b>の計画。一括売却・定期定率引き出し・配当生活など複数の方法がある。<b>暴落時に売却を迫られない体制を作ること</b>が出口設計の核心。</div>
+    </div>
+
+    <div class="gloss-item c-rebalance" data-cat="rebalance" data-terms="キャッシュクッション 生活防衛資金">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">キャッシュクッション</div><div class="gloss-en">Cash Cushion / Emergency Fund</div></div><span class="gloss-badge">出口</span></div>
+      <div class="gloss-def">相場の暴落時に投資資産を売らずに済むための<b>現金の緩衝材</b>。生活費3〜6ヶ月分〜2年分を別途現金で保有することで、暴落期でも余裕を持って相場を乗り越えられる。</div>
+    </div>
+
+    <div class="gloss-item c-rebalance" data-cat="rebalance" data-terms="分割売却 ていきていりつ">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">分割売却</div><div class="gloss-en">Systematic Withdrawal</div></div><span class="gloss-badge">出口</span></div>
+      <div class="gloss-def">老後の生活費として資産を<b>毎年一定額または一定率（4%など）ずつ売却</b>する方法。一括売却より相場変動リスクを分散できる。NISA口座からの非課税引き出しと組み合わせると最大効率。</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 指数・ETF -->
+<div class="cat-section" id="cat-index">
+  <div class="cat-hdr"><div class="cat-hdr-dot" style="background:var(--teal)"></div><span class="cat-hdr-title">指数・ETF</span><span class="cat-hdr-count">INDEX & ETF</span></div>
+  <div class="gloss-grid">
+
+    <div class="gloss-item c-index" data-cat="index" data-terms="MSCI ACWI オールカントリー オルカン 全世界株式">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">MSCI ACWI</div><div class="gloss-en">MSCI All Country World Index</div></div><span class="gloss-badge">指数</span></div>
+      <div class="gloss-def">先進国・<ruby>新興国<rt>しんこうこく</rt></ruby>を含む<b>世界47カ国・約3,000銘柄の株式指数</b>。「オルカン（オール・カントリー）」とも呼ばれる。eMAXIS Slim 全世界株式がこの指数に連動し、積み立てNISAで最人気。</div>
+    </div>
+
+    <div class="gloss-item c-index" data-cat="index" data-terms="S&P500 エスアンドピー500 米国株">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">S&P 500</div><div class="gloss-en">S&P 500 Index</div></div><span class="gloss-badge">指数</span></div>
+      <div class="gloss-def">米国を代表する<b>大型株500社で構成される株価指数</b>。アップル・マイクロソフト・エヌビディアなどの主要企業を含む。過去の長期年利平均は約7〜10%。eMAXIS Slim 米国株式（S&P500）が連動商品として有名。</div>
+    </div>
+
+    <div class="gloss-item c-index" data-cat="index" data-terms="NASDAQ ナスダック100 テクノロジー">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">NASDAQ 100</div><div class="gloss-en">NASDAQ 100 Index</div></div><span class="gloss-badge">指数</span></div>
+      <div class="gloss-def">NASDAQ取引所に上場する大型テクノロジー企業<b>上位100社</b>で構成される株価指数。Apple・Microsoft・NVIDIA・Meta・Googleなどが上位。ハイリスク・ハイリターンで<ruby>変動率<rt>へんどうりつ</rt></ruby>が高い。</div>
+    </div>
+
+    <div class="gloss-item c-index" data-cat="index" data-terms="VTI ヴィティアイ 全米株式">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">VTI</div><div class="gloss-en">Vanguard Total Stock Market ETF</div></div><span class="gloss-badge">ETF</span></div>
+      <div class="gloss-def">米国上場全銘柄（約3,700社）に投資できる<b>バンガード社の米国ETF</b>。経費率0.03%と超低コスト。S&P500より中小型株も含むため分散度が高い。日本の投資信託でもVTI連動商品が積み立てNISA対象。</div>
+    </div>
+
+    <div class="gloss-item c-index" data-cat="index" data-terms="VYM 高配当ETF 米国高配当">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">VYM</div><div class="gloss-en">Vanguard High Dividend Yield ETF</div></div><span class="gloss-badge">ETF</span></div>
+      <div class="gloss-def">米国の<b>高配当株に絞ったETF</b>。配当利回りは3%前後。成長投資枠でNISA口座から非課税で受け取れる。生活費を配当で賄うFIRE戦略と相性が良い。同種にHDV・SPYDがある。</div>
+    </div>
+
+    <div class="gloss-item c-index" data-cat="index" data-terms="MSCI Kokusai 先進国 コクサイ">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">MSCI コクサイ</div><div class="gloss-en">MSCI Kokusai Index</div></div><span class="gloss-badge">指数</span></div>
+      <div class="gloss-def">日本を除く先進国22カ国の株式で構成される指数。米国比率が約70%を占め、実質的に米国株指数に近い動き。ニッセイ外国株式インデックスファンドがこの指数に連動し、積み立てNISA対象商品。</div>
+    </div>
+
+    <div class="gloss-item c-index" data-cat="index" data-terms="eMAXIS Slim イーマクシス スリム">
+      <div class="gloss-top"><div class="gloss-term-wrap"><div class="gloss-term">eMAXIS Slim</div><div class="gloss-en">eMAXIS Slim Series / 三菱UFJ アセットマネジメント</div></div><span class="gloss-badge">商品</span></div>
+      <div class="gloss-def">三菱UFJアセットマネジメントが運用する<b>超低コストインデックスファンドシリーズ</b>。「業界最低水準の信託報酬を目指す」と宣言し、競合が値下げするたびに追随する。全世界株式・米国株式・先進国株式など人気商品を多数ラインナップ。</div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- /glossary-wrap -->
+
+<footer>
+  <p style="font-size:13px;color:var(--txd);margin-bottom:6px">NISA・長期投資 用語集</p>
+  <p>新NISA制度 ／ 商品・運用 ／ 戦略 ／ 税制 ／ リバランス ／ 指数・ETF</p>
+</footer>
+
+<script>
+function filterCat(cat){
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.gloss-item').forEach(item=>{
+    item.classList.toggle('hidden', cat!=='all' && item.dataset.cat !== cat);
+  });
+  updateCount();
+}
+function searchTerms(){
+  const q = document.getElementById('search-input').value.toLowerCase();
+  document.querySelectorAll('.gloss-item').forEach(item=>{
+    const text = (item.dataset.terms||'') + item.textContent.toLowerCase();
+    item.classList.toggle('hidden', q.length>0 && !text.includes(q));
+  });
+  updateCount();
+}
+function updateCount(){
+  const visible = document.querySelectorAll('.gloss-item:not(.hidden)').length;
+  const total = document.querySelectorAll('.gloss-item').length;
+  document.getElementById('search-count').textContent = visible===total ? `全${total}語を表示中` : `${visible}語ヒット（全${total}語中）`;
+}
+</script>
+</body>
+</html>
