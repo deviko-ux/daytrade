@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日銀・日本の金融政策 | 株式投資ガイド</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050507;--s1:#0d0d16;--s2:#141420;--s3:#1c1c2a;--s4:#22222e;--c:#00d4ff;--g:#00e87d;--r:#ff3358;--y:#ffd600;--p:#b06aff;--o:#ff8c42;--teal:#00c9a7;--tx:#e8eaf6;--txm:#64648a;--txd:#9696b8;--bd:rgba(255,255,255,0.07);--bd2:rgba(255,255,255,0.13);--fs-base:15px;--lh:1.85}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:var(--fs-base)}
+body{background:var(--bg);color:var(--tx);font-family:'Noto Sans JP',sans-serif;font-weight:300;line-height:var(--lh);overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 55px,rgba(255,214,0,0.012) 55px,rgba(255,214,0,0.012) 56px),repeating-linear-gradient(90deg,transparent,transparent 55px,rgba(255,214,0,0.012) 55px,rgba(255,214,0,0.012) 56px);pointer-events:none;z-index:0}
+ruby{ruby-align:center}rt{font-size:.55em;color:var(--txd);letter-spacing:.5px}
+.sitenav{position:sticky;top:0;z-index:300;background:rgba(5,5,7,0.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--bd2)}
+.sitenav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;height:52px;padding:0 24px;gap:0}
+.site-logo{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:4px;color:var(--c);margin-right:6px;flex-shrink:0;text-decoration:none;display:flex;align-items:center;gap:5px}
+.logo-arr{font-size:11px;color:var(--txm)}
+.nav-div{width:1px;height:20px;background:var(--bd2);margin:0 10px;flex-shrink:0}
+.snlinks{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1}
+.snlinks::-webkit-scrollbar{display:none}
+.snl{font-size:11px;letter-spacing:.5px;padding:6px 11px;color:var(--txm);border-radius:4px;text-decoration:none;white-space:nowrap;transition:all .18s;border:1px solid transparent}
+.snl:hover{color:var(--tx);background:rgba(255,255,255,0.05)}
+.snl.cur{color:var(--y);border-color:rgba(255,214,0,0.2);background:rgba(255,214,0,0.06)}
+.ng{font-size:9px;letter-spacing:2px;color:var(--txm);padding:0 8px;opacity:.55;white-space:nowrap;flex-shrink:0}
+.page-nav{position:relative;z-index:1;border-bottom:1px solid var(--bd2);background:var(--s1)}
+.page-nav-inner{max-width:1100px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none;height:44px;padding:0 24px}
+.page-nav-inner::-webkit-scrollbar{display:none}
+.pnl{font-size:11.5px;letter-spacing:1px;padding:0 14px;color:var(--txm);text-decoration:none;display:flex;align-items:center;white-space:nowrap;border-bottom:2px solid transparent;transition:all .18s}
+.pnl:hover{color:var(--y);border-color:var(--y)}
+.hero{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:52px 24px 40px}
+.hero-tag{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:6px;color:var(--y);opacity:.7;margin-bottom:14px}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,9vw,100px);line-height:.88;letter-spacing:2px;background:linear-gradient(135deg,#fff 15%,var(--y) 70%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px}
+.hero-sub{font-size:13px;letter-spacing:3px;color:var(--txm);margin-bottom:18px}
+.hero-desc{font-size:15px;color:var(--txd);max-width:680px;line-height:2}
+.wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 24px 100px}
+section{padding-top:40px;margin-bottom:72px}
+.shdr{display:flex;align-items:flex-end;gap:14px;margin-bottom:30px;padding-bottom:16px;border-bottom:1px solid var(--bd2)}
+.shdr-n{font-family:'Bebas Neue',sans-serif;font-size:54px;line-height:1;opacity:.16;flex-shrink:0}
+.shdr-body{flex:1}
+.shdr-t{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:4px;color:#fff;line-height:1}
+.shdr-s{font-size:12px;color:var(--txm);letter-spacing:3px;margin-top:5px}
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:8px;padding:26px 30px;margin-bottom:16px}
+.card-g{border-left:4px solid var(--g)}.card-c{border-left:4px solid var(--c)}.card-y{border-left:4px solid var(--y)}.card-r{border-left:4px solid var(--r)}.card-p{border-left:4px solid var(--p)}.card-o{border-left:4px solid var(--o)}.card-teal{border-left:4px solid var(--teal)}
+.tag{display:inline-block;font-size:10px;letter-spacing:2px;padding:3px 10px;border-radius:3px;margin-bottom:10px}
+.tag-g{background:rgba(0,232,125,0.1);color:var(--g)}.tag-c{background:rgba(0,212,255,0.1);color:var(--c)}.tag-y{background:rgba(255,214,0,0.1);color:var(--y)}.tag-r{background:rgba(255,51,88,0.1);color:var(--r)}.tag-p{background:rgba(176,106,255,0.1);color:var(--p)}.tag-o{background:rgba(255,140,66,0.1);color:var(--o)}
+.term{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;margin-bottom:8px}
+.body-text{font-size:15px;color:#c0c4dc;line-height:1.95}
+.body-text b{color:#e8eaf6;font-weight:500}
+.body-text strong{color:var(--y);font-weight:500}
+.body-text .warn{color:var(--r)}.body-text .note{color:var(--c)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.g2,.g3{grid-template-columns:1fr}}
+.timeline{position:relative;padding-left:30px;margin:16px 0}
+.timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--y),transparent)}
+.tl-item{position:relative;padding:0 0 24px 20px}
+.tl-item::before{content:'';position:absolute;left:-24px;top:6px;width:12px;height:12px;border-radius:50%;border:2px solid var(--y);background:var(--bg)}
+.tl-head{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;color:var(--y);margin-bottom:5px}
+.tl-body{font-size:14px;color:#9696b8;line-height:1.85}
+.tl-body b{color:#e8eaf6;font-weight:500}
+.impact-row{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--bd)}
+.impact-row:last-child{border-bottom:none}
+.impact-arrow{font-family:'Bebas Neue',sans-serif;font-size:22px;flex-shrink:0;width:30px;text-align:center}
+.impact-up{color:var(--r)}.impact-down{color:var(--c)}
+.impact-body{flex:1;font-size:14px;color:var(--txd)}
+.impact-body b{color:var(--tx);font-weight:500}
+.mono{font-family:'JetBrains Mono',monospace}
+footer{position:relative;z-index:1;background:var(--s1);border-top:1px solid var(--bd2);padding:32px 24px;text-align:center;font-size:12px;color:var(--txm);letter-spacing:1px;line-height:2.4}
+</style>
+</head>
+<body>
+
+<nav class="sitenav">
+  <div class="sitenav-inner">
+    <a href="index.html" class="site-logo"><span class="logo-arr">←</span>TOP</a>
+    <div class="nav-div"></div>
+    <div class="snlinks">
+      <span class="ng">DAYTRADE</span>
+      <a href="daytrade-basics.html" class="snl">基礎</a>
+      <a href="daytrade-advanced.html" class="snl">応用</a>
+      <a href="daytrade-board.html" class="snl">板読み</a>
+      <a href="daytrade-strategy.html" class="snl">戦略</a>
+      <a href="daytrade-tool.html" class="snl">ツール</a>
+      <a href="daytrade-journal.html" class="snl">日誌</a>
+      <a href="daytrade-tax.html" class="snl">税金</a>
+      <a href="daytrade-mistakes.html" class="snl">失敗集</a>
+      <a href="daytrade-glossary.html" class="snl">用語</a>
+            <span class="ng">NISA</span>
+      <a href="nisa-guide.html" class="snl">ガイド</a>
+      <a href="nisa-lifestage.html" class="snl">ライフステージ</a>
+      <a href="nisa-ideco.html" class="snl">iDeCo</a>
+      <a href="nisa-funds.html" class="snl">ファンド比較</a>
+      <a href="nisa-glossary.html" class="snl">用語</a>
+      <span class="ng">MACRO</span>
+      <a href="macro-guide.html" class="snl">ガイド</a>
+      <a href="macro-boj.html" class="snl cur">日銀</a>
+      <a href="macro-cycle.html" class="snl">景気サイクル</a>
+      <a href="macro-bond.html" class="snl">債券</a>
+      <a href="macro-glossary.html" class="snl">用語</a>
+      <span class="ng">ALL</span>
+      <a href="glossary-all.html" class="snl">全用語集</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-nav">
+  <div class="page-nav-inner">
+    <a href="#s-overview" class="pnl">日銀とは</a>
+    <a href="#s-tools" class="pnl">政策ツール</a>
+    <a href="#s-ycc" class="pnl">YCC・マイナス金利</a>
+    <a href="#s-ueda" class="pnl">植田体制</a>
+    <a href="#s-market" class="pnl">市場への影響</a>
+    <a href="#s-etf" class="pnl">日銀ETF買い入れ</a>
+    <a href="#s-calendar" class="pnl">日銀カレンダー</a>
+  </div>
+</div>
+
+<header class="hero">
+  <p class="hero-tag">BANK OF JAPAN — MONETARY POLICY</p>
+  <h1 class="hero-title">日銀・<br>日本の金融政策</h1>
+  <p class="hero-sub">BOJ — YCC・マイナス金利・植田体制・市場への影響</p>
+  <p class="hero-desc">日本の相場はFRBだけでなく日銀に大きく動かされる。YCC撤廃・マイナス金利解除・ETF購入縮小——日銀の一挙一動が日本株・円・日本国債に与える影響を理解することは、日本市場で取引するすべての投資家にとって不可欠な知識だ。</p>
+</header>
+
+<div class="wrap">
+
+<!-- SECTION 1 -->
+<section id="s-overview">
+  <div class="shdr"><div class="shdr-n">01</div><div class="shdr-body"><div class="shdr-t">日本銀行とは</div><div class="shdr-s">BANK OF JAPAN — THE BASICS</div></div></div>
+
+  <div class="card card-y">
+    <div class="term">日本の中央銀行 — 3つの使命</div>
+    <p class="body-text">日本銀行（BOJ）は日本の中央銀行として、①<strong>物価の安定</strong>（インフレ目標2%）②<b>金融システムの安定</b>③<b>円の発行・管理</b>の3つを使命とする。<br><br>政策決定は<b>政策委員会（9名）</b>が行い、年8回の「金融政策決定会合」で現在の金融政策を維持・変更するかを決定する。この会合の結果発表が市場に大きな影響を与える。</p>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="tag tag-y">FRB（米国）との違い</div>
+      <p class="body-text" style="font-size:14px">FRBは「物価安定」と「雇用最大化」の<b>デュアルマンデート</b>。日銀は「物価の安定」のみが法的使命。また日銀はETFを直接購入するという<b>世界でも異例</b>の政策を長年実施してきた。</p>
+    </div>
+    <div class="card">
+      <div class="tag tag-c">歴代総裁と時代</div>
+      <p class="body-text" style="font-size:14px">黒田東彦総裁（2013〜2023）が「異次元緩和」を推進。2023年4月より<b>植田和男総裁</b>が就任。アカデミック出身の初の総裁として緩和出口戦略を慎重に進めている。</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2 -->
+<section id="s-tools">
+  <div class="shdr"><div class="shdr-n">02</div><div class="shdr-body"><div class="shdr-t">日銀の政策ツール</div><div class="shdr-s">POLICY TOOLS</div></div></div>
+
+  <div class="g2">
+    <div class="card card-y">
+      <div class="tag tag-y">政策金利（短期金利）</div>
+      <div class="term" style="font-size:18px">無担保コール翌日物金利</div>
+      <p class="body-text">銀行間の超短期貸し借りの金利。日銀が誘導目標を設定する。<b>引き上げ → 円高・株安</b>になりやすい。2024年3月にマイナス金利を解除し<strong>0〜0.1%</strong>に変更、2024年7月には<strong>0.25%</strong>に引き上げ。</p>
+    </div>
+    <div class="card card-c">
+      <div class="tag tag-c">量的緩和（QE）</div>
+      <div class="term" style="font-size:18px">国債・ETF買い入れ</div>
+      <p class="body-text">日銀が市場から国債・ETFを購入し、市中にお金を供給する政策。<b>お金の量を増やす</b>ことで景気刺激を図る。2024年以降ETF新規購入を事実上停止。国債購入も段階的に縮小（テーパリング）中。</p>
+    </div>
+  </div>
+
+  <div class="card card-g">
+    <div class="tag tag-g">フォワードガイダンス</div>
+    <p class="body-text">「当面は現在の緩和的な金融環境を維持する」のような<b>将来の政策方針についての発言</b>。実際に金利を動かさなくても市場を動かす効果がある。植田総裁の発言や記者会見は毎回市場が注目する。</p>
+  </div>
+</section>
+
+<!-- SECTION 3 -->
+<section id="s-ycc">
+  <div class="shdr"><div class="shdr-n">03</div><div class="shdr-body"><div class="shdr-t">YCC・マイナス金利政策</div><div class="shdr-s">YCC & NEGATIVE INTEREST RATE</div></div></div>
+
+  <div class="card card-r">
+    <div class="term">YCC（イールドカーブ・コントロール）とは</div>
+    <p class="body-text"><ruby>YCC<rt>Yield Curve Control</rt></ruby>は<b>長期金利（10年国債利回り）の上限を設定し、日銀が無制限に国債を買って金利を抑える政策</b>。2016年9月導入。<br><br>2022〜2023年に上限を段階的に拡大（0.25% → 0.5% → 1%）し、2024年3月に<strong>事実上廃止</strong>。長期金利が市場で自由に決まるようになった。</p>
+  </div>
+
+  <div class="card card-y">
+    <div class="term">マイナス金利政策</div>
+    <p class="body-text">2016年1月導入。銀行が日銀に預ける当座預金の一部に<b>マイナス0.1%</b>の金利を課す政策。銀行が「置いておくとお金が減る」状態にすることで、融資や投資を促す狙い。<br><br><strong>2024年3月解除</strong>。日本が初めてマイナス金利から脱した歴史的な転換点。これにより銀行株・金融株が大きく上昇した。</p>
+  </div>
+
+  <div class="card">
+    <div class="term" style="font-size:17px;color:var(--y)">異次元緩和（2013〜2024）の全体像</div>
+    <div class="timeline" style="margin-top:16px">
+      <div class="tl-item"><div class="tl-head">2013年4月 — 「量的・質的金融緩和」導入</div><div class="tl-body">黒田総裁就任。国債買い入れを年60〜70兆円規模に拡大。「2年で2%インフレ」を宣言。</div></div>
+      <div class="tl-item"><div class="tl-head">2016年1月 — マイナス金利導入</div><div class="tl-body">世界的な金融不安への対応。市場は当初サプライズで急激な円高・株安が起きた。</div></div>
+      <div class="tl-item"><div class="tl-head">2016年9月 — YCC導入</div><div class="tl-body">10年金利を0%程度に固定。長短金利操作が始まる。</div></div>
+      <div class="tl-item"><div class="tl-head">2022〜2023年 — YCC上限を段階的拡大</div><div class="tl-body">インフレ上昇を受けYCC上限を0.5%→1%へ拡大。「実質的な利上げ」として市場が反応。</div></div>
+      <div class="tl-item"><div class="tl-head">2024年3月 — マイナス金利解除・YCC廃止</div><div class="tl-body">17年ぶりの利上げ。<b>異次元緩和に終止符</b>。植田体制の最初の大きな転換点。</div></div>
+      <div class="tl-item"><div class="tl-head">2024年7月 — 追加利上げ（0.25%）</div><div class="tl-body">円安・インフレへの対応として追加利上げ。日本株が急落（日経平均-4,500円の歴史的暴落）。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 -->
+<section id="s-ueda">
+  <div class="shdr"><div class="shdr-n">04</div><div class="shdr-body"><div class="shdr-t">植田体制の方針</div><div class="shdr-s">UEDA ERA — POLICY DIRECTION</div></div></div>
+
+  <div class="card card-c">
+    <div class="term">植田和男総裁の特徴</div>
+    <p class="body-text">東大経済学部・MIT博士の<b>学者出身</b>。金融政策の理論に精通し、発言が非常に慎重・学術的。「データ次第（data-dependent）」「見極める時間が必要」といった言葉を多用する。<br><br>黒田前総裁のような<b>サプライズ演出</b>より、市場との丁寧なコミュニケーションを重視するスタイル。そのため「サプライズ利上げ」は起きにくいが、逆に「発言の微妙なニュアンス変化」が市場を動かすことも多い。</p>
+  </div>
+
+  <div class="g2">
+    <div class="card card-y">
+      <div class="tag tag-y">現在の方針（2024〜）</div>
+      <p class="body-text" style="font-size:14px">「<b>緩和的な金融環境を維持しつつ、データを確認しながら段階的に正常化</b>」。急激な引き締めは行わないが、インフレが持続するなら利上げを継続するスタンス。</p>
+    </div>
+    <div class="card card-r">
+      <div class="tag tag-r">注視すべき指標</div>
+      <p class="body-text" style="font-size:14px">①<b>賃金上昇</b>（春闘結果）②<b>コアインフレ率</b>③<b>円安の進行</b>④<b>米国の利下げペース</b>。日銀の動きを先読みするにはこの4つを常時モニターする。</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5 -->
+<section id="s-market">
+  <div class="shdr"><div class="shdr-n">05</div><div class="shdr-body"><div class="shdr-t">市場への影響</div><div class="shdr-s">MARKET IMPACT</div></div></div>
+
+  <div class="card card-y">
+    <div class="term">日銀利上げ → 市場への波及経路</div>
+    <div style="margin-top:16px">
+      <div class="impact-row">
+        <div class="impact-arrow impact-up">↑</div>
+        <div class="impact-body"><b>円高</b> — 日米金利差が縮小 → ドル売り円買いが進む</div>
+      </div>
+      <div class="impact-row">
+        <div class="impact-arrow impact-down">↓</div>
+        <div class="impact-body"><b>輸出株・製造業に下押し圧力</b> — 円高で海外収益が目減り（トヨタ・ソニー等）</div>
+      </div>
+      <div class="impact-row">
+        <div class="impact-arrow impact-up">↑</div>
+        <div class="impact-body"><b>銀行株・金融株に上昇圧力</b> — 金利上昇で銀行の利ざやが拡大</div>
+      </div>
+      <div class="impact-row">
+        <div class="impact-arrow impact-down">↓</div>
+        <div class="impact-body"><b>不動産・REITに下押し圧力</b> — 借入コスト上昇、利回り比較で相対的に不利に</div>
+      </div>
+      <div class="impact-row">
+        <div class="impact-arrow impact-down">↓</div>
+        <div class="impact-body"><b>グロース株（高PER）に下押し圧力</b> — 割引率上昇で将来利益の現在価値が低下</div>
+      </div>
+      <div class="impact-row">
+        <div class="impact-arrow impact-down">↓</div>
+        <div class="impact-body"><b>日本国債価格は下落</b> — 金利上昇 = 既発債の価格低下（逆相関）</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card card-c">
+      <div class="tag tag-c">日銀利下げ（緩和）の場合は逆</div>
+      <p class="body-text" style="font-size:14px">円安・輸出株上昇・銀行株下落・グロース株上昇・不動産上昇。緩和 → リスクオン、引き締め → リスクオフが基本パターン。</p>
+    </div>
+    <div class="card card-r">
+      <div class="tag tag-r">2024年7月の事例</div>
+      <p class="body-text" style="font-size:14px">0.25%の利上げ発表後、日経平均が<b>翌日-4,451円</b>の歴史的暴落。円高・AIバブル懸念との複合で「恐怖の月曜日」と呼ばれた。</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6 -->
+<section id="s-etf">
+  <div class="shdr"><div class="shdr-n">06</div><div class="shdr-body"><div class="shdr-t">日銀のETF買い入れ</div><div class="shdr-s">BOJ ETF PURCHASES</div></div></div>
+
+  <div class="card card-p">
+    <div class="term">世界的に異例の株式購入</div>
+    <p class="body-text">日銀は2010年から東証上場のETFを直接購入してきた。ピーク時は年間<b>6兆円</b>を上限に購入。この結果、日銀は東証全体の時価総額の<strong>約7%</strong>を保有する「日本最大の株主」となった。<br><br>2021年以降は購入ペースを大幅に縮小し、2024年以降は<b>事実上の新規購入停止</b>。ただし保有分の売却（出口戦略）は市場へのインパクトを考慮し非常に慎重に進める方針。</p>
+  </div>
+
+  <div class="g2">
+    <div class="card card-y">
+      <div class="tag tag-y">ETF購入が与えた影響</div>
+      <p class="body-text" style="font-size:14px">①暴落時の「日銀砲」期待が売りを抑制する効果<br>②大型株・TOPIXへの資金集中で中小型株との格差拡大<br>③アベノミクス期の日本株上昇を支援</p>
+    </div>
+    <div class="card card-r">
+      <div class="tag tag-r">出口の問題</div>
+      <p class="body-text" style="font-size:14px">日銀が保有ETFを売却すれば株価下落圧力になる。出口戦略は<b>長期・段階的・透明性の高い方法</b>でないと市場が混乱する。2025年以降の最大のテーマの一つ。</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7 -->
+<section id="s-calendar">
+  <div class="shdr"><div class="shdr-n">07</div><div class="shdr-body"><div class="shdr-t">日銀スケジュールの読み方</div><div class="shdr-s">BOJ CALENDAR</div></div></div>
+
+  <div class="card card-y">
+    <div class="term">金融政策決定会合 — 年8回</div>
+    <p class="body-text">通常<b>2日間</b>開催。2日目の正午〜午後に結果を発表、その後に総裁記者会見。会合終了後に「主な意見」（約1週間後）と「議事要旨」（約1ヶ月後）も公表される。</p>
+  </div>
+
+  <div class="g3">
+    <div class="card">
+      <div class="tag tag-y">会合前</div>
+      <p class="body-text" style="font-size:13.5px">日経・ロイター等の「観測報道」に注目。「政策変更の可能性あり」報道が出ると事前に市場が動き始める。</p>
+    </div>
+    <div class="card">
+      <div class="tag tag-r">発表直後</div>
+      <p class="body-text" style="font-size:13.5px">サプライズがあれば急激な為替・株価変動。「現状維持」でも声明文のニュアンス変化を市場が分析。</p>
+    </div>
+    <div class="card">
+      <div class="tag tag-c">記者会見</div>
+      <p class="body-text" style="font-size:13.5px">植田総裁の発言の一言一句を市場が精査。「検討している」「排除しない」などの言葉が翌日の動きを作る。</p>
+    </div>
+  </div>
+
+  <div class="card card-c">
+    <div class="term" style="font-size:16px">日銀以外に注目すべき日本の経済指標</div>
+    <div style="margin-top:14px">
+      <div class="impact-row">
+        <div class="impact-body"><b>消費者物価指数（CPI）</b> — 毎月第3〜4金曜。コアCPI（生鮮食品除く）が日銀の注視指標</div>
+      </div>
+      <div class="impact-row">
+        <div class="impact-body"><b>春闘（賃金交渉）結果</b> — 毎年3月中旬に集中回答。日銀の利上げ判断に最も影響する</div>
+      </div>
+      <div class="impact-row">
+        <div class="impact-body"><b>GDP速報値</b> — 四半期ごと。日本経済の成長率を確認</div>
+      </div>
+      <div class="impact-row">
+        <div class="impact-body"><b>日銀短観</b> — 年4回（1・4・7・10月）。企業の景況感・設備投資計画</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  株式投資ガイド — STOCK INVESTMENT COMPLETE GUIDE<br>
+  デイトレード ／ 新NISA・長期投資 ／ マクロ経済 ／ 全用語集<br>
+  投資にはリスクが伴います。余裕資金の範囲内で、自己責任のもとに取引を行いましょう。
+</footer>
+</body>
+</html>

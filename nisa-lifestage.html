@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ライフステージ別 NISA戦略 | 株式投資ガイド</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050507;--s1:#0d0d16;--s2:#141420;--s3:#1c1c2a;--s4:#22222e;--c:#00d4ff;--g:#00e87d;--r:#ff3358;--y:#ffd600;--p:#b06aff;--o:#ff8c42;--teal:#00c9a7;--tx:#e8eaf6;--txm:#64648a;--txd:#9696b8;--bd:rgba(255,255,255,0.07);--bd2:rgba(255,255,255,0.13)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:'Noto Sans JP',sans-serif;font-weight:300;line-height:1.85;overflow-x:hidden;font-size:15px}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 55px,rgba(0,232,125,0.012) 55px,rgba(0,232,125,0.012) 56px),repeating-linear-gradient(90deg,transparent,transparent 55px,rgba(0,232,125,0.012) 55px,rgba(0,232,125,0.012) 56px);pointer-events:none;z-index:0}
+ruby{ruby-align:center}rt{font-size:.55em;color:var(--txd);letter-spacing:.5px}
+.sitenav{position:sticky;top:0;z-index:300;background:rgba(5,5,7,0.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--bd2)}
+.sitenav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;height:52px;padding:0 24px;gap:0}
+.site-logo{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:4px;color:var(--c);margin-right:6px;flex-shrink:0;text-decoration:none;display:flex;align-items:center;gap:5px}
+.logo-arr{font-size:11px;color:var(--txm)}
+.nav-div{width:1px;height:20px;background:var(--bd2);margin:0 10px;flex-shrink:0}
+.snlinks{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1}
+.snlinks::-webkit-scrollbar{display:none}
+.snl{font-size:11px;letter-spacing:.5px;padding:6px 11px;color:var(--txm);border-radius:4px;text-decoration:none;white-space:nowrap;transition:all .18s;border:1px solid transparent}
+.snl:hover{color:var(--tx);background:rgba(255,255,255,0.05)}
+.snl.cur{color:var(--g);border-color:rgba(0,232,125,0.2);background:rgba(0,232,125,0.06)}
+.ng{font-size:9px;letter-spacing:2px;color:var(--txm);padding:0 8px;opacity:.55;white-space:nowrap;flex-shrink:0}
+.page-nav{position:relative;z-index:1;border-bottom:1px solid var(--bd2);background:var(--s1)}
+.page-nav-inner{max-width:1100px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none;height:44px;padding:0 24px}
+.page-nav-inner::-webkit-scrollbar{display:none}
+.pnl{font-size:11.5px;letter-spacing:1.5px;padding:0 16px;color:var(--txm);text-decoration:none;display:flex;align-items:center;white-space:nowrap;border-bottom:2px solid transparent;transition:all .18s}
+.pnl:hover{color:var(--g);border-color:var(--g)}
+.hero{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:52px 24px 40px}
+.hero-tag{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:6px;color:var(--g);opacity:.7;margin-bottom:14px}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,8vw,92px);line-height:.88;letter-spacing:2px;background:linear-gradient(135deg,#fff 15%,var(--g) 70%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px}
+.hero-sub{font-size:13px;letter-spacing:3px;color:var(--txm);margin-bottom:18px}
+.hero-desc{font-size:15px;color:var(--txd);max-width:680px;line-height:2}
+.wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 24px 100px}
+section{padding-top:40px;margin-bottom:72px}
+.shdr{display:flex;align-items:flex-end;gap:14px;margin-bottom:30px;padding-bottom:16px;border-bottom:1px solid var(--bd2)}
+.shdr-n{font-family:'Bebas Neue',sans-serif;font-size:54px;line-height:1;opacity:.16;flex-shrink:0}
+.shdr-body{flex:1}
+.shdr-t{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:4px;color:#fff;line-height:1}
+.shdr-s{font-size:12px;color:var(--txm);letter-spacing:3px;margin-top:5px}
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:8px;padding:26px 30px;margin-bottom:16px}
+.card-g{border-left:4px solid var(--g)}.card-c{border-left:4px solid var(--c)}.card-y{border-left:4px solid var(--y)}.card-r{border-left:4px solid var(--r)}.card-p{border-left:4px solid var(--p)}.card-o{border-left:4px solid var(--o)}.card-teal{border-left:4px solid var(--teal)}
+.tag{display:inline-block;font-size:10px;letter-spacing:2px;padding:3px 10px;border-radius:3px;margin-bottom:10px}
+.tag-g{background:rgba(0,232,125,0.1);color:var(--g)}.tag-c{background:rgba(0,212,255,0.1);color:var(--c)}.tag-y{background:rgba(255,214,0,0.1);color:var(--y)}.tag-r{background:rgba(255,51,88,0.1);color:var(--r)}.tag-p{background:rgba(176,106,255,0.1);color:var(--p)}.tag-o{background:rgba(255,140,66,0.1);color:var(--o)}
+.term{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;margin-bottom:8px}
+.body-text{font-size:15px;color:#c0c4dc;line-height:1.95}
+.body-text b{color:#e8eaf6;font-weight:500}
+.body-text strong{color:var(--g);font-weight:500}
+.body-text .warn{color:var(--r)}.body-text .note{color:var(--y)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.g2,.g3{grid-template-columns:1fr}}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0}
+.tbl th{background:rgba(0,232,125,0.07);color:var(--g);font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:2px;padding:12px 16px;text-align:left;border:1px solid var(--bd2);font-weight:400}
+.tbl td{padding:12px 16px;border:1px solid var(--bd);color:#c0c4dc;line-height:1.75;vertical-align:top}
+.tbl tr:hover td{background:rgba(255,255,255,0.02)}
+.td-g{color:var(--g);font-weight:500}.td-r{color:var(--r)}.td-y{color:var(--y)}.td-c{color:var(--c)}
+.tip{background:rgba(0,232,125,0.05);border:1px solid rgba(0,232,125,0.18);border-left:4px solid var(--g);border-radius:5px;padding:18px 22px;margin:16px 0;font-size:14.5px;color:#c0c4dc;line-height:1.95}
+.tip-t{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:3px;color:var(--g);margin-bottom:7px}
+.tip-y{background:rgba(255,214,0,0.05);border-color:rgba(255,214,0,0.18);border-left-color:var(--y)}
+.tip-y .tip-t{color:var(--y)}
+.tip-c{background:rgba(0,212,255,0.05);border-color:rgba(0,212,255,0.18);border-left-color:var(--c)}
+.tip-c .tip-t{color:var(--c)}
+.alert{background:rgba(255,51,88,0.06);border:1px solid rgba(255,51,88,0.2);border-left:4px solid var(--r);border-radius:5px;padding:18px 22px;margin:16px 0;font-size:14.5px;color:#c0c4dc;line-height:1.95}
+.alert-t{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:3px;color:var(--r);margin-bottom:7px}
+.chk{list-style:none;display:flex;flex-direction:column;gap:10px;margin:12px 0}
+.chk li{font-size:14.5px;color:#c0c4dc;display:flex;gap:10px;align-items:flex-start;line-height:1.75}
+.chk li::before{content:'✓';color:var(--g);font-weight:700;flex-shrink:0;margin-top:1px}
+.chk li.no::before{content:'✗';color:var(--r)}
+.chk li.warn::before{content:'!';color:var(--y)}
+.bignum-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin:16px 0}
+.bignum-box{background:var(--s2);border:1px solid var(--bd);border-radius:8px;padding:20px 22px;position:relative;overflow:hidden}
+.bignum-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.bn-g::before{background:var(--g)}.bn-c::before{background:var(--c)}.bn-y::before{background:var(--y)}.bn-p::before{background:var(--p)}.bn-o::before{background:var(--o)}
+.bn-label{font-size:11px;letter-spacing:2px;color:var(--txm);margin-bottom:8px}
+.bn-val{font-family:'Bebas Neue',sans-serif;font-size:32px;line-height:1;margin-bottom:4px}
+.bn-g .bn-val{color:var(--g)}.bn-c .bn-val{color:var(--c)}.bn-y .bn-val{color:var(--y)}.bn-p .bn-val{color:var(--p)}.bn-o .bn-val{color:var(--o)}
+.bn-sub{font-size:12px;color:var(--txm);line-height:1.6}
+.divider{border:none;border-top:1px solid var(--bd);margin:64px 0;position:relative}
+.divider::after{content:'◆';position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 14px;color:var(--txm);font-size:9px;letter-spacing:4px}
+/* STAGE CARD */
+.stage-card{background:var(--s1);border:1px solid var(--bd2);border-radius:10px;overflow:hidden;margin-bottom:24px}
+.stage-head{padding:22px 28px;display:flex;align-items:center;gap:18px}
+.stage-age{font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:1;flex-shrink:0}
+.stage-head-body{}
+.stage-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:#fff;margin-bottom:4px}
+.stage-sub{font-size:12px;letter-spacing:2px;color:var(--txm)}
+.stage-body{padding:0 28px 24px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.stage-body{grid-template-columns:1fr}}
+.stage-col-title{font-size:11px;letter-spacing:2px;color:var(--txm);margin-bottom:10px}
+.stage-item{font-size:14px;color:#c0c4dc;padding:7px 0;border-bottom:1px solid var(--bd);line-height:1.7}
+.stage-item:last-child{border-bottom:none}
+.stage-item b{color:#e8eaf6;font-weight:500}
+.stage-bar{height:4px;margin:0}
+.sim-box{background:var(--s3);border:1px solid rgba(0,232,125,0.2);border-radius:8px;padding:22px 26px;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:2;margin:14px 0}
+.sim-box .cmt{color:var(--txm)}.sim-box .val{color:var(--y)}.sim-box .good{color:var(--g)}.sim-box .warn{color:var(--r)}
+footer{position:relative;z-index:1;background:var(--s1);border-top:1px solid var(--bd2);padding:32px 24px;text-align:center;font-size:12px;color:var(--txm);letter-spacing:1px;line-height:2.4}
+</style>
+</head>
+<body>
+
+<nav class="sitenav">
+  <div class="sitenav-inner">
+    <a href="index.html" class="site-logo"><span class="logo-arr">←</span>TOP</a>
+    <div class="nav-div"></div>
+    <div class="snlinks">
+      <span class="ng">DAYTRADE</span>
+      <a href="daytrade-basics.html" class="snl">基礎</a>
+      <a href="daytrade-advanced.html" class="snl">応用</a>
+      <a href="daytrade-board.html" class="snl">板読み</a>
+      <a href="daytrade-strategy.html" class="snl">戦略</a>
+      <a href="daytrade-tool.html" class="snl">ツール</a>
+      <a href="daytrade-journal.html" class="snl">日誌</a>
+      <a href="daytrade-tax.html" class="snl">税金</a>
+      <a href="daytrade-mistakes.html" class="snl">失敗集</a>
+      <a href="daytrade-glossary.html" class="snl">用語</a>
+            <span class="ng">NISA</span>
+      <a href="nisa-guide.html" class="snl">ガイド</a>
+      <a href="nisa-lifestage.html" class="snl cur">ライフステージ</a>
+      <a href="nisa-ideco.html" class="snl">iDeCo</a>
+      <a href="nisa-funds.html" class="snl">ファンド比較</a>
+      <a href="nisa-glossary.html" class="snl">用語</a>
+      <span class="ng">MACRO</span>
+      <a href="macro-guide.html" class="snl">ガイド</a>
+      <a href="macro-boj.html" class="snl">日銀</a>
+      <a href="macro-cycle.html" class="snl">景気サイクル</a>
+      <a href="macro-bond.html" class="snl">債券</a>
+      <a href="macro-glossary.html" class="snl">用語</a>
+      <span class="ng">ALL</span>
+      <a href="glossary-all.html" class="snl">全用語集</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-nav">
+  <div class="page-nav-inner">
+    <a href="#s-overview" class="pnl">考え方</a>
+    <a href="#s-20s" class="pnl">20代</a>
+    <a href="#s-30s" class="pnl">30代</a>
+    <a href="#s-40s" class="pnl">40代</a>
+    <a href="#s-50s" class="pnl">50代以上</a>
+    <a href="#s-events" class="pnl">ライフイベント別</a>
+    <a href="#s-sim" class="pnl">シミュレーション比較</a>
+  </div>
+</div>
+
+<div class="hero">
+  <p class="hero-tag">NISA — LIFE STAGE STRATEGY</p>
+  <h1 class="hero-title">LIFE<br>STAGE</h1>
+  <p class="hero-sub">ライフステージ別 NISA戦略 — 20代・30代・40代・50代の最適解</p>
+  <p class="hero-desc">NISAは「とりあえずS&P500」ではない。年齢・収入・家族構成・リタイアまでの年数によって、積み立て額・銘柄配分・出口戦略はまったく異なる。自分のステージを正確に把握して設計する。</p>
+</div>
+
+<div class="wrap">
+
+<section id="s-overview">
+  <div class="shdr"><div class="shdr-n">01</div><div class="shdr-body"><div class="shdr-t">OVERVIEW</div><div class="shdr-s">ライフステージ設計の考え方</div></div></div>
+
+  <div class="card card-g">
+    <div class="tag tag-g">CORE PRINCIPLE</div>
+    <div class="term">NISAは「時間」を武器にする制度</div>
+    <p class="body-text">NISAの非課税メリットは<b>保有期間が長いほど大きくなる</b>。20代と50代では運用可能年数が30年以上違い、同じ月3万円の積み立てでも最終資産額に数倍の差が生まれる。年齢が上がるほど「攻め方」を変える必要がある。</p>
+  </div>
+
+  <div class="g3" style="margin-top:20px">
+    <div class="card card-g">
+      <div class="tag tag-g">20〜30代</div>
+      <div class="term" style="font-size:18px">積極成長期</div>
+      <p class="body-text" style="font-size:13.5px">時間が最大の資産。リスク資産比率を高く取り、全世界・S&P500中心で複利を最大化。生活費の積み立て余力をフルに投じる。</p>
+    </div>
+    <div class="card card-y">
+      <div class="tag tag-y">40代</div>
+      <div class="term" style="font-size:18px">バランス調整期</div>
+      <p class="body-text" style="font-size:13.5px">収入ピーク・教育費のピークが重なる。積み立て額を最大化しつつ、リタイアを意識した資産配分の見直しを始める時期。</p>
+    </div>
+    <div class="card card-o">
+      <div class="tag tag-o">50代以上</div>
+      <div class="term" style="font-size:18px">出口設計期</div>
+      <p class="body-text" style="font-size:13.5px">運用より引き出し計画が重要。リスク資産を徐々に減らし、取り崩し方・税金・社会保険への影響を考えた設計が必要。</p>
+    </div>
+  </div>
+
+  <div class="tip" style="margin-top:24px">
+    <div class="tip-t">COMMON MISTAKE</div>
+    年齢に関係なく同じ銘柄・同じ配分で「放置」するのが最大の失敗。特に50代以上での全額リスク資産保有はリタイア直前の暴落で致命傷になりうる。
+  </div>
+</section>
+
+<section id="s-20s">
+  <div class="shdr"><div class="shdr-n">02</div><div class="shdr-body"><div class="shdr-t">20s STRATEGY</div><div class="shdr-s">20代の最適戦略</div></div></div>
+
+  <div class="stage-card">
+    <div class="stage-head" style="background:rgba(0,232,125,0.05);border-bottom:1px solid var(--bd2)">
+      <div class="stage-age" style="color:var(--g)">20s</div>
+      <div class="stage-head-body">
+        <div class="stage-title">積み立て習慣の確立期</div>
+        <div class="stage-sub">社会人スタート〜結婚・住宅購入前後まで</div>
+      </div>
+    </div>
+    <div class="stage-body">
+      <div>
+        <div class="stage-col-title">PROFILE</div>
+        <div class="stage-item"><b>強み：</b>運用期間が最長（35〜40年）</div>
+        <div class="stage-item"><b>課題：</b>収入が低い・生活費が読みにくい</div>
+        <div class="stage-item"><b>ゴール：</b>積み立て習慣の確立・複利のスタート</div>
+        <div class="stage-item"><b>月額目安：</b>5,000円〜3万円</div>
+      </div>
+      <div>
+        <div class="stage-col-title">STRATEGY</div>
+        <div class="stage-item"><b>枠の使い方：</b>積み立て枠を最優先。成長投資枠は余剰資金ができてから</div>
+        <div class="stage-item"><b>銘柄：</b>全世界株式か S&P500 の1本集中でOK</div>
+        <div class="stage-item"><b>リスク比率：</b>株式100%でも問題なし</div>
+        <div class="stage-item"><b>見直し：</b>年1回のみ。頻繁に触らない</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card card-g">
+      <div class="tag tag-g">おすすめ構成</div>
+      <div class="term" style="font-size:18px">シンプル1本運用</div>
+      <p class="body-text" style="font-size:14px">eMAXIS Slim 全世界株式（オール・カントリー）一択でも十分。信託報酬が最安水準・世界中に分散・長期保有に最適。迷ったらこれ1本から始める。</p>
+    </div>
+    <div class="card card-c">
+      <div class="tag tag-c">注意点</div>
+      <div class="term" style="font-size:18px">生活防衛資金が先</div>
+      <p class="body-text" style="font-size:14px">NISAより先に<b>生活費3〜6ヶ月分の現金</b>を確保すること。緊急時にNISAを売却すると非課税枠が無駄になる。土台を作ってから投資を始める。</p>
+    </div>
+  </div>
+
+  <div class="sim-box">
+    <span class="cmt">// 20歳スタート・月3万円・年率5%想定</span><br>
+    <span class="cmt">// ─────────────────────────────</span><br>
+    10年後（30歳）：<span class="val">約465万円</span><span class="cmt"> ← 元本360万円</span><br>
+    20年後（40歳）：<span class="val">約1,233万円</span><span class="cmt"> ← 元本720万円</span><br>
+    30年後（50歳）：<span class="val">約2,497万円</span><span class="cmt"> ← 元本1,080万円</span><br>
+    40年後（60歳）：<span class="good">約4,580万円</span><span class="cmt"> ← 元本1,440万円 / 利益3,140万円</span>
+  </div>
+</section>
+
+<section id="s-30s">
+  <div class="shdr"><div class="shdr-n">03</div><div class="shdr-body"><div class="shdr-t">30s STRATEGY</div><div class="shdr-s">30代の最適戦略</div></div></div>
+
+  <div class="stage-card">
+    <div class="stage-head" style="background:rgba(0,212,255,0.05);border-bottom:1px solid var(--bd2)">
+      <div class="stage-age" style="color:var(--c)">30s</div>
+      <div class="stage-head-body">
+        <div class="stage-title">収入・支出ともに増加する攻防期</div>
+        <div class="stage-sub">住宅ローン・子育て・昇進・収入増が重なるステージ</div>
+      </div>
+    </div>
+    <div class="stage-body">
+      <div>
+        <div class="stage-col-title">PROFILE</div>
+        <div class="stage-item"><b>強み：</b>収入が上がり始め・積み立て額を増やせる</div>
+        <div class="stage-item"><b>課題：</b>住宅購入・教育費の準備が始まる</div>
+        <div class="stage-item"><b>ゴール：</b>非課税枠の活用最大化</div>
+        <div class="stage-item"><b>月額目安：</b>3万〜10万円</div>
+      </div>
+      <div>
+        <div class="stage-col-title">STRATEGY</div>
+        <div class="stage-item"><b>枠の使い方：</b>積み立て枠（年120万）をフル活用。余剰で成長投資枠も検討</div>
+        <div class="stage-item"><b>銘柄：</b>全世界 or S&P500 + 新興国を少量加える構成も可</div>
+        <div class="stage-item"><b>リスク比率：</b>株式80〜90% / 債券・現金10〜20%</div>
+        <div class="stage-item"><b>見直し：</b>年1〜2回。ライフイベント時に要調整</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip tip-y">
+    <div class="tip-t">HOUSING LOAN × NISA</div>
+    住宅ローン繰り上げ返済 vs NISA積み立て、どちらを優先すべきか。<b>ローン金利が1.5%以下</b>ならNISA優先が合理的。金利2%超ならバランスよく。ただし「手元流動性」を確保することが最優先。
+  </div>
+
+  <div class="g2" style="margin-top:16px">
+    <div class="card card-c">
+      <div class="tag tag-c">教育費との両立</div>
+      <div class="term" style="font-size:18px">ジュニアNISA終了後の対応</div>
+      <p class="body-text" style="font-size:14px">ジュニアNISAは2023年に終了。子供の教育費準備は<b>学資保険・定期預金・親のNISA成長投資枠</b>の組み合わせで対応。NISAは本来自分のリタイア資金と割り切ることも重要。</p>
+    </div>
+    <div class="card card-g">
+      <div class="tag tag-g">30代の黄金期</div>
+      <div class="term" style="font-size:18px">非課税枠の使いきり戦略</div>
+      <p class="body-text" style="font-size:14px">積み立て枠年120万円（月10万円）をフルに使えれば年間の非課税メリットは大きい。昇給のたびに積み立て額を見直す習慣をつける。<strong>月1,000円の増額でも長期では数百万の差</strong>になる。</p>
+    </div>
+  </div>
+
+  <div class="sim-box">
+    <span class="cmt">// 30歳スタート・月5万円・年率5%想定</span><br>
+    <span class="cmt">// ─────────────────────────────</span><br>
+    10年後（40歳）：<span class="val">約775万円</span><span class="cmt"> ← 元本600万円</span><br>
+    20年後（50歳）：<span class="val">約2,055万円</span><span class="cmt"> ← 元本1,200万円</span><br>
+    30年後（60歳）：<span class="good">約4,162万円</span><span class="cmt"> ← 元本1,800万円 / 利益2,362万円</span>
+  </div>
+</section>
+
+<section id="s-40s">
+  <div class="shdr"><div class="shdr-n">04</div><div class="shdr-body"><div class="shdr-t">40s STRATEGY</div><div class="shdr-s">40代の最適戦略</div></div></div>
+
+  <div class="stage-card">
+    <div class="stage-head" style="background:rgba(255,214,0,0.05);border-bottom:1px solid var(--bd2)">
+      <div class="stage-age" style="color:var(--y)">40s</div>
+      <div class="stage-head-body">
+        <div class="stage-title">収入ピーク・教育費ピークの両立期</div>
+        <div class="stage-sub">キャリアの山場・出費が最大化する難しいステージ</div>
+      </div>
+    </div>
+    <div class="stage-body">
+      <div>
+        <div class="stage-col-title">PROFILE</div>
+        <div class="stage-item"><b>強み：</b>収入が最も高い時期</div>
+        <div class="stage-item"><b>課題：</b>教育費・ローン・老後準備が同時進行</div>
+        <div class="stage-item"><b>ゴール：</b>老後資金の骨格を作る</div>
+        <div class="stage-item"><b>月額目安：</b>5万〜15万円（可能な範囲で最大化）</div>
+      </div>
+      <div>
+        <div class="stage-col-title">STRATEGY</div>
+        <div class="stage-item"><b>枠の使い方：</b>積み立て枠・成長投資枠の両方をフル活用</div>
+        <div class="stage-item"><b>銘柄：</b>全世界株式をコアに、配当系ETFを一部加える</div>
+        <div class="stage-item"><b>リスク比率：</b>株式70〜80% / 債券・REIT・現金20〜30%</div>
+        <div class="stage-item"><b>見直し：</b>年2回。資産配分の調整を意識的に行う</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card card-y">
+      <div class="tag tag-y">リバランスの重要性</div>
+      <div class="term" style="font-size:18px">40代から始める守りの設計</div>
+      <p class="body-text" style="font-size:14px">株式比率が高いままリタイアを迎えると、暴落のタイミング次第では資産が大幅に目減りする。<b>60歳時点での株式比率目安は60〜70%</b>。40代後半から徐々にシフトを始める。</p>
+    </div>
+    <div class="card card-p">
+      <div class="tag tag-p">成長投資枠の使い方</div>
+      <div class="term" style="font-size:18px">高配当株・REITの活用</div>
+      <p class="body-text" style="font-size:14px">成長投資枠（年240万円）を使って<b>高配当ETFや国内REIT</b>を積み上げるのも有効。キャピタルゲイン狙いより安定配当狙いの運用にシフトしていく時期。</p>
+    </div>
+  </div>
+
+  <div class="alert">
+    <div class="alert-t">WARNING — 40代の最大リスク</div>
+    「まだ間に合う」「一気に取り返す」と考えてハイリスク商品（レバレッジETF・仮想通貨など）に手を出すのが最悪のパターン。40代の失敗は回復する時間が少ない。<b>淡々と積み立てを継続</b>することが最善。
+  </div>
+
+  <div class="sim-box">
+    <span class="cmt">// 40歳スタート・月8万円・年率4%想定（ やや保守的に）</span><br>
+    <span class="cmt">// ─────────────────────────────</span><br>
+    10年後（50歳）：<span class="val">約1,177万円</span><span class="cmt"> ← 元本960万円</span><br>
+    20年後（60歳）：<span class="good">約2,940万円</span><span class="cmt"> ← 元本1,920万円 / 利益1,020万円</span><br>
+    <span class="cmt">// + 20代30代から継続していた分が上乗せ</span>
+  </div>
+</section>
+
+<section id="s-50s">
+  <div class="shdr"><div class="shdr-n">05</div><div class="shdr-body"><div class="shdr-t">50s+ STRATEGY</div><div class="shdr-s">50代以上の最適戦略</div></div></div>
+
+  <div class="stage-card">
+    <div class="stage-head" style="background:rgba(255,140,66,0.05);border-bottom:1px solid var(--bd2)">
+      <div class="stage-age" style="color:var(--o)">50s+</div>
+      <div class="stage-head-body">
+        <div class="stage-title">出口設計と引き出し計画の時期</div>
+        <div class="stage-sub">リタイアまで10年以内。積み立てより「使い方」の設計が重要</div>
+      </div>
+    </div>
+    <div class="stage-body">
+      <div>
+        <div class="stage-col-title">PROFILE</div>
+        <div class="stage-item"><b>強み：</b>資産が育っている・教育費が落ち着く</div>
+        <div class="stage-item"><b>課題：</b>暴落からの回復時間が少ない</div>
+        <div class="stage-item"><b>ゴール：</b>取り崩し計画を設計・リスク比率を下げる</div>
+        <div class="stage-item"><b>月額目安：</b>余剰資金で継続・新規積み立ての比重を下げる</div>
+      </div>
+      <div>
+        <div class="stage-col-title">STRATEGY</div>
+        <div class="stage-item"><b>枠の使い方：</b>新規積み立てより既存資産のリバランスが主役</div>
+        <div class="stage-item"><b>銘柄：</b>インデックス比率を減らし配当・債券系を増やす</div>
+        <div class="stage-item"><b>リスク比率：</b>株式50〜60% / 債券・現金40〜50%</div>
+        <div class="stage-item"><b>見直し：</b>半年ごと。取り崩しプランを具体化する</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card card-o">
+      <div class="tag tag-o">取り崩し方法</div>
+      <div class="term" style="font-size:18px">定率取り崩し vs 定額取り崩し</div>
+      <p class="body-text" style="font-size:14px"><b>定率取り崩し（例：年4%）</b>は資産残高に応じて引き出すため、資産が尽きにくい。定額取り崩しは月々の計算が簡単だが資産が早く減るリスクがある。<strong>4%ルール</strong>を参考に計画する。</p>
+    </div>
+    <div class="card card-r">
+      <div class="tag tag-r">社会保険への影響</div>
+      <div class="term" style="font-size:18px">NISA売却と健康保険料</div>
+      <p class="body-text" style="font-size:14px">NISA口座の利益は非課税だが、<b>国民健康保険料の算定基準</b>に影響する場合がある（特定口座の場合）。退職後・リタイア後の売却タイミングは医療費・介護費との兼ね合いで専門家に相談を。</p>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-t">4% RULE</div>
+    米国の研究（トリニティスタディ）が示した「年間取り崩しを総資産の4%以内に抑えると30年間資産が尽きない確率が高い」という経験則。2,000万円の資産なら年80万円・月約6.7万円が目安。ただし日本の税制・社会保障との兼ね合いは別途検討が必要。
+  </div>
+</section>
+
+<section id="s-events">
+  <div class="shdr"><div class="shdr-n">06</div><div class="shdr-body"><div class="shdr-t">LIFE EVENTS</div><div class="shdr-s">ライフイベント別の対応</div></div></div>
+
+  <table class="tbl">
+    <tr>
+      <th>ライフイベント</th>
+      <th>NISAへの影響</th>
+      <th>対応策</th>
+    </tr>
+    <tr>
+      <td><b>結婚</b></td>
+      <td>家計が合算され積み立て計画を見直す必要</td>
+      <td class="td-g">夫婦それぞれでNISA口座を開設。世帯で年360万円の非課税枠</td>
+    </tr>
+    <tr>
+      <td><b>出産・育児</b></td>
+      <td>育休中の収入減→積み立て額を一時的に下げる判断が必要</td>
+      <td class="td-g">積み立てを止めるより金額を下げて継続。習慣を維持する</td>
+    </tr>
+    <tr>
+      <td><b>住宅購入</b></td>
+      <td>頭金・諸費用で現金が減る。ローン返済との両立</td>
+      <td class="td-y">住宅ローン金利水準によってNISA優先度を判断</td>
+    </tr>
+    <tr>
+      <td><b>転職・独立</b></td>
+      <td>収入の変動・空白期間でのキャッシュフロー悪化</td>
+      <td class="td-g">NISA口座は移設不要。生活防衛資金を厚めに持ってから継続</td>
+    </tr>
+    <tr>
+      <td><b>相続・まとまった収入</b></td>
+      <td>一括投資の誘惑。NISAは年360万円上限あり</td>
+      <td class="td-c">NISA枠は上限まで使い、残りは特定口座で長期運用</td>
+    </tr>
+    <tr>
+      <td><b>退職・リタイア</b></td>
+      <td>収入がなくなる。積み立てより取り崩しフェーズへ</td>
+      <td class="td-y">取り崩しプランと社会保険料・税金への影響を事前に設計</td>
+    </tr>
+  </table>
+</section>
+
+<section id="s-sim">
+  <div class="shdr"><div class="shdr-n">07</div><div class="shdr-body"><div class="shdr-t">SIMULATION</div><div class="shdr-s">スタート年齢別シミュレーション比較</div></div></div>
+
+  <div class="tip tip-c">
+    <div class="tip-t">SIMULATION CONDITIONS</div>
+    月3万円積み立て・年率5%・60歳時点での比較。同じ金額・同じ利率でも、スタート年齢によって最終資産に大きな差が生まれる。
+  </div>
+
+  <table class="tbl">
+    <tr>
+      <th>スタート年齢</th>
+      <th>積み立て年数</th>
+      <th>元本</th>
+      <th>60歳時の資産額</th>
+      <th>非課税メリット（税率20%で試算）</th>
+    </tr>
+    <tr>
+      <td><b>20歳</b></td>
+      <td>40年</td>
+      <td>1,440万円</td>
+      <td class="td-g" style="font-family:'JetBrains Mono',monospace">約4,580万円</td>
+      <td class="td-g">約627万円の節税</td>
+    </tr>
+    <tr>
+      <td><b>25歳</b></td>
+      <td>35年</td>
+      <td>1,260万円</td>
+      <td class="td-g" style="font-family:'JetBrains Mono',monospace">約3,420万円</td>
+      <td class="td-g">約432万円の節税</td>
+    </tr>
+    <tr>
+      <td><b>30歳</b></td>
+      <td>30年</td>
+      <td>1,080万円</td>
+      <td class="td-c" style="font-family:'JetBrains Mono',monospace">約2,497万円</td>
+      <td class="td-c">約283万円の節税</td>
+    </tr>
+    <tr>
+      <td><b>35歳</b></td>
+      <td>25年</td>
+      <td>900万円</td>
+      <td class="td-c" style="font-family:'JetBrains Mono',monospace">約1,783万円</td>
+      <td class="td-c">約177万円の節税</td>
+    </tr>
+    <tr>
+      <td><b>40歳</b></td>
+      <td>20年</td>
+      <td>720万円</td>
+      <td class="td-y" style="font-family:'JetBrains Mono',monospace">約1,233万円</td>
+      <td class="td-y">約103万円の節税</td>
+    </tr>
+    <tr>
+      <td><b>45歳</b></td>
+      <td>15年</td>
+      <td>540万円</td>
+      <td class="td-y" style="font-family:'JetBrains Mono',monospace">約797万円</td>
+      <td class="td-y">約51万円の節税</td>
+    </tr>
+    <tr>
+      <td><b>50歳</b></td>
+      <td>10年</td>
+      <td>360万円</td>
+      <td class="td-r" style="font-family:'JetBrains Mono',monospace">約465万円</td>
+      <td class="td-r">約21万円の節税</td>
+    </tr>
+  </table>
+
+  <div class="tip" style="margin-top:20px">
+    <div class="tip-t">KEY INSIGHT</div>
+    20歳と50歳の差は「30年」だが、最終資産額の差は約10倍。複利の威力は後半に集中する（指数関数的成長）。遅く始めた場合は積み立て額を増やすことで一部補完できるが、時間の不利は完全には埋まらない。<strong>今すぐ始めることが最善の戦略</strong>。
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <p style="font-size:13px;color:var(--txd);letter-spacing:1px;margin-bottom:6px">ライフステージ別NISA戦略 — LIFE STAGE NISA STRATEGY</p>
+  <p>新NISA完全ガイド ／ ライフステージ別戦略 ／ iDeCo比較 ／ ファンド比較 ／ 用語集</p>
+  <p style="margin-top:14px;color:var(--r);font-size:11px;letter-spacing:.5px">投資にはリスクが伴います。余裕資金の範囲内で、自己責任のもとに取引を行いましょう。</p>
+</footer>
+</body>
+</html>

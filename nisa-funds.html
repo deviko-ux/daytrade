@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NISAファンド徹底比較 | 株式投資ガイド</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050507;--s1:#0d0d16;--s2:#141420;--s3:#1c1c2a;--s4:#22222e;--c:#00d4ff;--g:#00e87d;--r:#ff3358;--y:#ffd600;--p:#b06aff;--o:#ff8c42;--teal:#00c9a7;--tx:#e8eaf6;--txm:#64648a;--txd:#9696b8;--bd:rgba(255,255,255,0.07);--bd2:rgba(255,255,255,0.13)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:'Noto Sans JP',sans-serif;font-weight:300;line-height:1.85;overflow-x:hidden;font-size:15px}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 55px,rgba(0,232,125,0.012) 55px,rgba(0,232,125,0.012) 56px),repeating-linear-gradient(90deg,transparent,transparent 55px,rgba(0,232,125,0.012) 55px,rgba(0,232,125,0.012) 56px);pointer-events:none;z-index:0}
+ruby{ruby-align:center}rt{font-size:.55em;color:var(--txd);letter-spacing:.5px}
+.sitenav{position:sticky;top:0;z-index:300;background:rgba(5,5,7,0.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--bd2)}
+.sitenav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;height:52px;padding:0 24px;gap:0}
+.site-logo{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:4px;color:var(--c);margin-right:6px;flex-shrink:0;text-decoration:none;display:flex;align-items:center;gap:5px}
+.logo-arr{font-size:11px;color:var(--txm)}
+.nav-div{width:1px;height:20px;background:var(--bd2);margin:0 10px;flex-shrink:0}
+.snlinks{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1}
+.snlinks::-webkit-scrollbar{display:none}
+.snl{font-size:11px;letter-spacing:.5px;padding:6px 11px;color:var(--txm);border-radius:4px;text-decoration:none;white-space:nowrap;transition:all .18s;border:1px solid transparent}
+.snl:hover{color:var(--tx);background:rgba(255,255,255,0.05)}
+.snl.cur{color:var(--g);border-color:rgba(0,232,125,0.2);background:rgba(0,232,125,0.06)}
+.ng{font-size:9px;letter-spacing:2px;color:var(--txm);padding:0 8px;opacity:.55;white-space:nowrap;flex-shrink:0}
+.page-nav{position:relative;z-index:1;border-bottom:1px solid var(--bd2);background:var(--s1)}
+.page-nav-inner{max-width:1100px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none;height:44px;padding:0 24px}
+.page-nav-inner::-webkit-scrollbar{display:none}
+.pnl{font-size:11.5px;letter-spacing:1.5px;padding:0 16px;color:var(--txm);text-decoration:none;display:flex;align-items:center;white-space:nowrap;border-bottom:2px solid transparent;transition:all .18s}
+.pnl:hover{color:var(--g);border-color:var(--g)}
+.hero{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:52px 24px 40px}
+.hero-tag{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:6px;color:var(--g);opacity:.7;margin-bottom:14px}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,9vw,100px);line-height:.88;letter-spacing:2px;background:linear-gradient(135deg,#fff 15%,var(--g) 70%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px}
+.hero-sub{font-size:13px;letter-spacing:3px;color:var(--txm);margin-bottom:18px}
+.hero-desc{font-size:15px;color:var(--txd);max-width:680px;line-height:2}
+.wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 24px 100px}
+section{padding-top:40px;margin-bottom:72px}
+.shdr{display:flex;align-items:flex-end;gap:14px;margin-bottom:30px;padding-bottom:16px;border-bottom:1px solid var(--bd2)}
+.shdr-n{font-family:'Bebas Neue',sans-serif;font-size:54px;line-height:1;opacity:.16;flex-shrink:0}
+.shdr-body{flex:1}
+.shdr-t{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:4px;color:#fff;line-height:1}
+.shdr-s{font-size:12px;color:var(--txm);letter-spacing:3px;margin-top:5px}
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:8px;padding:26px 30px;margin-bottom:16px}
+.card-g{border-left:4px solid var(--g)}.card-c{border-left:4px solid var(--c)}.card-y{border-left:4px solid var(--y)}.card-r{border-left:4px solid var(--r)}.card-p{border-left:4px solid var(--p)}.card-o{border-left:4px solid var(--o)}
+.tag{display:inline-block;font-size:10px;letter-spacing:2px;padding:3px 10px;border-radius:3px;margin-bottom:10px}
+.tag-g{background:rgba(0,232,125,0.1);color:var(--g)}.tag-c{background:rgba(0,212,255,0.1);color:var(--c)}.tag-y{background:rgba(255,214,0,0.1);color:var(--y)}.tag-r{background:rgba(255,51,88,0.1);color:var(--r)}.tag-p{background:rgba(176,106,255,0.1);color:var(--p)}
+.term{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;margin-bottom:8px}
+.body-text{font-size:15px;color:#c0c4dc;line-height:1.95}
+.body-text b{color:#e8eaf6;font-weight:500}
+.body-text strong{color:var(--g);font-weight:500}
+.body-text .warn{color:var(--r)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.g2,.g3{grid-template-columns:1fr}}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0}
+.tbl th{background:rgba(0,232,125,0.07);color:var(--g);font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:2px;padding:12px 16px;text-align:left;border:1px solid var(--bd2);font-weight:400}
+.tbl td{padding:12px 16px;border:1px solid var(--bd);color:#c0c4dc;line-height:1.75;vertical-align:top}
+.tbl tr:hover td{background:rgba(255,255,255,0.02)}
+.td-g{color:var(--g);font-weight:500}.td-r{color:var(--r)}.td-y{color:var(--y)}.td-c{color:var(--c)}
+.tip{background:rgba(0,232,125,0.05);border:1px solid rgba(0,232,125,0.18);border-left:4px solid var(--g);border-radius:5px;padding:18px 22px;margin:16px 0;font-size:14.5px;color:#c0c4dc;line-height:1.95}
+.tip-t{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:3px;color:var(--g);margin-bottom:7px}
+.tip-y{background:rgba(255,214,0,0.05);border-color:rgba(255,214,0,0.18);border-left-color:var(--y)}
+.tip-y .tip-t{color:var(--y)}
+.tip-c{background:rgba(0,212,255,0.05);border-color:rgba(0,212,255,0.18);border-left-color:var(--c)}
+.tip-c .tip-t{color:var(--c)}
+.alert{background:rgba(255,51,88,0.06);border:1px solid rgba(255,51,88,0.2);border-left:4px solid var(--r);border-radius:5px;padding:18px 22px;margin:16px 0;font-size:14.5px;color:#c0c4dc;line-height:1.95}
+.alert-t{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:3px;color:var(--r);margin-bottom:7px}
+.chk{list-style:none;display:flex;flex-direction:column;gap:10px;margin:12px 0}
+.chk li{font-size:14.5px;color:#c0c4dc;display:flex;gap:10px;align-items:flex-start;line-height:1.75}
+.chk li::before{content:'✓';color:var(--g);font-weight:700;flex-shrink:0;margin-top:1px}
+.chk li.no::before{content:'✗';color:var(--r)}
+/* FUND CARD */
+.fund-card{background:var(--s1);border:1px solid var(--bd2);border-radius:10px;overflow:hidden;margin-bottom:18px}
+.fund-head{padding:16px 24px;display:flex;align-items:center;gap:16px;border-bottom:1px solid var(--bd2)}
+.fund-rank{font-family:'Bebas Neue',sans-serif;font-size:40px;line-height:1;opacity:.25;flex-shrink:0;width:40px}
+.fund-head-body{flex:1}
+.fund-name{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;color:#fff;margin-bottom:3px}
+.fund-full{font-size:13px;color:var(--txd)}
+.fund-badge{font-size:10px;letter-spacing:2px;padding:3px 10px;border-radius:3px}
+.fb-all{background:rgba(0,232,125,0.1);color:var(--g)}
+.fb-us{background:rgba(0,212,255,0.1);color:var(--c)}
+.fb-jp{background:rgba(255,214,0,0.1);color:var(--y)}
+.fb-div{background:rgba(176,106,255,0.1);color:var(--p)}
+.fb-bal{background:rgba(255,140,66,0.1);color:var(--o)}
+.fund-body{padding:16px 24px;display:grid;grid-template-columns:repeat(4,1fr) 2fr;gap:12px}
+@media(max-width:800px){.fund-body{grid-template-columns:1fr 1fr}}
+.fund-stat{}.fund-stat-label{font-size:10px;letter-spacing:1.5px;color:var(--txm);margin-bottom:4px}
+.fund-stat-val{font-family:'JetBrains Mono',monospace;font-size:14px}
+.fv-g{color:var(--g)}.fv-c{color:var(--c)}.fv-y{color:var(--y)}.fv-r{color:var(--r)}
+.fund-comment{font-size:13.5px;color:#9696b8;line-height:1.85;grid-column:span 1}
+.sim-box{background:var(--s3);border:1px solid rgba(0,232,125,0.2);border-radius:8px;padding:22px 26px;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:2;margin:14px 0}
+.sim-box .cmt{color:var(--txm)}.sim-box .val{color:var(--y)}.sim-box .good{color:var(--g)}.sim-box .warn{color:var(--r)}.sim-box .c{color:var(--c)}
+footer{position:relative;z-index:1;background:var(--s1);border-top:1px solid var(--bd2);padding:32px 24px;text-align:center;font-size:12px;color:var(--txm);letter-spacing:1px;line-height:2.4}
+</style>
+</head>
+<body>
+
+<nav class="sitenav">
+  <div class="sitenav-inner">
+    <a href="index.html" class="site-logo"><span class="logo-arr">←</span>TOP</a>
+    <div class="nav-div"></div>
+    <div class="snlinks">
+      <span class="ng">DAYTRADE</span>
+      <a href="daytrade-basics.html" class="snl">基礎</a>
+      <a href="daytrade-advanced.html" class="snl">応用</a>
+      <a href="daytrade-board.html" class="snl">板読み</a>
+      <a href="daytrade-strategy.html" class="snl">戦略</a>
+      <a href="daytrade-tool.html" class="snl">ツール</a>
+      <a href="daytrade-journal.html" class="snl">日誌</a>
+      <a href="daytrade-tax.html" class="snl">税金</a>
+      <a href="daytrade-mistakes.html" class="snl">失敗集</a>
+      <a href="daytrade-glossary.html" class="snl">用語</a>
+            <span class="ng">NISA</span>
+      <a href="nisa-guide.html" class="snl">ガイド</a>
+      <a href="nisa-lifestage.html" class="snl">ライフステージ</a>
+      <a href="nisa-ideco.html" class="snl">iDeCo</a>
+      <a href="nisa-funds.html" class="snl cur">ファンド比較</a>
+      <a href="nisa-glossary.html" class="snl">用語</a>
+      <span class="ng">MACRO</span>
+      <a href="macro-guide.html" class="snl">ガイド</a>
+      <a href="macro-boj.html" class="snl">日銀</a>
+      <a href="macro-cycle.html" class="snl">景気サイクル</a>
+      <a href="macro-bond.html" class="snl">債券</a>
+      <a href="macro-glossary.html" class="snl">用語</a>
+      <span class="ng">ALL</span>
+      <a href="glossary-all.html" class="snl">全用語集</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-nav">
+  <div class="page-nav-inner">
+    <a href="#s-how" class="pnl">選び方の基準</a>
+    <a href="#s-global" class="pnl">全世界株式</a>
+    <a href="#s-us" class="pnl">米国株式</a>
+    <a href="#s-jp" class="pnl">国内株式</a>
+    <a href="#s-dividend" class="pnl">高配当・REIT</a>
+    <a href="#s-balance" class="pnl">バランス型</a>
+    <a href="#s-decision" class="pnl">結局どれを買う？</a>
+  </div>
+</div>
+
+<div class="hero">
+  <p class="hero-tag">NISA — FUND COMPARISON</p>
+  <h1 class="hero-title">FUND<br>GUIDE</h1>
+  <p class="hero-sub">NISAファンド徹底比較 — 信託報酬・純資産・実績・コスト</p>
+  <p class="hero-desc">「eMAXIS Slim か SBI か楽天か」——ファンド選びで迷う人は多い。信託報酬・実質コスト・純資産額・運用会社の姿勢を正確に比較して、自分に合った1本を選ぶ。</p>
+</div>
+
+<div class="wrap">
+
+<section id="s-how">
+  <div class="shdr"><div class="shdr-n">01</div><div class="shdr-body"><div class="shdr-t">SELECTION CRITERIA</div><div class="shdr-s">ファンド選びの4つの基準</div></div></div>
+
+  <div class="g2">
+    <div class="card card-g">
+      <div class="tag tag-g">① 信託報酬（コスト）</div>
+      <div class="term">年率0.1%以下が基準</div>
+      <p class="body-text">100万円運用で年間1,000円。30年で3万円の差になる。長期運用では<b>コストの差が最大のパフォーマンス差</b>になる。インデックスファンドは0.05〜0.1%台が標準。</p>
+    </div>
+    <div class="card card-c">
+      <div class="tag tag-c">② 純資産額</div>
+      <div class="term">100億円以上が目安</div>
+      <p class="body-text">純資産が小さいファンドは<b>繰り上げ償還（強制終了）リスク</b>がある。人気があり残高が増え続けているファンドを選ぶ。1,000億円超なら安心感がある。</p>
+    </div>
+    <div class="card card-y">
+      <div class="tag tag-y">③ 乖離率・トラッキングエラー</div>
+      <div class="term">指数との追随精度</div>
+      <p class="body-text">インデックスファンドは「指数に連動する」が売り。<b>乖離率が小さいほど良質</b>。運用会社の能力・コスト管理が反映される。年次報告書で確認できる。</p>
+    </div>
+    <div class="card card-p">
+      <div class="tag tag-p">④ 運用会社の姿勢</div>
+      <div class="term">コスト引き下げの実績</div>
+      <p class="body-text">競合に応じて<b>信託報酬を積極的に引き下げてきた運用会社</b>は長期的に信頼できる。eMAXIS Slimシリーズは「業界最低水準を目指す」方針を明確に掲げている。</p>
+    </div>
+  </div>
+
+  <div class="alert">
+    <div class="alert-t">AVOID — 選んではいけないファンドの特徴</div>
+    信託報酬が0.5%超・純資産100億未満・テーマ型（AIや宇宙など流行テーマ）・毎月分配型（NISAでは特に不利）・為替ヘッジあり（長期では不要なコスト）。これらは長期NISA運用には不向き。
+  </div>
+</section>
+
+<section id="s-global">
+  <div class="shdr"><div class="shdr-n">02</div><div class="shdr-body"><div class="shdr-t">GLOBAL EQUITY</div><div class="shdr-s">全世界株式ファンド比較</div></div></div>
+
+  <div class="tip tip-c">
+    <div class="tip-t">WHAT IS GLOBAL INDEX</div>
+    全世界の上場企業を時価総額比率で保有するインデックス。MSCI ACWIやFTSE All-Worldに連動するものが主流。約3,000〜9,000銘柄に分散。米国比率が約60%を占める。
+  </div>
+
+  <div class="fund-card">
+    <div class="fund-head">
+      <div class="fund-rank">1</div>
+      <div class="fund-head-body">
+        <div class="fund-name">eMAxIS SLIM 全世界株式（オール・カントリー）</div>
+        <div class="fund-full">三菱UFJ アセットマネジメント / MSCI ACWI連動</div>
+      </div>
+      <div class="fund-badge fb-all">BEST CHOICE</div>
+    </div>
+    <div class="fund-body">
+      <div class="fund-stat"><div class="fund-stat-label">信託報酬</div><div class="fund-stat-val fv-g">0.05775%</div></div>
+      <div class="fund-stat"><div class="fund-stat-label">純資産</div><div class="fund-stat-val fv-g">5兆円超</div></div>
+      <div class="fund-stat"><div class="fund-stat-label">設定来リターン</div><div class="fund-stat-val fv-c">+150%超</div></div>
+      <div class="fund-stat"><div class="fund-stat-label">分散対象</div><div class="fund-stat-val">47カ国</div></div>
+      <div class="fund-comment">NISA積み立て枠の王道。世界最高水準の低コスト・最大規模の純資産・業界最低水準維持の姿勢。迷ったらこれ一択。</div>
+    </div>
+  </div>
+
+  <div class="fund-card">
+    <div class="fund-head">
+      <div class="fund-rank">2</div>
+      <div class="fund-head-body">
+        <div class="fund-name">SBI・全世界株式インデックス・ファンド</div>
+        <div class="fund-full">SBIアセットマネジメント / FTSE Global All Cap連動</div>
+      </div>
+      <div class="fund-badge fb-all">小型株も含む</div>
+    </div>
+    <div class="fund-body">
+      <div class="fund-stat"><div class="fund-stat-label">信託報酬</div><div class="fund-stat-val fv-g">0.1022%</div></div>
+      <div class="fund-stat"><div class="fund-stat-label">純資産</div><div class="fund-stat-val fv-y">2,000億円超</div></div>
+      <div class="fund-stat"><div class="fund-stat-label">特徴</div><div class="fund-stat-val fv-c">小型株含む</div></div>
+      <div class="fund-stat"><div class="fund-stat-label">分散</div><div class="fund-stat-val">9,000銘柄超</div></div>
+      <div class="fund-comment">FTSE連動で小型株を含む約9,000銘柄へ分散。よりピュアな全世界分散を求める場合に。コストはオルカンより少し高い。</div>
+    </div>
+  </div>
+
+  <div class="fund-card">
+    <div class="fund-head">
+      <div class="fund-rank">3</div>
+      <div class="fund-head-body">
+        <div class="fund-name">楽天・全世界株式インデックス・ファンド</div>
+        <div class="fund-full">楽天投信投資顧問 / FTSE Global All Cap連動</div>
+      </div>
+      <div class="fund-badge fb-all">楽天証券限定</div>
+    </div>
+    <div class="fund-body">
+      <div class="fund-stat"><div class="fund-stat-label">信託報酬</div><div class="fund-stat-val fv-y">0.199%</div></div>
+      <div class="fund-stat"><div class="fund-stat-label">純資産</div><div class="fund-stat-val">3,000億円超</div></div>
+      <div class="fund-stat"><div class="fund-stat-label">ポイント</div><div class="fund-stat-val fv-c">楽天ポイント</div></div>
+      <div class="fund-stat"><div class="fund-stat-label">分散</div><div class="fund-stat-val">全世界</div></div>
+      <div class="fund-comment">楽天証券ユーザー向け。ポイント還元の恩恵があるが、信託報酬はオルカンより高め。楽天ユーザー以外はオルカンが優先。</div>
+    </div>
+  </div>
+</section>
+
+<section id="s-us">
+  <div class="shdr"><div class="shdr-n">03</div><div class="shdr-body"><div class="shdr-t">US EQUITY</div><div class="shdr-s">米国株式ファンド比較</div></div></div>
+
+  <div class="fund-card">
+    <div class="fund-head">
+      <div class="fund-rank">1</div>
+      <div class="fund-head-body">
+        <div class="fund-name">eMAXIS Slim 米国株式（S&P500）</div>
+        <div class="fund-full">三菱UFJ アセットマネジメント / S&P500連動</div>
+      </div>
+      <div class="fund-badge fb-us">BEST US CHOICE</div>
+    </div>
+    <div class="fund-body">
+      <div class="fund-stat"><div class="fund-stat-label">信託報酬</div><div class="fund-stat-val fv-g">0.09372%</div></div>
+      <div class="fund-stat"><div class="fund-stat-label">純資産</div><div class="fund-stat-val fv-g">7兆円超</div></div>
+      <div class="fund-stat"><div class="fund-stat-label">10年リターン</div><div class="fund-stat-val fv-c">年率約14%</div></div>
+      <div class="fund-stat"><div class="fund-stat-label">銘柄数</div><div class="fund-stat-val">500銘柄</div></div>
+      <div class="fund-comment">日本最大規模のインデックスファンド。S&P500連動で米国の主要500社に投資。過去10年の実績は全世界を上回る。米国集中リスクはあるが、長期実績は圧倒的。</div>
+    </div>
+  </div>
+
+  <div class="fund-card">
+    <div class="fund-head">
+      <div class="fund-rank">2</div>
+      <div class="fund-head-body">
+        <div class="fund-name">SBI・V・S&P500インデックス・ファンド</div>
+        <div class="fund-full">SBIアセットマネジメント / バンガードVOO経由でS&P500連動</div>
+      </div>
+      <div class="fund-badge fb-us">バンガード経由</div>
+    </div>
+    <div class="fund-body">
+      <div class="fund-stat"><div class="fund-stat-label">信託報酬</div><div class="fund-stat-val fv-g">0.0938%</div></div>
+      <div class="fund-stat"><div class="fund-stat-label">純資産</div><div class="fund-stat-val fv-g">2兆円超</div></div>
+      <div class="fund-stat"><div class="fund-stat-label">特徴</div><div class="fund-stat-val fv-c">VOO経由</div></div>
+      <div class="fund-stat"><div class="fund-stat-label">実質コスト</div><div class="fund-stat-val fv-g">極めて低い</div></div>
+      <div class="fund-comment">バンガードのVOOを通じてS&P500に連動。実質コストが極めて低い。eMAXIS Slimとほぼ同等のコストで甲乙つけがたい。SBI証券ユーザーにおすすめ。</div>
+    </div>
+  </div>
+
+  <div class="tip tip-y">
+    <div class="tip-t">全世界 vs S&P500 どちらが良い？</div>
+    過去10〜20年は米国（S&P500）が全世界を上回っている。ただし、これは米国の「過去の強さ」であり今後も続く保証はない。<b>分散を重視するなら全世界・米国への確信があればS&P500</b>。どちらを選んでも長期保有が最も重要。
+  </div>
+</section>
+
+<section id="s-jp">
+  <div class="shdr"><div class="shdr-n">04</div><div class="shdr-body"><div class="shdr-t">JAPAN EQUITY</div><div class="shdr-s">国内株式ファンド</div></div></div>
+
+  <table class="tbl">
+    <tr>
+      <th>ファンド</th>
+      <th>連動指数</th>
+      <th>信託報酬</th>
+      <th>特徴</th>
+    </tr>
+    <tr>
+      <td><b>eMAXIS Slim 国内株式（TOPIX）</b></td>
+      <td>TOPIX（約2,200銘柄）</td>
+      <td class="td-g">0.143%</td>
+      <td>日本市場全体に分散。最も広い国内株式カバレッジ</td>
+    </tr>
+    <tr>
+      <td><b>eMAXIS Slim 国内株式（日経225）</b></td>
+      <td>日経225（225銘柄）</td>
+      <td class="td-g">0.143%</td>
+      <td>日経平均連動。知名度が高いが銘柄数が少ない</td>
+    </tr>
+    <tr>
+      <td><b>iFreeNEXT TOPIX インデックス</b></td>
+      <td>TOPIX</td>
+      <td class="td-y">0.198%</td>
+      <td>TOPIX連動の代替。大和アセット運用</td>
+    </tr>
+  </table>
+
+  <div class="tip">
+    <div class="tip-t">国内株式をNISAで保有する意味</div>
+    全世界株式ファンドには日本株が含まれている（約5〜6%程度）。あえて国内株式ファンドを追加する場合、<b>日本への比率を高めたい場合・為替リスクを避けたい場合</b>に意味がある。ただし過度な日本集中は分散効果を下げる。
+  </div>
+</section>
+
+<section id="s-dividend">
+  <div class="shdr"><div class="shdr-n">05</div><div class="shdr-body"><div class="shdr-t">DIVIDEND & REIT</div><div class="shdr-s">高配当・REIT ファンド</div></div></div>
+
+  <table class="tbl">
+    <tr>
+      <th>ファンド</th>
+      <th>利回り目安</th>
+      <th>信託報酬</th>
+      <th>NISAでの位置づけ</th>
+    </tr>
+    <tr>
+      <td><b>SBI日本高配当株式（分配）</b></td>
+      <td class="td-g">3〜4%</td>
+      <td class="td-g">0.099%</td>
+      <td>成長投資枠向け。配当非課税の恩恵が大きい</td>
+    </tr>
+    <tr>
+      <td><b>iシェアーズ 米国高配当ETF（HDV）</b></td>
+      <td class="td-g">3〜4%</td>
+      <td class="td-y">0.08%（ETF）</td>
+      <td>成長投資枠でETF購入。米国高配当株75銘柄</td>
+    </tr>
+    <tr>
+      <td><b>eMAXIS Slim 国内リートインデックス</b></td>
+      <td class="td-y">3〜4%</td>
+      <td class="td-g">0.187%</td>
+      <td>J-REIT分散。不動産収益を非課税で受け取れる</td>
+    </tr>
+    <tr>
+      <td><b>バンガード・米国高配当株式ETF（VYM）</b></td>
+      <td class="td-g">3〜4%</td>
+      <td class="td-g">0.06%（ETF）</td>
+      <td>米国高配当400銘柄超。成長投資枠での利用が基本</td>
+    </tr>
+  </table>
+
+  <div class="tip">
+    <div class="tip-t">高配当ファンドをNISAで持つメリット</div>
+    通常、配当には約20%の税金がかかるが、NISA口座で保有すれば<b>配当がそのまま手元に入る</b>。年3%の配当なら100万円保有で年3万円が非課税。長期で積み上げると節税効果は大きい。ただし再投資型（分配金なし）の方が複利効率は高い。
+  </div>
+</section>
+
+<section id="s-balance">
+  <div class="shdr"><div class="shdr-n">06</div><div class="shdr-body"><div class="shdr-t">BALANCE TYPE</div><div class="shdr-s">バランス型ファンド</div></div></div>
+
+  <table class="tbl">
+    <tr>
+      <th>ファンド</th>
+      <th>配分</th>
+      <th>信託報酬</th>
+      <th>向いている人</th>
+    </tr>
+    <tr>
+      <td><b>eMAXIS Slim バランス（8資産均等型）</b></td>
+      <td>国内・先進国・新興国の株式・債券・REIT 各12.5%</td>
+      <td class="td-g">0.143%</td>
+      <td>まとめて分散したい・リバランスを自動化したい</td>
+    </tr>
+    <tr>
+      <td><b>楽天・インデックス・バランス（均等型）</b></td>
+      <td>株式50% / 債券50%</td>
+      <td class="td-y">0.132%</td>
+      <td>株債券半々のシンプルなバランス型</td>
+    </tr>
+    <tr>
+      <td><b>セゾン・バンガード・グローバルバランスファンド</b></td>
+      <td>株式50% / 債券50%</td>
+      <td class="td-r">0.57%前後</td>
+      <td>老舗バランスファンドだがコストが高め</td>
+    </tr>
+  </table>
+
+  <div class="alert">
+    <div class="alert-t">バランス型の注意点</div>
+    バランス型は便利だが<b>信託報酬が相対的に高い・債券部分のリターンが足を引っ張る</b>ことがある。20〜40代のように時間がある場合は、株式100%インデックスの方がパフォーマンスが高い傾向。バランス型は50代以降にリスクを下げる目的で使う方が合理的。
+  </div>
+</section>
+
+<section id="s-decision">
+  <div class="shdr"><div class="shdr-n">07</div><div class="shdr-body"><div class="shdr-t">DECISION</div><div class="shdr-s">結局どのファンドを買えばいいか</div></div></div>
+
+  <div class="tip tip-c">
+    <div class="tip-t">FINAL ANSWER</div>
+    <b>迷ったら：eMAXIS Slim 全世界株式（オール・カントリー）1本</b><br>
+    米国への確信がある：eMAXIS Slim 米国株式（S&P500）<br>
+    収入が安定・配当を得たい：上記 + 高配当ETFを成長投資枠で追加
+  </div>
+
+  <table class="tbl">
+    <tr>
+      <th>状況</th>
+      <th>積み立て枠（月10万円以内）</th>
+      <th>成長投資枠（年240万円）</th>
+    </tr>
+    <tr>
+      <td><b>シンプルに行きたい</b></td>
+      <td class="td-g">オルカン 1本</td>
+      <td>同じくオルカン</td>
+    </tr>
+    <tr>
+      <td><b>米国重視</b></td>
+      <td class="td-c">S&P500 1本</td>
+      <td>S&P500 + VYMなど</td>
+    </tr>
+    <tr>
+      <td><b>配当収入も欲しい</b></td>
+      <td class="td-g">オルカン</td>
+      <td class="td-g">高配当ETF（VYM・HDV）</td>
+    </tr>
+    <tr>
+      <td><b>リスクを抑えたい（50代〜）</b></td>
+      <td>バランス型 or 株式70%</td>
+      <td>国内REIT・債券ETF</td>
+    </tr>
+    <tr>
+      <td><b>完全放置したい</b></td>
+      <td class="td-g">オルカン 1本・年1回確認のみ</td>
+      <td>不要（積み立てのみでOK）</td>
+    </tr>
+  </table>
+
+  <div class="tip" style="margin-top:20px">
+    <div class="tip-t">IMPORTANT NOTE</div>
+    このページの情報は参考情報です。信託報酬・純資産額・ファンドのラインナップは定期的に変更されます。購入前に各証券会社の最新情報・目論見書を必ず確認してください。
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <p style="font-size:13px;color:var(--txd);letter-spacing:1px;margin-bottom:6px">NISAファンド比較 — NISA FUND COMPARISON GUIDE</p>
+  <p>新NISA完全ガイド ／ ライフステージ別戦略 ／ iDeCo比較 ／ ファンド比較 ／ 用語集</p>
+  <p style="margin-top:14px;color:var(--r);font-size:11px;letter-spacing:.5px">投資にはリスクが伴います。余裕資金の範囲内で、自己責任のもとに取引を行いましょう。</p>
+</footer>
+</body>
+</html>

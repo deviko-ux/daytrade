@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>債券・逆イールドカーブ | 株式投資ガイド</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050507;--s1:#0d0d16;--s2:#141420;--s3:#1c1c2a;--s4:#22222e;--c:#00d4ff;--g:#00e87d;--r:#ff3358;--y:#ffd600;--p:#b06aff;--o:#ff8c42;--teal:#00c9a7;--tx:#e8eaf6;--txm:#64648a;--txd:#9696b8;--bd:rgba(255,255,255,0.07);--bd2:rgba(255,255,255,0.13);--fs-base:15px;--lh:1.85}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:var(--fs-base)}
+body{background:var(--bg);color:var(--tx);font-family:'Noto Sans JP',sans-serif;font-weight:300;line-height:var(--lh);overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 55px,rgba(255,214,0,0.012) 55px,rgba(255,214,0,0.012) 56px),repeating-linear-gradient(90deg,transparent,transparent 55px,rgba(255,214,0,0.012) 55px,rgba(255,214,0,0.012) 56px);pointer-events:none;z-index:0}
+ruby{ruby-align:center}rt{font-size:.55em;color:var(--txd);letter-spacing:.5px}
+.sitenav{position:sticky;top:0;z-index:300;background:rgba(5,5,7,0.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--bd2)}
+.sitenav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;height:52px;padding:0 24px;gap:0}
+.site-logo{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:4px;color:var(--c);margin-right:6px;flex-shrink:0;text-decoration:none;display:flex;align-items:center;gap:5px}
+.logo-arr{font-size:11px;color:var(--txm)}
+.nav-div{width:1px;height:20px;background:var(--bd2);margin:0 10px;flex-shrink:0}
+.snlinks{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1}
+.snlinks::-webkit-scrollbar{display:none}
+.snl{font-size:11px;letter-spacing:.5px;padding:6px 11px;color:var(--txm);border-radius:4px;text-decoration:none;white-space:nowrap;transition:all .18s;border:1px solid transparent}
+.snl:hover{color:var(--tx);background:rgba(255,255,255,0.05)}
+.snl.cur{color:var(--y);border-color:rgba(255,214,0,0.2);background:rgba(255,214,0,0.06)}
+.ng{font-size:9px;letter-spacing:2px;color:var(--txm);padding:0 8px;opacity:.55;white-space:nowrap;flex-shrink:0}
+.page-nav{position:relative;z-index:1;border-bottom:1px solid var(--bd2);background:var(--s1)}
+.page-nav-inner{max-width:1100px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none;height:44px;padding:0 24px}
+.page-nav-inner::-webkit-scrollbar{display:none}
+.pnl{font-size:11.5px;letter-spacing:1px;padding:0 14px;color:var(--txm);text-decoration:none;display:flex;align-items:center;white-space:nowrap;border-bottom:2px solid transparent;transition:all .18s}
+.pnl:hover{color:var(--y);border-color:var(--y)}
+.hero{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:52px 24px 40px}
+.hero-tag{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:6px;color:var(--y);opacity:.7;margin-bottom:14px}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,9vw,100px);line-height:.88;letter-spacing:2px;background:linear-gradient(135deg,#fff 15%,var(--y) 70%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px}
+.hero-sub{font-size:13px;letter-spacing:3px;color:var(--txm);margin-bottom:18px}
+.hero-desc{font-size:15px;color:var(--txd);max-width:680px;line-height:2}
+.wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 24px 100px}
+section{padding-top:40px;margin-bottom:72px}
+.shdr{display:flex;align-items:flex-end;gap:14px;margin-bottom:30px;padding-bottom:16px;border-bottom:1px solid var(--bd2)}
+.shdr-n{font-family:'Bebas Neue',sans-serif;font-size:54px;line-height:1;opacity:.16;flex-shrink:0}
+.shdr-body{flex:1}
+.shdr-t{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:4px;color:#fff;line-height:1}
+.shdr-s{font-size:12px;color:var(--txm);letter-spacing:3px;margin-top:5px}
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:8px;padding:26px 30px;margin-bottom:16px}
+.card-g{border-left:4px solid var(--g)}.card-c{border-left:4px solid var(--c)}.card-y{border-left:4px solid var(--y)}.card-r{border-left:4px solid var(--r)}.card-p{border-left:4px solid var(--p)}.card-o{border-left:4px solid var(--o)}.card-teal{border-left:4px solid var(--teal)}
+.tag{display:inline-block;font-size:10px;letter-spacing:2px;padding:3px 10px;border-radius:3px;margin-bottom:10px}
+.tag-g{background:rgba(0,232,125,0.1);color:var(--g)}.tag-c{background:rgba(0,212,255,0.1);color:var(--c)}.tag-y{background:rgba(255,214,0,0.1);color:var(--y)}.tag-r{background:rgba(255,51,88,0.1);color:var(--r)}.tag-p{background:rgba(176,106,255,0.1);color:var(--p)}.tag-o{background:rgba(255,140,66,0.1);color:var(--o)}
+.term{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;margin-bottom:8px}
+.body-text{font-size:15px;color:#c0c4dc;line-height:1.95}
+.body-text b{color:#e8eaf6;font-weight:500}
+.body-text strong{color:var(--y);font-weight:500}
+.body-text .warn{color:var(--r)}.body-text .note{color:var(--c)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.g2,.g3{grid-template-columns:1fr}}
+/* yield curve visual */
+.yc-container{background:var(--s2);border-radius:10px;padding:24px;margin:16px 0}
+.yc-title{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:3px;color:var(--txm);margin-bottom:20px}
+.yc-chart{display:flex;align-items:flex-end;gap:0;height:120px;padding:0 10px}
+.yc-bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:6px}
+.yc-bar-fill{width:80%;border-radius:4px 4px 0 0;transition:height .3s}
+.yc-bar-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--txm)}
+.yc-bar-val{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500}
+/* bond types table */
+.bond-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:16px 0}
+.bond-table th{background:var(--s3);color:var(--txm);font-weight:400;letter-spacing:1px;padding:10px 14px;text-align:left;font-size:12px;border-bottom:1px solid var(--bd2)}
+.bond-table td{padding:11px 14px;border-bottom:1px solid var(--bd);color:var(--txd)}
+.bond-table tr:hover td{background:rgba(255,255,255,0.025)}
+.mono{font-family:'JetBrains Mono',monospace}
+footer{position:relative;z-index:1;background:var(--s1);border-top:1px solid var(--bd2);padding:32px 24px;text-align:center;font-size:12px;color:var(--txm);letter-spacing:1px;line-height:2.4}
+</style>
+</head>
+<body>
+
+<nav class="sitenav">
+  <div class="sitenav-inner">
+    <a href="index.html" class="site-logo"><span class="logo-arr">←</span>TOP</a>
+    <div class="nav-div"></div>
+    <div class="snlinks">
+      <span class="ng">DAYTRADE</span>
+      <a href="daytrade-basics.html" class="snl">基礎</a>
+      <a href="daytrade-advanced.html" class="snl">応用</a>
+      <a href="daytrade-board.html" class="snl">板読み</a>
+      <a href="daytrade-strategy.html" class="snl">戦略</a>
+      <a href="daytrade-tool.html" class="snl">ツール</a>
+      <a href="daytrade-journal.html" class="snl">日誌</a>
+      <a href="daytrade-tax.html" class="snl">税金</a>
+      <a href="daytrade-mistakes.html" class="snl">失敗集</a>
+      <a href="daytrade-glossary.html" class="snl">用語</a>
+            <span class="ng">NISA</span>
+      <a href="nisa-guide.html" class="snl">ガイド</a>
+      <a href="nisa-lifestage.html" class="snl">ライフステージ</a>
+      <a href="nisa-ideco.html" class="snl">iDeCo</a>
+      <a href="nisa-funds.html" class="snl">ファンド比較</a>
+      <a href="nisa-glossary.html" class="snl">用語</a>
+      <span class="ng">MACRO</span>
+      <a href="macro-guide.html" class="snl">ガイド</a>
+      <a href="macro-boj.html" class="snl">日銀</a>
+      <a href="macro-cycle.html" class="snl">景気サイクル</a>
+      <a href="macro-bond.html" class="snl cur">債券</a>
+      <a href="macro-glossary.html" class="snl">用語</a>
+      <span class="ng">ALL</span>
+      <a href="glossary-all.html" class="snl">全用語集</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-nav">
+  <div class="page-nav-inner">
+    <a href="#s-basics" class="pnl">債券の基礎</a>
+    <a href="#s-price" class="pnl">金利と価格の逆相関</a>
+    <a href="#s-yield-curve" class="pnl">イールドカーブ</a>
+    <a href="#s-inverted" class="pnl">逆イールドの意味</a>
+    <a href="#s-types" class="pnl">主要債券の種類</a>
+    <a href="#s-stock" class="pnl">株式への影響</a>
+    <a href="#s-japan" class="pnl">日本国債の特殊性</a>
+  </div>
+</div>
+
+<header class="hero">
+  <p class="hero-tag">MACRO ECONOMICS — BONDS & YIELD CURVE</p>
+  <h1 class="hero-title">債券・<br>逆イールド</h1>
+  <p class="hero-sub">BONDS — 金利・価格・イールドカーブ・株式への影響</p>
+  <p class="hero-desc">株式投資家でも「債券を知らない」と金利の動きが読めない。米国債10年・2年・逆イールドのシグナル・日本国債の特殊性——債券市場は株式市場より規模が大きく、相場全体の方向性を示す最良の羅針盤の一つだ。</p>
+</header>
+
+<div class="wrap">
+
+<!-- SECTION 1 -->
+<section id="s-basics">
+  <div class="shdr"><div class="shdr-n">01</div><div class="shdr-body"><div class="shdr-t">債券の基礎</div><div class="shdr-s">BOND BASICS</div></div></div>
+
+  <div class="card card-y">
+    <div class="term">債券とは「借用書」</div>
+    <p class="body-text">債券は<b>発行体（国・企業など）が投資家から資金を借りる際に発行する証券</b>。投資家は定期的に<b>利息（クーポン）</b>を受け取り、満期になれば元本が返済される。<br><br>株式は「出資」（会社の一部を所有）、債券は「貸し付け」（返済の約束）。この違いが重要で、<strong>株式より債券はリスクが低い</strong>代わりにリターンも低い。ただし長期金利の変動で価格が大きく動くことがある。</p>
+  </div>
+
+  <div class="g3">
+    <div class="card">
+      <div class="tag tag-y">満期（デュレーション）</div>
+      <p class="body-text" style="font-size:13.5px">満期までの期間。短期（1〜2年）・中期（5〜7年）・長期（10〜30年）に分類。<b>満期が長いほど金利変動の影響を大きく受ける</b>。</p>
+    </div>
+    <div class="card">
+      <div class="tag tag-c">クーポン（利息）</div>
+      <p class="body-text" style="font-size:13.5px">債券の額面に対する年利率。発行時に固定される（固定金利）場合が多い。クーポン0%の債券を<b>「ゼロクーポン債」</b>という（割引債）。</p>
+    </div>
+    <div class="card">
+      <div class="tag tag-g">利回り（YTM）</div>
+      <p class="body-text" style="font-size:13.5px">今の市場価格で買い、満期まで保有した場合の実質年率リターン。市場で最も注目されるのが<b>「利回り」</b>であり、ニュースで言う「10年金利」はこれ。</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2 -->
+<section id="s-price">
+  <div class="shdr"><div class="shdr-n">02</div><div class="shdr-body"><div class="shdr-t">金利と価格の逆相関</div><div class="shdr-s">INTEREST RATE vs BOND PRICE</div></div></div>
+
+  <div class="card card-r">
+    <div class="term">「金利が上がると債券価格は下がる」</div>
+    <p class="body-text">これは債券の最も重要な原則。<br><br>例：クーポン2%の10年国債を100円で購入。その後、新しく発行される国債のクーポンが3%になると、あなたの2%債券の<b>魅力が相対的に低下する → 価格が100円より下がる</b>。<br><br>逆に金利が下がると、既存の高クーポン債は魅力が増し価格が上昇する。<strong>金利 ↑ → 債券価格 ↓ / 金利 ↓ → 債券価格 ↑</strong>、この逆相関は必ず覚える。</p>
+  </div>
+
+  <div class="g2">
+    <div class="card card-c">
+      <div class="tag tag-c">デュレーションと価格変動</div>
+      <p class="body-text" style="font-size:14px">満期が長い債券ほど、金利変動に対する価格変動が大きい。<br><br>デュレーション10年の債券：金利が1%上昇すると<b>約10%価格下落</b><br>デュレーション2年の債券：金利が1%上昇すると<b>約2%価格下落</b></p>
+    </div>
+    <div class="card card-y">
+      <div class="tag tag-y">株式投資家にとっての意味</div>
+      <p class="body-text" style="font-size:14px">「FRBが利上げした」→ <b>長期国債価格が下落 → 株式（特にグロース株）にも下押し圧力</b><br><br>「FRBが利下げした/利下げ期待」→ <b>国債価格上昇 → 株式にプラス</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 -->
+<section id="s-yield-curve">
+  <div class="shdr"><div class="shdr-n">03</div><div class="shdr-body"><div class="shdr-t">イールドカーブ</div><div class="shdr-s">YIELD CURVE</div></div></div>
+
+  <div class="card card-y">
+    <div class="term">短期〜長期の金利を一本の曲線で表す</div>
+    <p class="body-text">横軸に満期（1ヶ月〜30年）、縦軸に利回りを置いてプロットした曲線を<strong>イールドカーブ</strong>という。この形状が「景気の今と未来」を映し出す最重要指標の一つ。</p>
+  </div>
+
+  <div class="g3">
+    <div class="yc-container">
+      <div class="yc-title">通常形状（スティープ）</div>
+      <div class="yc-chart">
+        <div class="yc-bar">
+          <div class="yc-bar-val" style="color:var(--g)">0.5%</div>
+          <div class="yc-bar-fill" style="height:20px;background:var(--g)"></div>
+          <div class="yc-bar-label">2年</div>
+        </div>
+        <div class="yc-bar">
+          <div class="yc-bar-val" style="color:var(--g)">2.5%</div>
+          <div class="yc-bar-fill" style="height:60px;background:var(--g)"></div>
+          <div class="yc-bar-label">5年</div>
+        </div>
+        <div class="yc-bar">
+          <div class="yc-bar-val" style="color:var(--g)">4.0%</div>
+          <div class="yc-bar-fill" style="height:95px;background:var(--g)"></div>
+          <div class="yc-bar-label">10年</div>
+        </div>
+        <div class="yc-bar">
+          <div class="yc-bar-val" style="color:var(--g)">4.5%</div>
+          <div class="yc-bar-fill" style="height:110px;background:var(--g)"></div>
+          <div class="yc-bar-label">30年</div>
+        </div>
+      </div>
+      <p style="font-size:12px;color:var(--txm);margin-top:10px">長期ほど高利回り。経済正常時の標準形。景気拡張期待を示す。</p>
+    </div>
+    <div class="yc-container">
+      <div class="yc-title">フラット化</div>
+      <div class="yc-chart">
+        <div class="yc-bar">
+          <div class="yc-bar-val" style="color:var(--y)">3.5%</div>
+          <div class="yc-bar-fill" style="height:80px;background:var(--y)"></div>
+          <div class="yc-bar-label">2年</div>
+        </div>
+        <div class="yc-bar">
+          <div class="yc-bar-val" style="color:var(--y)">3.8%</div>
+          <div class="yc-bar-fill" style="height:88px;background:var(--y)"></div>
+          <div class="yc-bar-label">5年</div>
+        </div>
+        <div class="yc-bar">
+          <div class="yc-bar-val" style="color:var(--y)">3.9%</div>
+          <div class="yc-bar-fill" style="height:92px;background:var(--y)"></div>
+          <div class="yc-bar-label">10年</div>
+        </div>
+        <div class="yc-bar">
+          <div class="yc-bar-val" style="color:var(--y)">4.0%</div>
+          <div class="yc-bar-fill" style="height:95px;background:var(--y)"></div>
+          <div class="yc-bar-label">30年</div>
+        </div>
+      </div>
+      <p style="font-size:12px;color:var(--txm);margin-top:10px">短長の差が縮まる。利上げ局面の後期に現れやすい警戒サイン。</p>
+    </div>
+    <div class="yc-container">
+      <div class="yc-title">逆イールド（インバーテッド）</div>
+      <div class="yc-chart">
+        <div class="yc-bar">
+          <div class="yc-bar-val" style="color:var(--r)">5.2%</div>
+          <div class="yc-bar-fill" style="height:115px;background:var(--r)"></div>
+          <div class="yc-bar-label">2年</div>
+        </div>
+        <div class="yc-bar">
+          <div class="yc-bar-val" style="color:var(--r)">4.8%</div>
+          <div class="yc-bar-fill" style="height:105px;background:var(--r)"></div>
+          <div class="yc-bar-label">5年</div>
+        </div>
+        <div class="yc-bar">
+          <div class="yc-bar-val" style="color:var(--r)">4.2%</div>
+          <div class="yc-bar-fill" style="height:88px;background:var(--r)"></div>
+          <div class="yc-bar-label">10年</div>
+        </div>
+        <div class="yc-bar">
+          <div class="yc-bar-val" style="color:var(--r)">4.0%</div>
+          <div class="yc-bar-fill" style="height:82px;background:var(--r)"></div>
+          <div class="yc-bar-label">30年</div>
+        </div>
+      </div>
+      <p style="font-size:12px;color:var(--txm);margin-top:10px">短期金利が長期を上回る異常事態。景気後退の警告シグナル。</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 -->
+<section id="s-inverted">
+  <div class="shdr"><div class="shdr-n">04</div><div class="shdr-body"><div class="shdr-t">逆イールドが意味するもの</div><div class="shdr-s">INVERTED YIELD CURVE — THE RECESSION SIGNAL</div></div></div>
+
+  <div class="card card-r">
+    <div class="term">なぜ逆イールドは景気後退を予告するのか</div>
+    <p class="body-text">逆イールドが発生するのは「<b>今の金利は高い（FRBが締め付けている）が、将来は金利が下がる（景気が悪化するから）</b>」という市場の見方が反映されているから。<br><br>短期金利はFRBの政策金利に連動（今の引き締めで高い）。長期金利は将来の経済見通しを反映（将来の成長・インフレが低くなると見ている）。この2つが逆転 = <strong>市場が「将来の景気悪化」を織り込んでいる</strong>。</p>
+  </div>
+
+  <div class="card card-y">
+    <div class="term">過去の逆イールドと景気後退</div>
+    <table class="bond-table">
+      <thead>
+        <tr><th>逆イールド発生時期</th><th>景気後退開始</th><th>ラグ</th><th>後退の深刻度</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1978年</td><td>1980年1月</td><td>約16ヶ月</td><td style="color:var(--o)">中程度</td></tr>
+        <tr><td>1989年</td><td>1990年7月</td><td>約12ヶ月</td><td style="color:var(--o)">中程度</td></tr>
+        <tr><td>2000年</td><td>2001年3月</td><td>約12ヶ月</td><td style="color:var(--r)">深刻（ITバブル）</td></tr>
+        <tr><td>2006年</td><td>2007年12月</td><td>約18ヶ月</td><td style="color:var(--r)">深刻（リーマン）</td></tr>
+        <tr><td>2019年</td><td>2020年2月</td><td>約7ヶ月</td><td style="color:var(--o)">短期（コロナ）</td></tr>
+        <tr><td>2022年7月〜</td><td>2024〜2025年？</td><td>未確定</td><td style="color:var(--txm)">観察中</td></tr>
+      </tbody>
+    </table>
+    <p class="body-text" style="margin-top:12px;font-size:14px">逆イールドが発生してから景気後退まで平均<b>6〜24ヶ月</b>のラグがある。「逆イールド即暴落」ではなく、<strong>中期的なリスク管理の合図</strong>として使う。</p>
+  </div>
+
+  <div class="card card-c">
+    <div class="tag tag-c">最も注目される指標</div>
+    <p class="body-text"><b>米国10年債利回り − 2年債利回り（10Y-2Y スプレッド）</b>：最もよく使われる。マイナスなら逆イールド。<br><br><b>米国10年債利回り − 3ヶ月債利回り（10Y-3M スプレッド）</b>：FRBが重視する指標。10Y-2Yより景気後退予測精度が高いという研究もある。</p>
+  </div>
+</section>
+
+<!-- SECTION 5 -->
+<section id="s-types">
+  <div class="shdr"><div class="shdr-n">05</div><div class="shdr-body"><div class="shdr-t">主要債券の種類</div><div class="shdr-s">TYPES OF BONDS</div></div></div>
+
+  <table class="bond-table">
+    <thead>
+      <tr><th>種類</th><th>発行体</th><th>リスク</th><th>利回り目安</th><th>特徴</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="font-weight:500;color:var(--c)">米国国債（T-Bond）</td>
+        <td>米国政府</td>
+        <td style="color:var(--g)">最低</td>
+        <td>4〜5%（2024年）</td>
+        <td>世界の安全資産の基準。有事に買われる</td>
+      </tr>
+      <tr>
+        <td style="font-weight:500;color:var(--y)">日本国債（JGB）</td>
+        <td>日本政府</td>
+        <td style="color:var(--g)">最低</td>
+        <td>0.5〜1%（2024年）</td>
+        <td>世界最低水準の利回り。日銀が大量保有</td>
+      </tr>
+      <tr>
+        <td style="font-weight:500;color:var(--o)">社債（投資適格）</td>
+        <td>大企業</td>
+        <td style="color:var(--y)">低〜中</td>
+        <td>国債＋0.5〜2%</td>
+        <td>国債より利回りが高い。信用格付けが重要</td>
+      </tr>
+      <tr>
+        <td style="font-weight:500;color:var(--r)">ハイイールド債（ジャンク債）</td>
+        <td>信用力低い企業</td>
+        <td style="color:var(--r)">高</td>
+        <td>国債＋4〜8%</td>
+        <td>景気悪化時に急落。株式と高い相関</td>
+      </tr>
+      <tr>
+        <td style="font-weight:500;color:var(--p)">新興国国債</td>
+        <td>新興国政府</td>
+        <td style="color:var(--o)">中〜高</td>
+        <td>国債＋3〜6%</td>
+        <td>為替リスクを伴う。ドル高局面で下落しやすい</td>
+      </tr>
+      <tr>
+        <td style="font-weight:500;color:var(--teal)">TIPS（物価連動債）</td>
+        <td>米国政府</td>
+        <td style="color:var(--g)">最低</td>
+        <td>実質利回り</td>
+        <td>インフレに連動して元本が増加。インフレヘッジ</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- SECTION 6 -->
+<section id="s-stock">
+  <div class="shdr"><div class="shdr-n">06</div><div class="shdr-body"><div class="shdr-t">債券・金利が株式に与える影響</div><div class="shdr-s">IMPACT ON STOCK MARKETS</div></div></div>
+
+  <div class="card card-y">
+    <div class="term">「株式と債券の綱引き」</div>
+    <p class="body-text">金利が高い = 債券の利回りが魅力的 → 株式から債券へ資金が移動 = 株安<br>金利が低い = 債券の利回りが魅力なし → 株式に資金が流入 = 株高<br><br>この単純な競合関係に加えて、金利は<strong>企業の資金調達コスト</strong>にも直接影響する。金利上昇 → 借入コスト増加 → 設備投資・利益が圧縮 → 株価下落。</p>
+  </div>
+
+  <div class="g2">
+    <div class="card card-r">
+      <div class="tag tag-r">グロース株（高PER）が特に影響大</div>
+      <p class="body-text" style="font-size:14px">グロース株は「将来の利益」を現在価値に割り引いて評価される。金利が上がると割引率が上がり、<b>将来利益の現在価値が大きく低下</b>する。PERが高い（将来期待が大きい）ほど打撃が深刻。</p>
+    </div>
+    <div class="card card-g">
+      <div class="tag tag-g">バリュー株・配当株は相対的に強い</div>
+      <p class="body-text" style="font-size:14px">すでに利益を出しているバリュー株や高配当株は金利上昇の影響を受けにくい。ただし金利が高いと「配当より国債」という比較が起き、配当株もある程度下落する。</p>
+    </div>
+  </div>
+
+  <div class="card card-c">
+    <div class="term" style="font-size:16px">「リスクフリーレート」という概念</div>
+    <p class="body-text">米国10年債利回りは<b>リスクフリーレート（無リスクで得られる利回り）</b>の基準。例えば10年国債が5%なら「株式はリスクを取って何%以上のリターンが期待できるか」という比較になる。<br><br>歴史的に株式の「エクイティリスクプレミアム」は約3〜5%なので、10年債5%の場合「株式には8〜10%が期待できないと買われない」という計算になる。これが高金利環境で株式のバリュエーションが圧縮される理由。</p>
+  </div>
+</section>
+
+<!-- SECTION 7 -->
+<section id="s-japan">
+  <div class="shdr"><div class="shdr-n">07</div><div class="shdr-body"><div class="shdr-t">日本国債の特殊性</div><div class="shdr-s">JAPAN GOVERNMENT BONDS — THE UNIQUE CASE</div></div></div>
+
+  <div class="card card-p">
+    <div class="term">世界でも異例の日本国債市場</div>
+    <p class="body-text">日本国債（JGB）は以下の点で世界的に異例：<br><br>①<b>発行残高が世界最大規模</b>（GDP比240%超の財政赤字）<br>②<b>日銀が市場全体の50%超を保有</b>（前例のない水準）<br>③<b>超低利回りが長期間継続</b>（2024年以降ようやく上昇）<br>④<b>国内機関投資家（生保・銀行）も大量保有</b>で流動性が特殊<br><br>日銀がYCCを撤廃し金利上昇を許容したことで、今後の日本国債市場は「正常化」と「リスク増大」の両面がある。</p>
+  </div>
+
+  <div class="g2">
+    <div class="card card-y">
+      <div class="tag tag-y">日本の長期金利上昇リスク</div>
+      <p class="body-text" style="font-size:14px">日本の長期金利が大きく上昇すると：<br>①<b>国債の利払い費が膨張</b>（財政悪化）<br>②<b>銀行・生保の保有国債の含み損拡大</b><br>③<b>住宅ローン金利上昇</b>（消費に影響）<br><br>日銀が金利上昇を「ゆっくりしか許容できない」理由はここにある。</p>
+    </div>
+    <div class="card card-c">
+      <div class="tag tag-c">デイトレーダーへの実践的意味</div>
+      <p class="body-text" style="font-size:14px">日本10年債利回りの急上昇は<b>円高・金融株注目・不動産株売り</b>のシグナルになりやすい。日銀会合前後に先物でJGB利回りを確認する習慣を持つことで、当日の相場の方向感が掴みやすくなる。</p>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  株式投資ガイド — STOCK INVESTMENT COMPLETE GUIDE<br>
+  デイトレード ／ 新NISA・長期投資 ／ マクロ経済 ／ 全用語集<br>
+  投資にはリスクが伴います。余裕資金の範囲内で、自己責任のもとに取引を行いましょう。
+</footer>
+</body>
+</html>
